@@ -1,3 +1,3 @@
 export CC=gcc-4.2
-export EDITOR=/usr/bin/vim
+export EDITOR='mate -w'
 source ~/.cinderella.profile
