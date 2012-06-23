@@ -1,5 +1,7 @@
-export $PATH="/Users/josh/Developer/bin:$PATH"
+# Adds Cinderella and rbenv bins/shims to the path
+export PATH="/Users/josh/Developer/.rbenv/shims:/Users/josh/Developer/.rbenv/bin:/Users/josh/Developer/bin:$PATH"
 
+# Customize pow configuration
 export POW_TIMEOUT=3600
 export POW_WORKERS=2
 export POW_DOMAINS=dev,test

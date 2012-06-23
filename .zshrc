@@ -29,4 +29,4 @@ else
   export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 fi
 
-source ~/.cinderella.profile
+source ~/Developer/cinderella.profile
