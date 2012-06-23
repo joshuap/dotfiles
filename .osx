@@ -206,5 +206,8 @@ unset file
 # Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
 #echo "0x08000100:0" > ~/.CFUserTextEncoding
 
+# Backup & remove /etc/zshenv to prevent system-wide path in Vim/Mac Vim
+[ -f '/etc/zshenv' ] && sudo mv /etc/zshenv /etc/zshenv.bak
+
 # Kill affected applications
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
