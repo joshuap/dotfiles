@@ -21,3 +21,4 @@ nnoremap <D-r> :NERDTreeToggle<CR>
 nnoremap <C-L> :nohls<CR><C-L>
 set vb
 set t_vb=
+set linespace=1

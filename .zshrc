@@ -16,7 +16,14 @@ export DISABLE_LS_COLORS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler brew gem joshuap)
+plugins=(git brew gem joshuap)
+
+# Bundler aliases
+alias be="bundle exec"
+alias bi="bundle install"
+alias bl="bundle list"
+alias bp="bundle package"
+alias bu="bundle update"
 
 source $ZSH/oh-my-zsh.sh
 
