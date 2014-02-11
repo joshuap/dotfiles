@@ -36,5 +36,3 @@ if [ $(uname -s) = 'Darwin' ]; then
 else
   export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 fi
-
-source ~/Developer/cinderella.profile

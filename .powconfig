@@ -1,5 +1,5 @@
-# Adds Cinderella and rbenv bins/shims to the path
-export PATH="/Users/josh/Developer/.rbenv/shims:/Users/josh/Developer/.rbenv/bin:/Users/josh/Developer/bin:$PATH"
+# Add rbenv and homebrew shims to path to path
+export PATH="/usr/local/var/rbenv/shims:/usr/local/bin:$PATH"
 
 # Customize pow configuration
 export POW_TIMEOUT=3600

@@ -4,15 +4,13 @@ set et
 set ts=2
 set sw=2
 set ruler
-colorscheme TCSoft
+colorscheme DesertEx
 "set columns=145
 "set lines=48
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 set gfn=Anonymous_Pro:h14
-set backupdir=~/.vimswap
-set directory=~/.vimswap
 set nobackup
 set noswapfile
 set winheight=11
@@ -22,6 +20,38 @@ nnoremap <C-L> :nohls<CR><C-L>
 set vb
 set t_vb=
 set linespace=1
+
+"http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+set relativenumber
+nnoremap <C-n> :call NumberToggle()<cr>
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+"GUI only
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+
+"SPLIT NAVIGATIONS
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"NATURAL SPLIT OPENING
+set splitbelow
+set splitright
+
+"EXECUTE BUFFER
+:map <Leader>e :!%<cr>
 
 " rails.vim mappings
 map ,m :Rmodel 
@@ -47,3 +77,12 @@ map ,t :Rtask
 map ,st :RStask 
 map ,vt :RVtask 
 map ,tt :RTtask 
+
+" dash.vim mapping
+map <Leader>ll :Dash 
+map <Leader>lr :Dash  ruby<Left><Left><Left><Left><Left>
+map <Leader>lj :Dash  javascript<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+map <Leader>lp :Dash  postgres<Left><Left><Left><Left><Left><Left><Left><Left><Left>
+map <Leader>lc :Dash  coffeescript<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+map <Leader>ls :Dash  css<Left><Left><Left><Left>
+map <Leader>lh :Dash  html<Left><Left><Left><Left><Left>
