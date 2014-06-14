@@ -1,4 +1,9 @@
 .DS_Store
 tags
+*.tags
 .ruby-version
 .rbenv-version
+.rbenv-vars
+.powenv
+.powrc
+node_modules
