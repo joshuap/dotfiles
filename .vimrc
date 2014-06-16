@@ -75,7 +75,6 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-map <C-r> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeToggle<cr> 
 
 let NERDTreeHijackNetrw = 0
@@ -114,6 +113,9 @@ set noswapfile
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
 
+" Automatically wrap text in text files
+autocmd FileType text set formatoptions+=t
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
 " inside an event handler (happens when dropping a file on gvim).
@@ -131,6 +133,9 @@ autocmd FileType markdown setlocal spell
 
 " Automatically wrap at 80 characters for Markdown
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+" Automatically wrap text in Markdown files
+autocmd BufRead,BufNewFile *.md set formatoptions+=t
 
 " Relative line numbers
 "http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
