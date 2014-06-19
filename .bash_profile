@@ -20,3 +20,6 @@ fi
 
 # Global binstubs
 export PATH="./bin:$PATH"
+
+# https://hub.github.com/
+alias git=hub
