@@ -125,8 +125,9 @@ autocmd BufReadPost *
   \ endif
 
 " Set syntax highlighting for specific file types
-autocmd BufRead,BufNewFile Appraisals,Gemfile set filetype=ruby
+autocmd BufRead,BufNewFile Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake,Appraisals set filetype=ruby
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.json set filetype=javascript
 
 " Enable spellchecking for Markdown
 autocmd FileType markdown setlocal spell
@@ -136,23 +137,6 @@ autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Automatically wrap text in Markdown files
 autocmd BufRead,BufNewFile *.md set formatoptions+=t
-
-" Relative line numbers
-"http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-
-:au FocusLost * :set number           " GUI only
-:au FocusGained * :set relativenumber " GUI only
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
