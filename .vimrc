@@ -190,6 +190,14 @@ map <Leader>gl :Glog<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gp :Git push<CR>
 
+" vim-go mappings
+au Filetype go nnoremap <leader>r :GoRun %<CR>
+au Filetype go nnoremap <leader>T :GoTest %<CR>
+au Filetype go nnoremap <leader>l :GoLint<CR>
+
+" Use goimports instead of gofmt
+let g:go_fmt_command = "goimports"
+
 ""
 "" Pathogen
 ""
