@@ -103,7 +103,7 @@ filetype indent on
 
 " Theme settings
 colorscheme DesertEx
-set gfn=Anonymous_Pro:h14
+set gfn=Anonymous_Pro:h15
 
 " Disable backups
 set nobackup
