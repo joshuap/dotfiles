@@ -57,9 +57,18 @@ if [ $(uname -s) = 'Darwin' ]; then
 
   # Enable mactex
   export PATH="/usr/texbin:$PATH"
+
+  # Use Java 1.7
+  export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
 else
-  export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+  export PATH=$HOME/bin:/usr/local/go/bin:$PATH
+
+  # Use Java 1.7
+  export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 fi
+
+# Add Java bin to path.
+export PATH=$JAVA_HOME/bin:$PATH
 
 # To enable shims and autocompletion add to your profile:
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -85,13 +94,10 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="./bin:$PATH"
 
 # https://hub.github.com/
-alias git=gh
+if hash hub 2>/dev/null; then alias git=hub; fi
 
 # added by travis gem
 [ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
 
 # Add composer executables to path
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# Use Java 1.7
-export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
