@@ -30,5 +30,5 @@ alias git=hub
 # Add composer executables to path
 export PATH="/Users/josh/.composer/vendor/bin:$PATH"
 
-# Use Java 1.8
-export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
+# Use Java 1.7
+export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`

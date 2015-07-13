@@ -6,4 +6,5 @@ tags
 .rbenv-vars
 .powenv
 .powrc
+.powder
 node_modules
