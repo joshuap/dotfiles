@@ -29,6 +29,7 @@ mkdir -p ~/code/go ~/bin
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo add-apt-repository -y ppa:xorg-edgers/ppa
 if [ ! -e "/etc/apt/trusted.gpg.d/apt.postgresql.org.gpg" ]; then sudo sh $ROOT/linux/apt.postgresql.org.sh; fi
+if [ ! -e "/etc/apt/trusted.gpg.d/debian.datastax.com.gpg" ]; then sudo sh $ROOT/linux/debian.datastax.com.sh; fi
 sudo apt-get update
 
 # Configure gfx card drivers.
@@ -48,7 +49,13 @@ gsettings set org.gnome.desktop.interface cursor-blink false
 sudo apt-get -y install steam
 
 # Install developer stuff.
-sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm
+sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm
+
+# Install cassandra.
+# http://docs.datastax.com/en/cassandra/2.0/cassandra/install/installDeb_t.html
+sudo apt-get -y install dsc21=2.1.8-1 cassandra=2.1.8
+sudo service cassandra stop
+sudo rm -rf /var/lib/cassandra/data/system/*
 
 # Ensure rbenv is using system ruby (important for compiling vim plugins).
 rbenv global system

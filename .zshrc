@@ -63,8 +63,8 @@ if [ $(uname -s) = 'Darwin' ]; then
 else
   export PATH=$HOME/bin:/usr/local/go/bin:$PATH
 
-  # Use Java 1.7
-  export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+  # Use Java 1.8
+  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 fi
 
 # Add Java bin to path.
