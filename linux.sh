@@ -48,7 +48,7 @@ gsettings set org.gnome.desktop.interface cursor-blink false
 sudo apt-get -y install steam
 
 # Install developer stuff.
-sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server
+sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm
 
 # Ensure rbenv is using system ruby (important for compiling vim plugins).
 rbenv global system
