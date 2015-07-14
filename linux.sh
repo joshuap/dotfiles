@@ -37,6 +37,9 @@ sudo apt-get -y install nvidia-346
 gsettings set org.gnome.settings-daemon.peripherals.keyboard repeat-interval 15
 gsettings set org.gnome.settings-daemon.peripherals.keyboard delay 250
 
+# Set the desktop background.
+gsettings set org.gnome.desktop.background picture-uri "file://$ROOT/images/wallpaper-gray-planks.jpg"
+
 # Disable blinking cursor in text fields.
 gsettings set org.gnome.desktop.interface cursor-blink false
 
