@@ -137,6 +137,7 @@ ln -sf $ROOT/.powconfig ~/.powconfig
 ln -sf $ROOT/.psqlrc ~/.psqlrc
 ln -sf $ROOT/.railsrc ~/.railsrc
 ln -sf $ROOT/.vimrc ~/.vimrc
+ln -sf $ROOT/.tmux.conf ~/.tmux.conf
 
 # Install Ruby.
 rbenv install -s $RUBY_VERSION
