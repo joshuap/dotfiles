@@ -90,9 +90,9 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     mv ~/.zshrc ~/.zshrc.orig;
   fi
   ln -s $ROOT/.zshrc ~/.zshrc
-
-  sudo chsh -s /bin/zsh
 fi
+
+sudo chsh -s /bin/zsh
 
 # Install hub.
 if ! hash hub 2>/dev/null; then
@@ -140,6 +140,7 @@ ln -sf $ROOT/.vimrc ~/.vimrc
 # Install Ruby.
 rbenv install -s $RUBY_VERSION
 rbenv global $RUBY_VERSION
+eval "$(rbenv init -)"
 if ! hash bundle 2>/dev/null; then gem install bundler && rbenv rehash; fi
 
 echo "Installation complete!"
