@@ -65,6 +65,9 @@ mkdir -p ~/.rbenv/plugins
 if [ ! -d "$HOME/.rbenv/plugins/ruby-build" ]; then
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
+if [ ! -d "$HOME/.rbenv/plugins/rbenv-vars" ]; then
+  git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
+fi
 
 # Install Go
 GO_ARCHIVE=go$GO_VERSION.linux-amd64.tar.gz
