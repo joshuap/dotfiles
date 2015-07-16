@@ -53,9 +53,12 @@ sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rben
 
 # Install cassandra.
 # http://docs.datastax.com/en/cassandra/2.0/cassandra/install/installDeb_t.html
-sudo apt-get -y install dsc21=2.1.8-1 cassandra=2.1.8
-sudo service cassandra stop
-sudo rm -rf /var/lib/cassandra/data/system/*
+if ! hash cassandra 2>/dev/null; then
+  sudo apt-get -y install dsc21=2.1.8-1 cassandra=2.1.8
+  sudo service cassandra stop
+  sudo rm -rf /var/lib/cassandra/data/system/*
+  sudo service cassandra start
+fi
 
 # Ensure rbenv is using system ruby (important for compiling vim plugins).
 rbenv global system
