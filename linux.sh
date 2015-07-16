@@ -30,6 +30,7 @@ sudo add-apt-repository -y ppa:webupd8team/java
 sudo add-apt-repository -y ppa:xorg-edgers/ppa
 if [ ! -e "/etc/apt/trusted.gpg.d/apt.postgresql.org.gpg" ]; then sudo sh $ROOT/linux/apt.postgresql.org.sh; fi
 if [ ! -e "/etc/apt/trusted.gpg.d/debian.datastax.com.gpg" ]; then sudo sh $ROOT/linux/debian.datastax.com.sh; fi
+sudo dpkg -i linux/erlang-solutions_1.0_all.deb
 sudo apt-get update
 
 # Configure gfx card drivers.
@@ -49,7 +50,7 @@ gsettings set org.gnome.desktop.interface cursor-blink false
 sudo apt-get -y install steam
 
 # Install developer stuff.
-sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm
+sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm erlang erlang-dev elixir
 
 # Install cassandra.
 # http://docs.datastax.com/en/cassandra/2.0/cassandra/install/installDeb_t.html
