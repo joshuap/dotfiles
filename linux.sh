@@ -53,7 +53,17 @@ sudo apt-get -y install steam
 sudo apt-get -y install pidgin
 
 # Install developer stuff.
-sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm erlang erlang-dev elixir
+sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm erlang erlang-dev elixir nginx
+
+# TODO: Install BitTorrent Sync and set up 1Password folder shim.
+# Install 1Password Anywhere nginx support
+# mkdir -p ~/vhosts/1Password
+# ln -s ~/BitTorrent-Sync/1Password/1Password.agilekeychain/1Password.html ~/vhosts/1Password/index.html
+# ln -s ~/BitTorrent-Sync/1Password/1Password.agilekeychain/data ~/vhosts/1Password/data
+# sudo ln -s ~/code/dotfiles/nginx/sites-available/1Password /etc/nginx/sites-enabled
+# TODO: copy favicon.ico
+# Browse to in chrome: http://localhost:8081/
+# Menu -> More Tools -> Add to desktop
 
 # Install cassandra.
 # http://docs.datastax.com/en/cassandra/2.0/cassandra/install/installDeb_t.html
