@@ -101,3 +101,10 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # Add composer executables to path
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# Use Java 1.7
+# export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
+
+# For PHP from Homebrew
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
