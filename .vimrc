@@ -187,7 +187,7 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
-map <Leader>T :tag
+map <Leader>T :tag 
 
 " Fugitive mappings
 map <Leader>gb :Gblame<CR>
