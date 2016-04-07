@@ -60,6 +60,9 @@ if [ $(uname -s) = 'Darwin' ]; then
 
   # Use Java 1.7
   export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
+
+  # Golang
+  export PATH=/usr/local/go/bin:$PATH
 else
   export PATH=$HOME/bin:/usr/local/go/bin:$PATH
 
