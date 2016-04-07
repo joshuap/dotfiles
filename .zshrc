@@ -93,6 +93,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
+# Node setup
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
+
 # Global binstubs
 export PATH="./bin:$PATH"
 
