@@ -112,3 +112,6 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 # For PHP from Homebrew
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+
+# added by travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
