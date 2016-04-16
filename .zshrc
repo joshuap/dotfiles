@@ -40,13 +40,15 @@ ZSH_THEME="joshuap"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew gem osx joshuap)
+plugins=(git gem osx joshuap)
 
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
 if [ $(uname -s) = 'Darwin' ]; then
+  plugins+=(brew)
+
   export LANG="en_AU.UTF-8"
   export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin"
   export MANPATH="/usr/local/share/man:/usr/X11/man:/usr/share/man"
@@ -63,6 +65,14 @@ if [ $(uname -s) = 'Darwin' ]; then
 
   # Golang
   export PATH=/usr/local/go/bin:$PATH
+
+  # Node
+  export NVM_DIR=~/.nvm
+  . $(brew --prefix nvm)/nvm.sh
+
+  # PHP
+  export PATH="/usr/local/sbin:$PATH"
+  export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 else
   export PATH=$HOME/bin:/usr/local/go/bin:$PATH
 
@@ -93,10 +103,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# Node setup
-export NVM_DIR=~/.nvm
-. $(brew --prefix nvm)/nvm.sh
-
 # Global binstubs
 export PATH="./bin:$PATH"
 
@@ -108,10 +114,6 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # Add composer executables to path
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# For PHP from Homebrew
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
