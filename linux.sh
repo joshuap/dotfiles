@@ -111,14 +111,14 @@ fi
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
-  rm -rf ~/.oh-my-zsh/custom
-  ln -s $ROOT/oh-my-zsh/custom ~/.oh-my-zsh
-
   if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.orig;
   fi
   ln -s $ROOT/.zshrc ~/.zshrc
 fi
+
+rm -rf ~/.oh-my-zsh/custom
+ln -s $ROOT/oh-my-zsh/custom ~/.oh-my-zsh
 
 sudo chsh -s /bin/zsh
 
