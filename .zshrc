@@ -66,10 +66,6 @@ if [ $(uname -s) = 'Darwin' ]; then
   # Golang
   export PATH=/usr/local/go/bin:$PATH
 
-  # Node
-  export NVM_DIR=~/.nvm
-  . $(brew --prefix nvm)/nvm.sh
-
   # PHP
   export PATH="/usr/local/sbin:$PATH"
   export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
@@ -102,6 +98,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Go setup
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
+
+# Node/nvm
+export NVM_DIR=~/.nvm
+. $NVM_DIR/nvm.sh
 
 # Global binstubs
 export PATH="./bin:$PATH"
