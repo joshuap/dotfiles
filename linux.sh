@@ -53,7 +53,7 @@ sudo apt-get -y install steam
 sudo apt-get -y install pidgin
 
 # Install developer stuff.
-sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm erlang erlang-dev elixir nginx
+sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm erlang erlang-dev elixir nginx ctags
 
 # TODO: Install BitTorrent Sync and set up 1Password folder shim.
 # Install 1Password Anywhere nginx support
