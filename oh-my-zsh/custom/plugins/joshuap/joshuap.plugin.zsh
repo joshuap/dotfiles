@@ -8,6 +8,8 @@ alias ber='bundle exec rake'
 alias gap='git add -p'
 alias got="go test"
 
+alias cl="clear"
+
 bvim() { vim `bundle show $1`; }
 
 c() { cd ~/code/$1;  }
