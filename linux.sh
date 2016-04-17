@@ -58,6 +58,10 @@ sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rben
 # Install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
+# Install Heroku toolbelt
+# See https://toolbelt.heroku.com/debian
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
 # TODO: Install BitTorrent Sync and set up 1Password folder shim.
 # Install 1Password Anywhere nginx support
 # mkdir -p ~/vhosts/1Password
