@@ -31,6 +31,13 @@ sudo add-apt-repository -y ppa:xorg-edgers/ppa
 if [ ! -e "/etc/apt/trusted.gpg.d/apt.postgresql.org.gpg" ]; then sudo sh $ROOT/linux/apt.postgresql.org.sh; fi
 if [ ! -e "/etc/apt/trusted.gpg.d/debian.datastax.com.gpg" ]; then sudo sh $ROOT/linux/debian.datastax.com.sh; fi
 sudo dpkg -i linux/erlang-solutions_1.0_all.deb
+
+# Add Spotify repository
+# See https://www.spotify.com/us/download/linux/
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+
+# Update list of available packages.
 sudo apt-get update
 
 # Configure gfx card drivers.
@@ -51,6 +58,9 @@ sudo apt-get -y install steam
 
 # IM/chat
 sudo apt-get -y install pidgin
+
+# Spotify
+sudo apt-get -y install spotify-client
 
 # Install developer stuff.
 sudo apt-get -y install libreadline-dev git mercurial vim zsh ruby ruby-dev rbenv rake libssl-dev build-essential cmake python-dev libncurses5-dev oracle-java7-installer oracle-java8-installer irssi tmux postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 autotools-dev automake libtool redis-server nodejs npm erlang erlang-dev elixir nginx ctags
