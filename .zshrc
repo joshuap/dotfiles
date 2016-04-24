@@ -69,11 +69,19 @@ if [ $(uname -s) = 'Darwin' ]; then
   # PHP
   export PATH="/usr/local/sbin:$PATH"
   export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+
+  # Node/nvm
+  export NVM_DIR="$HOME/.nvm"
+  . "$(brew --prefix nvm)/nvm.sh"
 else
   export PATH=$HOME/bin:/usr/local/go/bin:$PATH
 
   # Use Java 1.8
   export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
+  # Node/nvm
+  export NVM_DIR=~/.nvm
+  . $NVM_DIR/nvm.sh
 fi
 
 # Add Java bin to path.
@@ -98,10 +106,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Go setup
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
-
-# Node/nvm
-export NVM_DIR=~/.nvm
-. $NVM_DIR/nvm.sh
 
 # Global binstubs
 export PATH="./bin:$PATH"
