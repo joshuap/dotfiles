@@ -60,8 +60,8 @@ if [ $(uname -s) = 'Darwin' ]; then
   # Enable mactex
   export PATH="/usr/texbin:$PATH"
 
-  # Use Java 1.7
-  export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
+  # Use Java 1.8
+  export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
 
   # Golang
   export PATH=/usr/local/go/bin:$PATH
