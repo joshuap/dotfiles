@@ -205,6 +205,9 @@ au Filetype go nnoremap <leader>l :GoLint<CR>
 " Use goimports instead of gofmt
 let g:go_fmt_command = "goimports"
 
+" format the entire file
+nnoremap <leader>fef :normal! gg=G``<CR>
+
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
