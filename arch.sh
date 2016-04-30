@@ -42,6 +42,7 @@ if ! hash hub 2>/dev/null; then
   cd $ROOT
 fi
 
+
 # Set up vim-pathogen.
 if [ ! -f "$HOME/.vim/autoload/pathogen.vim" ]; then
   mkdir -p $HOME/.vim/autoload && \
@@ -64,6 +65,17 @@ fi
 mkdir -p $HOME/.vim/colors
 ln -sf $ROOT/vim/colors/desertEx.vim $HOME/.vim/colors
 
+
+# Install rbenv
+if [ ! -d "$HOME/.rbenv" ]; then
+  git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
+  git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+  cd $HOME/.rbenv
+  ./src/configure && make -C src
+  cd $ROOT
+fi
+
+
 # Link up other dotfiles.
 ln -sf $ROOT/.gitignore $HOME/.gitignore
 ln -sf $ROOT/.irbrc $HOME/.irbrc
@@ -72,5 +84,6 @@ ln -sf $ROOT/.psqlrc $HOME/.psqlrc
 ln -sf $ROOT/.railsrc $HOME/.railsrc
 ln -sf $ROOT/.vimrc $HOME/.vimrc
 ln -sf $ROOT/.tmux.conf $HOME/.tmux.conf
+
 
 echo "Installation complete!"

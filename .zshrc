@@ -74,10 +74,17 @@ if [ $(uname -s) = 'Darwin' ]; then
   export NVM_DIR="$HOME/.nvm"
   . "$(brew --prefix nvm)/nvm.sh"
 else
-  export PATH=$HOME/bin:/usr/local/go/bin:$PATH
+  # ~/bin
+  export PATH=$HOME/bin:$PATH
+
+  # Go
+  export PATH=/usr/local/go/bin:$PATH
 
   # Use Java 1.8
   export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
+  # Ruby/rbenv
+  export PATH=$HOME/.rbenv/bin:$PATH
 
   # Node/nvm
   export NVM_DIR=$HOME/.nvm
