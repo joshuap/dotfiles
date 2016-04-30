@@ -80,8 +80,8 @@ else
   export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
   # Node/nvm
-  export NVM_DIR=~/.nvm
-  . $NVM_DIR/nvm.sh
+  export NVM_DIR=$HOME/.nvm
+  [ -f "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
 fi
 
 # Add Java bin to path.
@@ -120,4 +120,4 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # added by travis gem
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+[ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
