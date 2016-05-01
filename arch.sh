@@ -76,6 +76,12 @@ if [ ! -d "$HOME/.rbenv" ]; then
 fi
 
 
+# Install nvm.
+if [ ! -d "$HOME/.nvm" ]; then
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+fi
+
+
 # Link up other dotfiles.
 ln -sf $ROOT/.gitignore $HOME/.gitignore
 ln -sf $ROOT/.irbrc $HOME/.irbrc
