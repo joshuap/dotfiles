@@ -14,7 +14,7 @@ sudo pacman -S --needed git vim
 # Dotfiles dependencies.
 sudo pacman -S --needed imagemagick hub
 
-# Keyboard
+# Keyboard.
 sudo pacman -S --needed xbindkeys alsa-utils alsa-firmware
 
 # Set a fast keyboard repeat rate.
