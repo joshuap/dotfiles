@@ -29,7 +29,7 @@
 
 
 xterm*font: -misc-fixed-medium-r-*-*-18-*-*-*-*-*-*-*
-!xterm*boldFont: -misc-fixed-medium-r-*-*-18-*-*-*-*-*-*-*
+xterm*boldFont: -misc-fixed-medium-r-*-*-18-*-*-*-*-*-*-*
 
 !!! Enable copy/paste.
 ! http://www.davidsimmons.com/soft/xtermhacks/
