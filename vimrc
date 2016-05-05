@@ -116,7 +116,7 @@ set nrformats=
 filetype indent on
 
 " Theme settings
-colorscheme desertEx
+colorscheme solarized
 set gfn=Anonymous_Pro:h15
 
 " Disable backups

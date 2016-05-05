@@ -1,4 +1,4 @@
-! xterm color scheme — Make all 16 beautiful.                                
+! xterm color scheme — Make all 16 beautiful.
 !
 ! Suited for black background, but includes disabled alternative light scheme.
 !
@@ -36,79 +36,61 @@ xterm*font: -misc-fixed-medium-r-*-*-18-*-*-*-*-*-*-*
 xterm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
 
 
-!!! Foreground
-xterm*foreground:       #d3d3d3
+!!! Solarized color scheme.
 
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-!!! Background
-! Black
-!xterm*background: #000000
-! Green
-!xterm*background: #022C0A
-! Brown
-!xterm*background: #3F2F08
-! Black
-xterm*background:       #000000
+*background:            S_base03
+*foreground:            S_base0
+*fadeColor:             S_base03
+*cursorColor:           S_base1
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
 
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
 
-xterm*cursorColor:  #ff0000
-!xterm*cursorColor:  #57fd76
-!xterm*cursorColor:  yellow
-!xterm*cursorColor:      orange
+!! black dark/light
+*color0:                S_base02
+*color8:                S_base03
 
-!xterm*charClass:        33:48,35-38:48,39:43,42-47:48,58-59:48,61:48,63-64:48,126:48
-!xterm*dynamicColors:    true
+!! red dark/light
+*color1:                S_red
+*color9:                S_orange
 
+!! green dark/light
+*color2:                S_green
+*color10:               S_base01
 
-! Blacks
-xterm*color0:           #151515
-xterm*color8:           #505450
-! Reds
-xterm*color1:           #a60101
-xterm*color9:           #f99090
-! Greens
-xterm*color2:           #026802
-xterm*color10:          #a7e14b
-! Yellows
-xterm*color3:           #ab6e03
-xterm*color11:          #fddc01
-! Blues
-xterm*color4:           #4a5463
-xterm*color12:          #7d8794
-! Purples
-xterm*color5:           #9c3885
-xterm*color13:          #e628ba
-! Cyans
-xterm*color6:           #08bab0
-xterm*color14:          #74fff7
-! Whites
-xterm*color7:           #bbbbbb
-xterm*color15:          #ffffff
+!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
 
+!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
 
-!!! Themes overrides
+!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
 
-! MDE’s adobe theme overrides; very similar to vim colorscheme:
-!   http://www.vim.org/scripts/script.php?script_id=1365
-! Comment these out to enable theme.
-!xterm*foreground: #000000
-!xterm*background: #A2955F
-! yellow1
-!xterm*color3:           #684802
-! cyan1
-!xterm*color6:           #05635d
-! blue1
-!xterm*color4:           #3a5e87
-! blue2
-!xterm*color12:          #bcd7fd
-! purple2
-!xterm*color13:          #cf03a1
-! red2
-!xterm*color9:           #ffc2c2
-! white1
-!xterm*color7:           #c7c7c7
+!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
 
-
-! Other themes
-!xterm*background: #E3D7B4
-!xterm*background: #AFAF87
+!! white dark/light
+*color7:                S_base2
+*color15:               S_base3
