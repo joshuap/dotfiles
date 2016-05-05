@@ -50,12 +50,9 @@ if [ $(uname -s) = 'Darwin' ]; then
   plugins+=(brew)
 
   export LANG="en_AU.UTF-8"
-  export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin"
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin"
   export MANPATH="/usr/local/share/man:/usr/X11/man:/usr/share/man"
   export SSL_CERT_FILE=/usr/local/share/ca-bundle.crt
-
-  # To use Homebrew's directories rather than ~/.rbenv add to your profile:
-  export RBENV_ROOT=/usr/local/var/rbenv
 
   # Enable mactex
   export PATH="/usr/texbin:$PATH"
@@ -74,27 +71,27 @@ if [ $(uname -s) = 'Darwin' ]; then
   export NVM_DIR="$HOME/.nvm"
   . "$(brew --prefix nvm)/nvm.sh"
 else
-  # ~/bin
-  export PATH=$HOME/bin:$PATH
-
   # Go
   export PATH=/usr/local/go/bin:$PATH
 
   # Use Java 1.8
   export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
-  # Ruby/rbenv
-  export PATH=$HOME/.rbenv/bin:$PATH
-
   # Node/nvm
-  export NVM_DIR=$HOME/.nvm
-  [ -f "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
+  export NVM_DIR="$HOME/.nvm"
+  [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 fi
+
+# ~/.bin is for portable/managed executables.
+export PATH=$HOME/.bin:$PATH
+
+# ~/bin is for local executables.
+export PATH=$HOME/bin:$PATH
 
 # Add Java bin to path.
 export PATH=$JAVA_HOME/bin:$PATH
 
-# To enable shims and autocompletion add to your profile:
+# Initialize rbenv.
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # https://gist.github.com/sj26/2600122#bonus

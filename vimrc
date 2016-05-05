@@ -75,6 +75,14 @@ set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
 
 ""
+"" Load plugins
+""
+
+if filereadable(expand("$HOME/.vimrc.plugins"))
+  source $HOME/.vimrc.plugins
+endif
+
+""
 "" NERDTree settings
 ""
 
@@ -210,9 +218,3 @@ nnoremap <leader>fef :normal! gg=G``<CR>
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-
-""
-"" Pathogen
-""
-
-execute pathogen#infect()

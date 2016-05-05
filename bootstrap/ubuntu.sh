@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# linux.sh
+# ubuntu.sh
 
 # The path to this repo.
 ROOT=$PWD
@@ -28,9 +28,9 @@ mkdir -p ~/code/go ~/bin
 # Add PPA sources.
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo add-apt-repository -y ppa:xorg-edgers/ppa
-if [ ! -e "/etc/apt/trusted.gpg.d/apt.postgresql.org.gpg" ]; then sudo sh $ROOT/linux/apt.postgresql.org.sh; fi
-if [ ! -e "/etc/apt/trusted.gpg.d/debian.datastax.com.gpg" ]; then sudo sh $ROOT/linux/debian.datastax.com.sh; fi
-sudo dpkg -i linux/erlang-solutions_1.0_all.deb
+if [ ! -e "/etc/apt/trusted.gpg.d/apt.postgresql.org.gpg" ]; then sudo sh $ROOT/bootstrap/ubuntu/apt.postgresql.org.sh; fi
+if [ ! -e "/etc/apt/trusted.gpg.d/debian.datastax.com.gpg" ]; then sudo sh $ROOT/bootstrap/ubuntu/debian.datastax.com.sh; fi
+sudo dpkg -i $ROOT/bootstrap/ubuntu/erlang-solutions_1.0_all.deb
 
 # Add Spotify repository
 # See https://www.spotify.com/us/download/linux/
