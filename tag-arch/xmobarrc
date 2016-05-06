@@ -2,7 +2,7 @@ Config {
 
 	-- appearance
 	 font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
-	, bgColor =      "black"
+	, bgColor =      "#002b36"
 	, fgColor =      "#839496"
 	, position =     Top
 	, border =       BottomB
@@ -38,7 +38,7 @@ Config {
 	, commands =
 
 			-- weather monitor
-			[ Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#268bd2><tempC></fc>°C | <fc=#268bd2><rh></fc>% | <fc=#268bd2><pressure></fc>hPa"
+			[ Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#859900><tempF></fc>°F | <fc=#859900><rh></fc>% | <fc=#859900><pressure></fc>hPa"
 													 ] 36000
 
 			-- network activity monitor (dynamic interface resolution)
@@ -91,7 +91,7 @@ Config {
 																		 -- AC "on" status
 																		 , "-O"	, "<fc=#dAA520>Charging</fc>"
 																		 -- charged status
-																		 , "-i"	, "<fc=#006000>Charged</fc>"
+																		 , "-i"	, "<fc=#859900>Charged</fc>"
 													 ] 50
 
 			-- time and date indicator
