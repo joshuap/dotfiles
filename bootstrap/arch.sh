@@ -44,7 +44,7 @@ sudo pacman -S --needed irssi
 sudo pacman -S --needed gogglesmm
 
 # Misc. stuff I use.
-sudo pacman -S --needed trash-can openvpn openresolv
+sudo pacman -S --needed trash-can openvpn openresolv go elixir
 
 sh ./bootstrap/shared/oh-my-zsh.sh
 sh ./bootstrap/shared/vim-plug.sh
