@@ -117,7 +117,7 @@ filetype indent on
 
 " Theme settings
 colorscheme solarized
-set gfn=Anonymous_Pro:h15
+set gfn=Anonymous_Pro:h16
 
 " Disable backups
 set nobackup
