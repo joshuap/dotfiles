@@ -125,3 +125,6 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # added by travis gem
 [ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
+
+# Docker
+if which docker-machine > /dev/null; then eval "$(docker-machine env default)"; fi
