@@ -1,0 +1,77 @@
+# .muttrc
+# Inspired by http://www.tristancollins.me/computing/mutt-and-fastmail-on-osx/
+
+# Local config defaults.
+
+# Full name (first and last).
+set realname = "Joshua Wood"
+
+# Reply email address.
+set from     = ""
+
+# IMAP Mail Server.
+set my_server = "mail.messagingengine.com"
+
+# IMAP user.
+set my_user   = ""
+
+# IMAP password.
+set my_pass   = ""
+
+# Override local config here.
+source ~/.muttrc.local
+
+# Account Information
+set smtp_url = "smtp://$my_user:$my_pass@$my_server:587"
+set smtp_pass = $my_pass
+set imap_user = $my_user
+set imap_pass = $my_pass
+
+# Mailboxes
+set folder = "imaps://$my_server:992"
+set spoolfile = "="
+set record = "=Sent Items"
+set postponed = "=Drafts"
+# set trash = "=Trash"
+mailboxes = "="
+
+# Store message headers locally to speed things up.
+# If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things up even more.
+set header_cache = "~/.cache/mutt/headers"
+
+# Store messages locally to speed things up, like searching message bodies.
+# Can be the same folder as header_cache.
+# This will cost important disk usage according to your e-mail amount.
+set message_cachedir = "~/.cache/mutt/messages"
+
+# Certificate cache directory.
+set certificate_file = "~/.mutt/certificates"
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+
+# Keep IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 300
+
+# How often to check for new mail (time in seconds).
+set mail_check = 120
+
+# Use the local editor (vim).
+set editor=`echo \$EDITOR`
+
+# Import the color scheme.
+# https://github.com/altercation/mutt-colors-solarized
+source ~/.mutt/solarized.muttrc
+
+set sort = threads
+set sort_browser = date
+set sort_aux = reverse-last-date-received
+
+# Move message(s) to Spam by pressing "S"
+macro index S ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Junk \n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+# Move message(s) to Archive by pressing "A"
+macro index A ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+# Return to Inbox by pressing "."
+macro index . "<change-folder>=INBOX<enter>" "Inbox"
