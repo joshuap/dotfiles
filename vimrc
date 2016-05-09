@@ -30,6 +30,9 @@ endif
 " Format the entire file
 :nnoremap <Leader>fef mzgg=G`z
 
+" Clipboard (for tmux interaction).
+set clipboard=unnamed
+
 " List chars
 set listchars=""                  " Reset the listchars
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."

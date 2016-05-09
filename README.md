@@ -13,3 +13,11 @@ env RCRC=$HOME/.dotfiles/rcrc rcup
 ```
 
 On subsequent runs: `rcup`
+
+## OS X
+
+The following packages are required for OS X (I install them with homebrew):
+
+```sh
+brew install reattach-to-user-namespace
+```
