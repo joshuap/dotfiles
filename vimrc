@@ -124,6 +124,19 @@ set mouse=a
 set ttymouse=xterm2
 
 ""
+"" Theme settings
+""
+
+" Match the terminal's background color.
+let g:solarized_termtrans = 1
+
+" Use the Solarized Dark color scheme.
+colorscheme solarized
+
+" Set the font face/size.
+set gfn=Anonymous_Pro:h16
+
+""
 "" Everything else
 ""
 
@@ -132,10 +145,6 @@ set nrformats=
 
 " Auto indent
 filetype indent on
-
-" Theme settings
-colorscheme solarized
-set gfn=Anonymous_Pro:h16
 
 " Disable backups
 set nobackup
