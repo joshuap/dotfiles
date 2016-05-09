@@ -119,6 +119,7 @@ set nrformats=
 filetype indent on
 
 " Theme settings
+let g:solarized_termtrans = 1
 colorscheme solarized
 set gfn=Anonymous_Pro:h16
 
