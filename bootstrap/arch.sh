@@ -17,6 +17,9 @@ sudo pacman -S --needed imagemagick hub
 # Keyboard.
 sudo pacman -S --needed xbindkeys alsa-utils alsa-firmware
 
+# Display
+sudo pacman -S --needed xf86-video-intel
+
 # Set a fast keyboard repeat rate.
 kbdrate -d10 -r30.0
 
