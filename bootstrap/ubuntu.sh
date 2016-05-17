@@ -39,6 +39,9 @@ if [ ! -e "/etc/apt/sources.list.d/spotify.list" ]; then
   echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 fi
 
+# Thoughtbot rcm repo.
+sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
+
 # Update list of available packages.
 sudo apt-get update
 
@@ -54,6 +57,9 @@ gsettings set org.gnome.desktop.background picture-uri "file://$ROOT/images/wall
 
 # Disable blinking cursor in text fields.
 gsettings set org.gnome.desktop.interface cursor-blink false
+
+# Install rcm.
+sudo apt-get -y install rcm
 
 # Install Steam.
 sudo apt-get -y install steam
