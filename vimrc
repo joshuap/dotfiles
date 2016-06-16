@@ -127,10 +127,11 @@ set ttymouse=xterm2
 "" Theme settings
 ""
 
-" Match the terminal's background color.
-let g:solarized_termtrans = 1
-
-" Use the Solarized Dark color scheme.
+" set term=screen-256color-bce
+" let g:solarized_termcolors=256
+" set t_Co=256
+let g:solarized_termtrans=1
+set background=dark
 colorscheme solarized
 
 " Set the font face/size.
