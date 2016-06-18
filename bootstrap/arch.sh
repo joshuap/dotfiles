@@ -49,6 +49,12 @@ sudo pacman -S --needed gogglesmm
 # Misc. stuff I use.
 sudo pacman -S --needed trash-can openvpn openresolv go elixir
 
+# app launcher.
+sudo pacman -S --needed rofi
+
+# Gnome.
+sudo pacman -S --needed gnome gnome-tweak-tool
+
 sh ./bootstrap/shared/oh-my-zsh.sh
 sh ./bootstrap/shared/vim-plug.sh
 
