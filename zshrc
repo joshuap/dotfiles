@@ -60,6 +60,9 @@ if [ $(uname -s) = 'Darwin' ]; then
   # Use Java 1.8
   export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
 
+  # Add Java bin to path.
+  # export PATH=$JAVA_HOME/bin:$PATH
+
   # Golang
   export PATH=/usr/local/go/bin:$PATH
 
@@ -74,9 +77,6 @@ else
   # Go
   export PATH=/usr/local/go/bin:$PATH
 
-  # Use Java 1.8
-  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-
   # Node/nvm
   export NVM_DIR="$HOME/.nvm"
   [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
@@ -87,9 +87,6 @@ export PATH=$HOME/.bin:$PATH
 
 # ~/bin is for local executables.
 export PATH=$HOME/bin:$PATH
-
-# Add Java bin to path.
-export PATH=$JAVA_HOME/bin:$PATH
 
 # Initialize rbenv.
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
