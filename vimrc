@@ -233,6 +233,9 @@ map <Leader>gl :Glog<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gp :Git push<CR>
 
+" ruby mappings
+au Filetype ruby nnoremap <leader>r :!ruby %<CR>
+
 " vim-go mappings
 au Filetype go nnoremap <leader>r :GoRun %<CR>
 au Filetype go nnoremap <leader>T :GoTest %<CR>
