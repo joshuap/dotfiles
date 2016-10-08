@@ -133,9 +133,3 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # Add composer executables to path
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# added by travis gem
-[ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
-
-# Docker
-if which docker-machine > /dev/null; then eval "$(docker-machine env default)"; fi
