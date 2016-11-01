@@ -87,7 +87,7 @@ else
 
   # php-version
   # See https://github.com/wilmoore/php-version
-  [ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh" && php-version 5
+  [ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh"
 
   # Linuxbrew
   if [ -d "$HOME/.linuxbrew/" ]; then
