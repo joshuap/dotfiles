@@ -84,6 +84,10 @@ else
   # pbcopy/pbpaste utilities
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
+
+  # php-version
+  # See https://github.com/wilmoore/php-version
+  [ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh"
 fi
 
 # ~/.bin is for portable/managed executables.
