@@ -80,6 +80,10 @@ else
   # Node/nvm
   export NVM_DIR="$HOME/.nvm"
   [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+
+  # pbcopy/pbpaste utilities
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
 fi
 
 # ~/.bin is for portable/managed executables.
