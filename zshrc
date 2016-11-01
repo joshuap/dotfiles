@@ -88,6 +88,12 @@ else
   # php-version
   # See https://github.com/wilmoore/php-version
   [ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh"
+
+  # Linuxbrew
+  if [ -d "$HOME/.linuxbrew/" ]; then
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
+  fi
 fi
 
 # ~/.bin is for portable/managed executables.
