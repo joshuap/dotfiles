@@ -52,8 +52,23 @@ sudo pacman -S --needed trash-can openvpn openresolv go elixir
 # app launcher.
 sudo pacman -S --needed rofi
 
+# vlc media player.
+sudo pacman -S --needed vlc qt4
+
 # Gnome.
-sudo pacman -S --needed gnome gnome-tweak-tool
+sudo pacman -S --needed xorg xorg-xinit gnome gnome-tweak-tool
+sudo system start NetworkManager
+# yaourt -S chrome-gnome-shell-git
+
+# NTFS-shared storage
+
+sudo pacman -S ntfs-3g
+
+# Steam
+
+sudo pacman -S --needed nvidia-libgl lib32-nvidia-libgl steam lib32-alsa-plugins lib32-curl
+sudo pacman -S --needed mumble
+yaourt -S steam-fonts
 
 sh ./bootstrap/shared/oh-my-zsh.sh
 sh ./bootstrap/shared/vim-plug.sh
