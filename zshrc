@@ -73,6 +73,9 @@ if [ $(uname -s) = 'Darwin' ]; then
   # Node/nvm -- this is really slow on os x...
   # export NVM_DIR="$HOME/.nvm"
   # source "/usr/local/opt/nvm/nvm.sh"
+
+  # Install applications to ~/Applications using homebrew cask.
+  export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 else
   # Go
   export PATH=/usr/local/go/bin:$PATH
