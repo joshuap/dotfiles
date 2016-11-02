@@ -26,6 +26,10 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist 2> /dev/n
 # El Capitan, but not after (--). I'm now using Bartender to remove the icon.
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
+# Disable Adobe CS3 daemons (I don't know what they do, but pretty sure they
+# don't serve me).
+launchctl unload -w /Library/LaunchDaemons/com.adobe.* 2> /dev/null
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
