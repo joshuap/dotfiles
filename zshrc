@@ -70,9 +70,9 @@ if [ $(uname -s) = 'Darwin' ]; then
   export PATH="/usr/local/sbin:$PATH"
   export PATH="/usr/local/opt/php56/bin:$PATH"
 
-  # Node/nvm
-  export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+  # Node/nvm -- this is really slow on os x...
+  # export NVM_DIR="$HOME/.nvm"
+  # source "/usr/local/opt/nvm/nvm.sh"
 else
   # Go
   export PATH=/usr/local/go/bin:$PATH
