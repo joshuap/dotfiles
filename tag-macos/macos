@@ -22,6 +22,10 @@ defaults write com.apple.finder CreateDesktop -bool FALSE;killall Finder
 # Disable gamed; it generates constant network traffic and I don't use GameCenter.
 launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist 2> /dev/null
 
+# Disable Notification Center. This will also remove the menubar icon prior to
+# El Capitan, but not after (--). I'm now using Bartender to remove the icon.
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
