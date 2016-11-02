@@ -20,7 +20,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 defaults write com.apple.finder CreateDesktop -bool FALSE;killall Finder
 
 # Disable gamed; it generates constant network traffic and I don't use GameCenter.
-launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist
+launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist 2> /dev/null
 
 ###############################################################################
 # Kill affected applications                                                  #
