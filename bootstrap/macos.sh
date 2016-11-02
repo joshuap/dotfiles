@@ -90,7 +90,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable smart dashes as they're annoying when typing code.
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-# Disable icons on the desktop; a Ulysses pact with myself to avoid clutter.
+# Disable icons on the Desktop; a Ulysses pact with myself to avoid clutter.
 defaults write com.apple.finder CreateDesktop -bool FALSE
 
 # Disable gamed; it generates constant network traffic and I don't use GameCenter.
