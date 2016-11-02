@@ -36,6 +36,12 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist 2> /dev/n
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 ###############################################################################
+# Bartender                                                                   #
+###############################################################################
+
+# TODO: Hide Time Machine, Volume, User and Notification Center icons.
+
+###############################################################################
 # Adobe                                                                       #
 ###############################################################################
 
