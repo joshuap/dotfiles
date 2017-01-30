@@ -1,5 +1,5 @@
 # Add rbenv and homebrew shims to path to path
-export PATH="/usr/local/var/rbenv/shims:/usr/local/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 
 # Customize pow configuration
 export POW_TIMEOUT=3600

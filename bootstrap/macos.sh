@@ -98,7 +98,7 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist 2> /dev/n
 
 # Disable Notification Center. This will also remove the menubar icon prior to
 # El Capitan, but not after (--). I'm now using Bartender to remove the icon.
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -627,6 +627,9 @@ open "${HOME}/.dotfiles/bootstrap/macos/Solarized Dark.itermcolors"
 
 # Don't display the annoying prompt when quitting iTerm.
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# Hide Dock icon for iTerm.
+# /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' ~/Applications/iTerm.app/Contents/Info.plist
 
 ###############################################################################
 # Time Machine                                                                #
