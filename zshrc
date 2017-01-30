@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="joshuap"
+ZSH_THEME="onedark"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -92,11 +92,8 @@ else
   # See https://github.com/wilmoore/php-version
   [ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh"
 
-  # Linuxbrew
-  if [ -d "$HOME/.linuxbrew/" ]; then
-    export PATH="$HOME/.linuxbrew/bin:$PATH"
-    export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
-  fi
+  # rbenv
+  export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
 # ~/.bin is for portable/managed executables.
