@@ -1,25 +1,16 @@
+import Graphics.X11.ExtraTypes.XF86
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.FadeInactive
-
--- From https://github.com/ibotty/solarized-xmonad
-solarizedBase03  = "#002b36"
-solarizedBase02  = "#073642"
-solarizedBase01  = "#586e75"
-solarizedBase00  = "#657b83"
-solarizedBase0   = "#839496"
-solarizedBase1   = "#93a1a1"
-solarizedBase2   = "#eee8d5"
-solarizedBase3   = "#fdf6e3"
-solarizedYellow  = "#b58900"
-solarizedOrange  = "#cb4b16"
-solarizedRed     = "#dc322f"
-solarizedMagenta = "#d33682"
-solarizedViolet  = "#6c71c4"
-solarizedBlue    = "#268bd2"
-solarizedCyan    = "#2aa198"
-solarizedGreen   = "#859900"
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Grid
+import XMonad.Layout.NoBorders
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.Fullscreen
+import XMonad.Layout.Spacing
+import XMonad.Util.Run (safeSpawn)
+import XMonad.Util.EZConfig (additionalKeys)
 
 -- A simple desktop config, from xmonad-contrib.
 baseConfig = desktopConfig
@@ -27,24 +18,81 @@ baseConfig = desktopConfig
 -- The main function.
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
--- Command to launch the bar.
-myBar = "xmobar"
+-- Modkey.
+myModMask = mod4Mask
+-- Terminal.
+myTerminal = "gnome-terminal"
 
--- Custom PP, configure it as you like. It determines what is being written to the bar.
-myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
+-- Workspaces.
+myws1 = "\xf120"
+myws2 = "\xf269"
+myws3 = "\xf121"
+myws4 = "\xf07b"
+myws5 = "\xf099"
+myws6 = "\xf1bc"
+myws7 = "\xf11b"
 
--- Key binding to toggle the gap for the bar.
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+myWorkspaces :: [String]
+myWorkspaces = [myws1, myws2, myws3, myws4, myws5, myws6 , myws7 ]
 
 -- Window transparency.
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
   where fadeAmount = 0.7
 
+-- Style.
+myBorderWidth = 4
+myNormalBorderColor = "#2b303b"
+myFocusedBorderColor = "#bf616a"
+
+-- Xmobar.
+myBar = "xmobar"
+myPP = xmobarPP { ppCurrent = xmobarColor "#bf616a" ""
+                     , ppHidden = xmobarColor "#c0c5ce" ""
+                     , ppHiddenNoWindows = xmobarColor "#4f5b66" ""
+                     , ppUrgent = xmobarColor "#a3be8c" ""
+                     , ppLayout = xmobarColor "#4f5b66" ""
+                     , ppTitle =  xmobarColor "#c0c5ce" "" . shorten 80
+                     , ppSep = xmobarColor "#4f5b66" "" "  "
+                     }
+
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
+-- Layout.
+myLayoutHook = avoidStruts $ smartBorders (tall ||| grid ||| noBorders Full )
+  where
+    tall = Tall 1 (3/100) (1/2)
+    grid = GridRatio (4/3)
+
+-- Mangehooks.
+myManageHook = manageDocks
+
+-- Event Hooks.
+myEventHook = docksEventHook <+> fullscreenEventHook
+
+-- Keyboard.
+-- ((modMask, xK_f ), runOrRaiseMaster "firefox" (className =? "Firefox"))
+myAdditionalKeys =
+  [
+    ((0, xF86XK_AudioRaiseVolume      ), safeSpawn "pamixer" ["-i", "5"]),
+    ((0, xF86XK_AudioLowerVolume      ), safeSpawn "pamixer" ["-d", "5"]),
+    ((0, xF86XK_AudioMute             ), safeSpawn "pamixer" ["-t"]),
+    ((0, xF86XK_MonBrightnessUp       ), safeSpawn "light" ["-A", "15"]),
+    ((0, xF86XK_MonBrightnessDown     ), safeSpawn "light" ["-U", "15"]),
+    ((shiftMask, xF86XK_MonBrightnessUp     ), safeSpawn "/home/josh/bin/acdlight" ["-A", "100"]),
+    ((shiftMask, xF86XK_MonBrightnessDown   ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"])
+  ]
+
 -- Main configuration, override the defaults to your liking.
 myConfig = baseConfig {
-	modMask = mod4Mask
-	, normalBorderColor = solarizedBase01
-	, focusedBorderColor = solarizedRed
-  , logHook = myLogHook
-}
+	modMask = myModMask,
+  terminal = myTerminal,
+  workspaces = myWorkspaces,
+  layoutHook = myLayoutHook,
+  manageHook = myManageHook,
+  handleEventHook = myEventHook,
+  normalBorderColor = myNormalBorderColor,
+  focusedBorderColor = myFocusedBorderColor,
+  borderWidth = myBorderWidth,
+  logHook = myLogHook
+} `additionalKeys` myAdditionalKeys

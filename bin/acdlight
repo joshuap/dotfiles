@@ -1,0 +1,50 @@
+#!/bin/bash
+
+HIDDEV=`acdcontrol --detect /dev/usb/hiddev* | grep -Po "/dev/usb/hiddev[0-9]"`
+
+BRIGHTNESS=`acdcontrol $HIDDEV | grep -E '=[[:digit:]]*' -o | grep -E '[[:digit:]]*' -o`
+
+if [[ $# -lt 1 ]]
+then
+  $1="invalid"
+  $2=0
+fi
+
+OPERAND=$2
+
+case "$1" in
+  -A )
+    BRIGHTNESS=$((BRIGHTNESS + OPERAND))
+    ;;
+
+  -U )
+    BRIGHTNESS=$((BRIGHTNESS - OPERAND))
+    ;;
+
+  -S )
+    BRIGHTNESS=$2
+    ;;
+
+  * )
+    echo "Usage: $0 {-A|-U|-S} value"
+    echo ""
+    echo "The value is usually in per mille (one tenth of percent) Depends on monitor type."
+    echo ""
+    echo "Example:"
+    echo "$0 -A 50 Increase brightness by 5%"
+    echo "$0 -U 50 Decrease brightness by 5%"
+    echo "$0 -S 500 Set brightness to 50%"
+    ;;
+esac
+
+if [[ $BRIGHTNESS -lt 10 ]]
+then
+  BRIGHTNESS=10
+fi
+
+if [[ $BRIGHTNESS -gt 1000 ]]
+then
+  BRIGHTNESS=1000
+fi
+
+acdcontrol $HIDDEV $BRIGHTNESS> /dev/null

@@ -1,0 +1,18 @@
+#! /bin/zsh
+
+# Displays current audio volume.
+
+. $HOME/.xmobar/icons
+
+# Get the current pulseaudio volume. Requires `pamixer`.
+VOLUME=$(pamixer --get-volume)
+
+# Uncomment for alsa. Requires `amixer` from `alsa-utils`.
+#VOLUME=$(amixer get Master -M | grep -oE '[[:digit:]]*%' | tr -d '%')
+
+# Use different icons for high and low volume.
+if [ $VOLUME -ge 50 ]; then
+  echo -e "$ICON_VOLUME_HIGH $VOLUME"
+else
+  echo -e "$ICON_VOLUME_LOW $VOLUME"
+fi

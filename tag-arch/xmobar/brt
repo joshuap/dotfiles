@@ -1,0 +1,7 @@
+#! /bin/zsh
+
+# Displays current brightness. Requires `light`.
+
+. $HOME/.xmobar/icons
+BRIGHTNESS=$(light -G)
+echo -e "$ICON_BACKLIGHT $(printf "%.0f\n" $BRIGHTNESS)"
