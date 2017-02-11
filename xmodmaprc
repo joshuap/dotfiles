@@ -1,7 +1,0 @@
-! Run `xev` to get keycodes.
-
-keycode 133 = Alt_L
-keycode 64 = Super_L
-
-keycode 134 = Alt_R
-keycode 108 = Super_R
