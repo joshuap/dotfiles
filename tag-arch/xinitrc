@@ -6,4 +6,6 @@ feh --bg-fill ~/Pictures/wallpaper.jpg &
 
 compton &
 
+xscreensaver -no-splash &
+
 exec xmonad
