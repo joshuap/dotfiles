@@ -11,4 +11,6 @@ xscreensaver -no-splash &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs12,secrets,ssh)
 export SSH_AUTH_SOCK
 
+nm-applet &
+
 exec xmonad
