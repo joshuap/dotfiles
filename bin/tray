@@ -1,0 +1,8 @@
+#!/bin/sh
+
+STALONETRAY_RUNNING=$(pgrep stalonetray)
+if [ $STALONETRAY_RUNNING ]; then
+  pkill stalonetray 2>&1 > /dev/null
+else
+  stalonetray 2>&1 > /dev/null &
+fi
