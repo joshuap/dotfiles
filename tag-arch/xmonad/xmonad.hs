@@ -80,7 +80,9 @@ myAdditionalKeys =
     ((0, xF86XK_MonBrightnessUp       ), safeSpawn "light" ["-A", "15"]),
     ((0, xF86XK_MonBrightnessDown     ), safeSpawn "light" ["-U", "15"]),
     ((shiftMask, xF86XK_MonBrightnessUp     ), safeSpawn "/home/josh/bin/acdlight" ["-A", "100"]),
-    ((shiftMask, xF86XK_MonBrightnessDown   ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"])
+    ((shiftMask, xF86XK_MonBrightnessDown   ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"]),
+    ((myModMask, xK_t                       ), safeSpawn "/home/josh/bin/tray" []),
+    ((mod1Mask, xK_space                    ), safeSpawn "rofi" ["-show", "run"])
   ]
 
 -- Main configuration, override the defaults to your liking.
