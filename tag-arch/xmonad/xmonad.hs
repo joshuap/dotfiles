@@ -38,7 +38,7 @@ myWorkspaces = [myws1, myws2, myws3, myws4, myws5, myws6 , myws7 ]
 -- Window transparency.
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
-  where fadeAmount = 0.7
+  where fadeAmount = 0.85
 
 -- Style.
 myBorderWidth = 4
