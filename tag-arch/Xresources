@@ -1,12 +1,7 @@
-xterm*termName: xterm-256color
-
-xterm*faceName: Anonymous Pro:size=11:antialias=true
-
-URxvt.font: xft:Anonymous Pro:size=11:antialias=true
-
 ! special
 *.foreground:   #ABB2BF
 *.background:   #282C34
+*.fadeColor:   #282C34
 *.cursorColor:  #5c6370
 
 ! black
@@ -40,3 +35,21 @@ URxvt.font: xft:Anonymous Pro:size=11:antialias=true
 ! white
 *.color7:       #abb2bf
 *.color15:      #ffffff
+
+! xterm
+xterm*termName: xterm-256color
+xterm*faceName: Anonymous Pro:size=11:antialias=true
+
+! urxvt
+URxvt*depth: 32
+URxvt*background: #282C34
+URxvt.font: xft:Anonymous Pro:size=11:antialias=true
+URxvt*saveLines: 12000
+URxvt*scrollstyle:plain
+URxvt*cursorBlink: true
+URxvt*scrollBar_floating: true
+URxvt*scrollBar_right: true
+URxvt*scrollColor: #1e2127
+URxvt*urgentOnBell: true
+URxvt*termName: xterm-256color
+
