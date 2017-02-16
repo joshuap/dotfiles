@@ -9,6 +9,8 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Spacing
+import XMonad.Util.Cursor
+import XMonad.Util.SpawnOnce
 import XMonad.Util.Run (safeSpawn)
 import XMonad.Util.EZConfig (additionalKeys)
 
@@ -34,6 +36,14 @@ myws7 = "\xf11b"
 
 myWorkspaces :: [String]
 myWorkspaces = [myws1, myws2, myws3, myws4, myws5, myws6 , myws7 ]
+
+-- Startup.
+myStartupHook = do
+
+  -- Sets up all major "desktop environment" like components.
+  spawnOnce "$HOME/.xmonad/init.sh"
+
+  setDefaultCursor xC_left_ptr
 
 -- Window transparency.
 myLogHook :: X ()
@@ -96,5 +106,6 @@ myConfig = baseConfig {
   normalBorderColor = myNormalBorderColor,
   focusedBorderColor = myFocusedBorderColor,
   borderWidth = myBorderWidth,
+  startupHook = myStartupHook,
   logHook = myLogHook
 } `additionalKeys` myAdditionalKeys

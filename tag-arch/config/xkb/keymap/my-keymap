@@ -1,0 +1,7 @@
+xkb_keymap {
+    xkb_keycodes  { include "evdev+aliases(qwerty)"	};
+    xkb_types     { include "complete"	};
+    xkb_compat    { include "complete"	};
+    xkb_symbols   { include "pc+us+gr(polytonic):2+inet(evdev)+group(shifts_toggle)+level3(ralt_switch_multikey)+ctrl(nocaps)+typo(base):1+typo(base):2+my-symbols(hypers)" };
+    xkb_geometry  { include "pc(pc104)"	};
+};
