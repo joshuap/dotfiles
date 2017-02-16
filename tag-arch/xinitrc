@@ -13,4 +13,6 @@ export SSH_AUTH_SOCK
 
 nm-applet &
 
+dunst -config $HOME/.dunstrc &
+
 exec xmonad
