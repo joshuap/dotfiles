@@ -14,6 +14,35 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Run (safeSpawn)
 import XMonad.Util.EZConfig (additionalKeys)
 
+--------------------------------------------------------------------------
+-- TODO                                                                 --
+--------------------------------------------------------------------------
+{-|
+
+  * Layout spacing for non-Full layouts
+  * Less obtrusive active window indicator
+  * New layouts (tabs, 3-column, flex, etc.)
+  * Check out hidden layouts (Xmonad.Layout.Hidden)
+  * Rework theme
+  * Rework workspaces
+  * Replace gnome-terminal with urxvt after adapting a 256-color theme
+  * Add VPN indicator to xmobar
+  * Fix flashing layout bug when toggling tray
+  * Multi-monitor tray support
+  * Fix a floating window across all workspaces (for watching videos, etc.)
+  * Learn how to work with floating windows better
+  * Mouse move/resize windows
+  * Configure rofi
+  * Launch applications in default workspaces
+  * Default applications/layouts for blank workspaces
+  * Temporary workspaces (create/name/remove on the fly)
+  * Context-aware task manager
+  * Fancier xmobar (someday)
+  * Global media keys for ncmcpp
+  * Spotify/Google music player
+
+-}
+
 -- A simple desktop config, from xmonad-contrib.
 baseConfig = desktopConfig
 
