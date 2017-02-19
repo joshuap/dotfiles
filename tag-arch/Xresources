@@ -69,7 +69,7 @@ URxvt*termName: xterm-256color
 
 rofi.modi:                           ssh,window,drun,run
 rofi.sidebar-mode:                   true
-rofi.terminal:                       gnome-terminal
+rofi.terminal:                       termite
 rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
 rofi.opacity:                        100

@@ -55,7 +55,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 -- Modkey.
 myModMask = mod4Mask
 -- Terminal.
-myTerminal = "gnome-terminal"
+myTerminal = "termite"
 
 -- Workspaces.
 myws1 = "\xf120"
