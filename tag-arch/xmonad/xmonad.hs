@@ -31,7 +31,6 @@ import XMonad.Util.EZConfig (additionalKeys)
   * Fix a floating window across all workspaces (for watching videos, etc.)
   * Learn how to work with floating windows better
   * Mouse move/resize windows
-  * Configure rofi
   * Launch applications in default workspaces
   * Default applications/layouts for blank workspaces
   * Temporary workspaces (create/name/remove on the fly)
@@ -43,6 +42,7 @@ import XMonad.Util.EZConfig (additionalKeys)
   DONE
 
   * Layout spacing for non-Full layouts
+  * Custom rofi theme, bound to ALT+SPACE
 
 -}
 
