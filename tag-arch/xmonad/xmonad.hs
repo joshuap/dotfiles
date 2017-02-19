@@ -19,7 +19,6 @@ import XMonad.Util.EZConfig (additionalKeys)
 --------------------------------------------------------------------------
 {-|
 
-  * Layout spacing for non-Full layouts
   * Less obtrusive active window indicator
   * New layouts (tabs, 3-column, flex, etc.)
   * Check out hidden layouts (Xmonad.Layout.Hidden)
@@ -40,6 +39,10 @@ import XMonad.Util.EZConfig (additionalKeys)
   * Fancier xmobar (someday)
   * Global media keys for ncmcpp
   * Spotify/Google music player
+
+  DONE
+
+  * Layout spacing for non-Full layouts
 
 -}
 
@@ -98,7 +101,7 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#bf616a" ""
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -- Layout.
-myLayoutHook = avoidStruts $ smartBorders (tall ||| grid ||| noBorders Full )
+myLayoutHook = avoidStruts $ smartBorders ((spacing 5 $ (tall ||| grid)) ||| (noBorders Full ))
   where
     tall = Tall 1 (3/100) (1/2)
     grid = GridRatio (4/3)
