@@ -8,8 +8,10 @@ compton &
 
 xscreensaver -no-splash &
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs12,secrets,ssh)
-export SSH_AUTH_SOCK
+if [ -f /usr/bin/gnome-keyring-daemon ]; then
+  eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs12,secrets,ssh)
+  export SSH_AUTH_SOCK
+fi
 
 nm-applet &
 
