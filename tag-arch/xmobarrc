@@ -2,7 +2,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8,FontAwesome:size=9"
        , alpha = 255
        , bgColor = "#2b303b"
        , fgColor = "#c0c5ce"
-       , border = BottomB 2
+       , border = BottomB 3
        , borderColor = "#343d46"
        , position = Top
        , lowerOnStart = True

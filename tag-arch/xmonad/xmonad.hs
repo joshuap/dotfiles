@@ -83,7 +83,7 @@ myLogHook = fadeInactiveLogHook fadeAmount
   where fadeAmount = 0.85
 
 -- Style.
-myBorderWidth = 4
+myBorderWidth = 3
 myNormalBorderColor = "#2b303b"
 myFocusedBorderColor = "#bf616a"
 
