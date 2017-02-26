@@ -1,13 +1,14 @@
 import Graphics.X11.ExtraTypes.XF86
 import XMonad
+import XMonad.Actions.CopyWindow
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import XMonad.Layout.MultiToggle
-import XMonad.Layout.Fullscreen
 import XMonad.Layout.Spacing
 import XMonad.Util.Cursor
 import XMonad.Util.SpawnOnce
@@ -28,7 +29,6 @@ import XMonad.Util.EZConfig (additionalKeys)
   * Add VPN indicator to xmobar
   * Fix flashing layout bug when toggling tray
   * Multi-monitor tray support
-  * Fix a floating window across all workspaces (for watching videos, etc.)
   * Learn how to work with floating windows better
   * Mouse move/resize windows
   * Launch applications in default workspaces
@@ -43,6 +43,7 @@ import XMonad.Util.EZConfig (additionalKeys)
 
   * Layout spacing for non-Full layouts
   * Custom rofi theme, bound to ALT+SPACE
+  * Fix a floating window across all workspaces (for watching videos, etc.) (toggle w/ M+s)
 
 -}
 
@@ -50,7 +51,7 @@ import XMonad.Util.EZConfig (additionalKeys)
 baseConfig = desktopConfig
 
 -- The main function.
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh $ myConfig)
 
 -- Modkey.
 myModMask = mod4Mask
@@ -79,10 +80,25 @@ myStartupHook = do
 
 -- Window transparency.
 myLogHook :: X ()
-myLogHook = fadeInactiveLogHook fadeAmount
-  where fadeAmount = 0.85
+myLogHook = do
+  -- The following block marks copied windows.
+  -- Currently this is not being used; I need to figure out how I can use it to send output to `statusBar`.
+  copies <- wsContainingCopies
+  let check ws | ws `elem` copies =
+                 pad . xmobarColor yellow red . wrap "*" " "  $ ws
+               | otherwise = pad ws
+
+  fadeInactiveLogHook fadeAmount
+
+  ewmhDesktopsLogHook
+
+  where
+    fadeAmount = 0.85
 
 -- Style.
+yellow  = "#b58900"
+red = "#dc322f"
+
 myBorderWidth = 3
 myNormalBorderColor = "#2b303b"
 myFocusedBorderColor = "#bf616a"
@@ -124,8 +140,13 @@ myAdditionalKeys =
     ((shiftMask, xF86XK_MonBrightnessUp     ), safeSpawn "/home/josh/bin/acdlight" ["-A", "100"]),
     ((shiftMask, xF86XK_MonBrightnessDown   ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"]),
     ((myModMask, xK_t                       ), safeSpawn "/home/josh/bin/tray" []),
-    ((mod1Mask, xK_space                    ), safeSpawn "rofi" ["-show", "run"])
-  ]
+    ((mod1Mask, xK_space                    ), safeSpawn "rofi" ["-show", "run"]),
+    -- Toggle make focused window always visible
+    ((myModMask, xK_s), toggleCopyToAll)
+  ] where
+      toggleCopyToAll = wsContainingCopies >>= \ws -> case ws of
+        [] -> windows copyToAll
+        _ -> killAllOtherCopies
 
 -- Main configuration, override the defaults to your liking.
 myConfig = baseConfig {
