@@ -138,7 +138,7 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#bf616a" ""
                      , ppSep = xmobarColor "#4f5b66" "" "  "
                      }
 
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask .|. shiftMask, xK_b)
 
 -- Layout.
 myLayoutHook = showWorkspaceName
@@ -190,7 +190,8 @@ myAdditionalKeys =
     ((myModMask, xK_f                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle FULL)),
     ((myModMask, xK_r                     ), tryMsgR (Rotate) (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
     ((myModMask .|. shiftMask, xK_r       ), sendMessage (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
-    ((myModMask, xK_m                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle MIRROR))
+    ((myModMask, xK_m                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle MIRROR)),
+    ((myModMask, xK_b                     ), safeSpawn "browser" [])
   ] where
       toggleCopyToAll = wsContainingCopies >>= \ws -> case ws of
         [] -> windows copyToAll
