@@ -37,10 +37,19 @@ ZSH_THEME="onedark"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+##
+# Plugins
+
+# These plugins must be installed:
+#   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+
+# NVM initialization is slow -- this defers it until an nvm/node command is executed.
+export NVM_LAZY_LOAD=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gem osx joshuap)
+plugins=(git gem osx joshuap zsh-nvm rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,19 +79,11 @@ if [ $(uname -s) = 'Darwin' ]; then
   export PATH="/usr/local/sbin:$PATH"
   export PATH="/usr/local/opt/php56/bin:$PATH"
 
-  # Node/nvm -- this is really slow on os x...
-  # export NVM_DIR="$HOME/.nvm"
-  # source "/usr/local/opt/nvm/nvm.sh"
-
   # Install applications to ~/Applications using homebrew cask.
   export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 else
   # Go
   export PATH=/usr/local/go/bin:$PATH
-
-  # Node/nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
   # pbcopy/pbpaste utilities
   alias pbcopy='xsel --clipboard --input'
@@ -91,9 +92,6 @@ else
   # php-version
   # See https://github.com/wilmoore/php-version
   [ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh"
-
-  # rbenv
-  export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
 # ~/.bin is for portable/managed executables.
@@ -101,9 +99,6 @@ export PATH=$HOME/.bin:$PATH
 
 # ~/bin is for local executables.
 export PATH=$HOME/bin:$PATH
-
-# Initialize rbenv.
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # https://gist.github.com/sj26/2600122#bonus
 # Putting the following in your shell config (eg. ~/.bash_profile) will make
