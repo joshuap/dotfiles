@@ -13,6 +13,8 @@ fi
 
 feh --bg-fill ~/Pictures/wallpaper.jpg &
 
+dunst -config $HOME/.dunstrc &
+
 compton &
 
 xscreensaver -no-splash &
@@ -23,7 +25,5 @@ if [ -f /usr/bin/gnome-keyring-daemon ]; then
 fi
 
 nm-applet &
-
-dunst -config $HOME/.dunstrc &
 
 exec xmonad
