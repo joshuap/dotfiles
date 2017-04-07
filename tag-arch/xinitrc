@@ -15,7 +15,7 @@ feh --bg-fill ~/Pictures/wallpaper.jpg &
 
 dunst -config $HOME/.dunstrc &
 
-compton &
+# compton &
 
 xscreensaver -no-splash &
 
