@@ -30,5 +30,6 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
