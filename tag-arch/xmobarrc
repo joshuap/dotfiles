@@ -12,7 +12,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
        , allDesktops = True
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% } %multicpu% | %memory% | %wlp4s0% { %mpd% | %volume% | %bright% | %wlp4s0wi% | %battery% | %date%"
+       , template = "%StdinReader% } %multicpu% | %memory% | %dynnetwork% { %mpd% | %volume% | %bright% | %wlp4s0wi% | %battery% | %date%"
        , commands = [
                       -- MPD; currently a script because the xmobar plugin requires extra haskell-libmpd dep and build flag.
                       Run Com "zsh" ["/home/josh/.xmobar/mpd"] "mpd" 5
@@ -24,7 +24,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                       , Run Weather "wthr" [ "--template", "<skyCondition> | <fc=#98c379><tempF></fc>°F | <fc=#98c379><rh></fc>% | <fc=#98c379><pressure></fc>hPa"
                                            ] 36000
                       -- Network activity (dynamic interface resolution)
-                      , Run Network "wlp4s0"     [ "--template" , "<fn=1>\xf093</fn> <tx> <fn=1>\xf019</fn> <rx>"
+                      , Run DynNetwork     [ "--template" , "<fn=1>\xf093</fn> <tx> <fn=1>\xf019</fn> <rx> (<dev>)"
                                            , "--Low"      , "1000"       -- units: kB/s
                                            , "--High"     , "5000"       -- units: kB/s
                                            , "--low"      , "#98c379"
