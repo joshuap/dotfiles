@@ -1,7 +1,8 @@
-Config { font = "xft:Source Code Pro:style=Regular:size=8,FontAwesome:size=9"
+Config { font = "xft:Source Code Pro:style=Regular:size=8"
+       , additionalFonts  = [ "xft:FontAwesome:size=9" ]
        , alpha = 255
        , bgColor = "#2b303b"
-       , fgColor = "#c0c5ce"
+       , fgColor = "#abb2bf"
        , border = BottomB 3
        , borderColor = "#343d46"
        , position = Top
@@ -11,13 +12,94 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8,FontAwesome:size=9"
        , allDesktops = True
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %mpd% %vol% %brt% %wifi% %bat% %date%"
-       , commands = [ Run Date "\xf073 %a %b %_d \xf017 %H:%M " "date" 10,
-                      Run StdinReader,
-                      Run Com "zsh" ["/home/josh/.xmobar/bat"] "bat" 30,
-                      Run Com "zsh" ["/home/josh/.xmobar/brt"] "brt" 15,
-                      Run Com "zsh" ["/home/josh/.xmobar/mpd"] "mpd" 5,
-                      Run Com "zsh" ["/home/josh/.xmobar/volume"] "vol" 10,
-                      Run Com "zsh" ["/home/josh/.xmobar/wifi"] "wifi" 15
+       , template = "%StdinReader% }{ %mpd% | %multicpu% | %memory% | %dynnetwork% | %bright% | %volume% | %wlp4s0wi% | %battery% | %date%"
+       , commands = [
+                      -- MPD; currently a script because the xmobar plugin requires extra haskell-libmpd dep and build flag.
+                      Run Com "zsh" ["/home/josh/.xmobar/mpd"] "mpd" 5
+
+                      -- Volume; currently a script because the xmobar plugin requires extra haskell-alsa-mixer dep and build flag.
+                      , Run Com "zsh" ["/home/josh/.xmobar/volume"] "volume" 5
+
+                      -- Weather
+                      , Run Weather "wthr" [ "--template", "<skyCondition> | <fc=#98c379><tempF></fc>°F | <fc=#98c379><rh></fc>% | <fc=#98c379><pressure></fc>hPa"
+                                           ] 36000
+
+                      -- Network activity (dynamic interface resolution)
+                      , Run DynNetwork     [ "--template" , "<dev>: <fn=1>\xf093</fn> <tx>kB/s <fn=1>\xf019</fn> <rx>kB/s"
+                                           , "--Low"      , "1000"       -- units: kB/s
+                                           , "--High"     , "5000"       -- units: kB/s
+                                           , "--low"      , "#98c379"
+                                           , "--normal"   , "#cb4b16"
+                                           , "--high"     , "#e06c75"
+                                           ] 10
+
+                      -- CPU activity percentage
+                      , Run MultiCpu       [ "--template" , "Cpu: <total>%"
+                                           , "--Low"      , "50"         -- units: %
+                                           , "--High"     , "85"         -- units: %
+                                           , "--low"      , "#98c379"
+                                           , "--normal"   , "#cb4b16"
+                                           , "--high"     , "#e06c75"
+                                           ] 10
+
+                      -- CPU core temperature
+                      , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+                                           , "--Low"      , "70"        -- units: °C
+                                           , "--High"     , "80"        -- units: °C
+                                           , "--low"      , "#98c379"
+                                           , "--normal"   , "#cb4b16"
+                                           , "--high"     , "#e06c75"
+                                           ] 50
+
+                      -- Memory percentage (consumed)
+                      , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+                                           , "--Low"      , "20"        -- units: %
+                                           , "--High"     , "90"        -- units: %
+                                           , "--low"      , "#98c379"
+                                           , "--normal"   , "#cb4b16"
+                                           , "--high"     , "#e06c75"
+                                           ] 10
+
+                      -- Battery percentage
+                      , Run Battery        [ "--template" , "<acstatus>"
+                                           , "--Low"      , "10"        -- units: %
+                                           , "--High"     , "80"        -- units: %
+                                           , "--low"      , "#e06c75"
+                                           , "--normal"   , "#cb4b16"
+                                           , "--high"     , "#98c379"
+
+                                           , "--" -- battery specific options
+                                                     -- discharging status
+                                                     , "-o"	, "<fn=1>\xf241</fn> <left>% (<timeleft>)"
+                                                     -- AC "on" status
+                                                     , "-O"	, "<fn=1>\xf1e6</fn> <fc=#e5c07b>Charging</fc>"
+                                                     -- charged status
+                                                     , "-i"	, "<fn=1>\xf240</fn> <fc=#98c379>Charged</fc>"
+                                           ] 50
+
+                      -- WiFi signal strength
+                      , Run Wireless "wlp4s0" [ "--template" , "<fn=1>\xf1eb</fn> <quality>"
+                                              , "--Low"      , "10"        -- units: %
+                                              , "--High"     , "80"        -- units: %
+                                              , "--low"      , "#e06c75"
+                                              , "--normal"   , "#cb4b16"
+                                              , "--high"     , "#98c379"
+                                              ] 15
+
+                      -- Display brightness
+                      , Run Brightness     [ "--template" ,"<fn=1>\xf0eb</fn> <percent>%"
+                                           , "--Low"      , "20"        -- units: %
+                                           , "--High"     , "90"        -- units: %
+                                           , "--low"      , "#98c379"
+                                           , "--normal"   , "#cb4b16"
+                                           , "--high"     , "#e06c75"
+                                           ] 10
+
+                      -- Date and time
+                      --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+
+                      , Run Date           "<fn=1>\xf073</fn> <fc=#ABABAB>%F (%a) <fn=1>\xf017</fn> %T</fc>" "date" 10
+                      , Run StdinReader
+
                     ]
        }

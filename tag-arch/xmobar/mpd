@@ -24,7 +24,7 @@ if [[ $MUSIC_LINES -eq 3 ]]; then
   # Get current position in song.
   MUSIC_POS=$(echo $MUSIC | awk 'NR==2' | awk '{print $3}')
 
-  echo -e "$MUSIC_STATUS_ICON $MUSIC_CURRENT - $MUSIC_POS"
+  echo -e "<fn=1>$MUSIC_STATUS_ICON</fn> $MUSIC_CURRENT - $MUSIC_POS"
 else
-  echo -e "stopped"
+  echo -e "<fn=1>$ICON_MEDIA_STOP</fn> stopped"
 fi

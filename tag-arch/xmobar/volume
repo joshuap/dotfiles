@@ -12,7 +12,7 @@ VOLUME=$(pamixer --get-volume)
 
 # Use different icons for high and low volume.
 if [ $VOLUME -ge 50 ]; then
-  echo -e "$ICON_VOLUME_HIGH $VOLUME"
+  echo -e "<fn=1>$ICON_VOLUME_HIGH</fn> $VOLUME"
 else
-  echo -e "$ICON_VOLUME_LOW $VOLUME"
+  echo -e "<fn=1>$ICON_VOLUME_LOW</fn> $VOLUME"
 fi

@@ -7,7 +7,7 @@
 WIFI_INFO=$(iw dev "wlp4s0" link)
 
 if [[ $WIFI_INFO = "Not connected." ]]; then
-  echo -e "$ICON_WIFI_DISCONNECTED diconnected"
+  echo -e "<fn=1>$ICON_WIFI_DISCONNECTED</fn> diconnected"
 else
   # Get the ssid.
   # WIFI_SSID=$(echo $WIFI_INFO | grep "SSID" | sed 's/SSID: //')
@@ -23,5 +23,5 @@ else
     WIFI_SIGNAL_PERCENT=$(echo $((2 * (100 + $WIFI_SIGNAL))))
   fi
 
-  echo -e "$ICON_WIFI_CONNECTED $WIFI_SIGNAL_PERCENT"
+  echo -e "<fn=1>$ICON_WIFI_CONNECTED</fn> $WIFI_SIGNAL_PERCENT"
 fi
