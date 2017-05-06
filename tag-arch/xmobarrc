@@ -25,12 +25,13 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                                            ] 36000
 
                       -- Network activity (dynamic interface resolution)
-                      , Run DynNetwork     [ "--template" , "<dev>: <fn=1>\xf093</fn> <tx>kB/s <fn=1>\xf019</fn> <rx>kB/s"
+                      , Run DynNetwork     [ "--template" , "<dev>: <fn=1>\xf093</fn> <tx> <fn=1>\xf019</fn> <rx>"
                                            , "--Low"      , "1000"       -- units: kB/s
                                            , "--High"     , "5000"       -- units: kB/s
                                            , "--low"      , "#98c379"
                                            , "--normal"   , "#cb4b16"
                                            , "--high"     , "#e06c75"
+                                           , "-S"         , "True"
                                            ] 10
 
                       -- CPU activity percentage
