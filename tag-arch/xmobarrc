@@ -12,7 +12,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
        , allDesktops = True
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %mpd% | %multicpu% | %memory% | %dynnetwork% | %bright% | %volume% | %wlp4s0wi% | %battery% | %date%"
+       , template = "%StdinReader% } %multicpu% | %memory% | %dynnetwork% { %mpd% | %volume% | %bright% | %wlp4s0wi% | %battery% | %date%"
        , commands = [
                       -- MPD; currently a script because the xmobar plugin requires extra haskell-libmpd dep and build flag.
                       Run Com "zsh" ["/home/josh/.xmobar/mpd"] "mpd" 5
