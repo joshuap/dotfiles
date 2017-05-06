@@ -12,7 +12,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
        , allDesktops = True
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% } %multicpu% | %memory% | %dynnetwork% { %mpd% | %volume% | %bright% | %wlp4s0wi% | %battery% | %date%"
+       , template = "%StdinReader% } %multicpu% | %memory% | %wlp4s0% { %mpd% | %volume% | %bright% | %wlp4s0wi% | %battery% | %date%"
        , commands = [
                       -- MPD; currently a script because the xmobar plugin requires extra haskell-libmpd dep and build flag.
                       Run Com "zsh" ["/home/josh/.xmobar/mpd"] "mpd" 5
@@ -23,13 +23,12 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                       -- Weather
                       , Run Weather "wthr" [ "--template", "<skyCondition> | <fc=#98c379><tempF></fc>°F | <fc=#98c379><rh></fc>% | <fc=#98c379><pressure></fc>hPa"
                                            ] 36000
-
                       -- Network activity (dynamic interface resolution)
-                      , Run DynNetwork     [ "--template" , "<dev>: <fn=1>\xf093</fn> <tx> <fn=1>\xf019</fn> <rx>"
+                      , Run Network "wlp4s0"     [ "--template" , "<fn=1>\xf093</fn> <tx> <fn=1>\xf019</fn> <rx>"
                                            , "--Low"      , "1000"       -- units: kB/s
                                            , "--High"     , "5000"       -- units: kB/s
                                            , "--low"      , "#98c379"
-                                           , "--normal"   , "#cb4b16"
+                                           , "--normal"   , "#abb2bf"
                                            , "--high"     , "#e06c75"
                                            , "-S"         , "True"
                                            ] 10
@@ -39,7 +38,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                                            , "--Low"      , "50"         -- units: %
                                            , "--High"     , "85"         -- units: %
                                            , "--low"      , "#98c379"
-                                           , "--normal"   , "#cb4b16"
+                                           , "--normal"   , "#abb2bf"
                                            , "--high"     , "#e06c75"
                                            ] 10
 
@@ -48,7 +47,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                                            , "--Low"      , "70"        -- units: °C
                                            , "--High"     , "80"        -- units: °C
                                            , "--low"      , "#98c379"
-                                           , "--normal"   , "#cb4b16"
+                                           , "--normal"   , "#abb2bf"
                                            , "--high"     , "#e06c75"
                                            ] 50
 
@@ -57,7 +56,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                                            , "--Low"      , "20"        -- units: %
                                            , "--High"     , "90"        -- units: %
                                            , "--low"      , "#98c379"
-                                           , "--normal"   , "#cb4b16"
+                                           , "--normal"   , "#abb2bf"
                                            , "--high"     , "#e06c75"
                                            ] 10
 
@@ -66,7 +65,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                                            , "--Low"      , "10"        -- units: %
                                            , "--High"     , "80"        -- units: %
                                            , "--low"      , "#e06c75"
-                                           , "--normal"   , "#cb4b16"
+                                           , "--normal"   , "#abb2bf"
                                            , "--high"     , "#98c379"
 
                                            , "--" -- battery specific options
@@ -83,7 +82,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                                               , "--Low"      , "10"        -- units: %
                                               , "--High"     , "80"        -- units: %
                                               , "--low"      , "#e06c75"
-                                              , "--normal"   , "#cb4b16"
+                                              , "--normal"   , "#abb2bf"
                                               , "--high"     , "#98c379"
                                               ] 15
 
@@ -92,7 +91,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=8"
                                            , "--Low"      , "20"        -- units: %
                                            , "--High"     , "90"        -- units: %
                                            , "--low"      , "#98c379"
-                                           , "--normal"   , "#cb4b16"
+                                           , "--normal"   , "#abb2bf"
                                            , "--high"     , "#e06c75"
                                            ] 10
 
