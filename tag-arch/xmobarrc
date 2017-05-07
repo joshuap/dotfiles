@@ -1,4 +1,4 @@
-Config { font = "xft:Hack:style=Regular:size=10:antialias=true"
+Config { font = "xft:Volkorn:style=Regular:size=10:antialias=true"
        , additionalFonts  = [ "xft:FontAwesome:size=10" ]
        , alpha = 255
        , bgColor = "#2b303b"
@@ -35,7 +35,7 @@ Config { font = "xft:Hack:style=Regular:size=10:antialias=true"
                                            ] 10
 
                       -- CPU activity percentage
-                      , Run MultiCpu       [ "--template" , "Cpu: <total>%"
+                      , Run MultiCpu       [ "--template" , "cpu: <total>%"
                                            , "--Low"      , "50"         -- units: %
                                            , "--High"     , "85"         -- units: %
                                            , "--low"      , "#98c379"
@@ -44,7 +44,7 @@ Config { font = "xft:Hack:style=Regular:size=10:antialias=true"
                                            ] 10
 
                       -- CPU core temperature
-                      , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+                      , Run CoreTemp       [ "--template" , "temp: <core0>°C|<core1>°C"
                                            , "--Low"      , "70"        -- units: °C
                                            , "--High"     , "80"        -- units: °C
                                            , "--low"      , "#98c379"
@@ -53,7 +53,7 @@ Config { font = "xft:Hack:style=Regular:size=10:antialias=true"
                                            ] 50
 
                       -- Memory percentage (consumed)
-                      , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+                      , Run Memory         [ "--template" ,"mem: <usedratio>%"
                                            , "--Low"      , "20"        -- units: %
                                            , "--High"     , "90"        -- units: %
                                            , "--low"      , "#98c379"
