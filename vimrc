@@ -86,14 +86,6 @@ if filereadable(expand("$HOME/.vimrc.plugins"))
 endif
 
 ""
-"" Load lightline config
-""
-
-if filereadable(expand("$HOME/.lightline"))
-  source $HOME/.lightline
-endif
-
-""
 "" NERDTree settings
 ""
 
@@ -161,8 +153,37 @@ set ttymouse=xterm2
 let g:onedark_termcolors=256
 colorscheme onedark
 
-" Set the font face/size.
-set gfn=Anonymous_Pro:h16
+""
+"" Airline
+""
+function! AirlineInit()
+  let g:airline_section_z = airline#section#create(['%l/%L %c'])
+  let g:airline_section_b = airline#section#create(['branch'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+let g:airline_theme='onedark'
+
+let g:airline#extensions#bufferline#overwrite_variables = 0
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" Airline symbols
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.space = "\ua0"
+
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+
+let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+let g:airline_skip_empty_sections = 1
 
 ""
 "" Everything else
