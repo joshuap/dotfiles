@@ -155,7 +155,7 @@ myBorderWidth = 3
 myNormalBorderColor = "#2b303b"
 myFocusedBorderColor = "#bf616a"
 
-myWideFont  = "xft:Source Code Pro:"
+myWideFont  = "xft:Hack:"
   ++ "style=Regular:pixelsize=120:hinting=true"
 
 myShowWNameTheme = def
