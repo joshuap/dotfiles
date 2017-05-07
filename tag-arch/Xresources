@@ -53,7 +53,7 @@ Xft.dpi:       150
 ! ==========================================================================
 
 xterm*termName: xterm-256color
-xterm*faceName: Anonymous Pro:size=11:antialias=true
+xterm*faceName: Hack:size=10:antialias=true
 
 ! ==========================================================================
 ! == URxvt                                                                ==
@@ -61,7 +61,7 @@ xterm*faceName: Anonymous Pro:size=11:antialias=true
 
 URxvt*depth: 32
 URxvt*background: #282C34
-URxvt.font: xft:Anonymous Pro:size=11:antialias=true
+URxvt.font: xft:Hack:size=10:antialias=true
 URxvt*saveLines: 12000
 URxvt*scrollstyle:plain
 URxvt*cursorBlink: true
