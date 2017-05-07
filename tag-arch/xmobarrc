@@ -89,11 +89,8 @@ Config { font = "xft:Source Code Pro:style=Regular:size=9:antialias=true"
 
                       -- Display brightness
                       , Run Brightness     [ "--template" ,"<fn=1>\xf0eb</fn> <percent>%"
-                                           , "--Low"      , "20"        -- units: %
-                                           , "--High"     , "90"        -- units: %
-                                           , "--low"      , "#98c379"
-                                           , "--normal"   , "#abb2bf"
-                                           , "--high"     , "#e06c75"
+                                           , "--" -- backlight options
+                                           , "-D"         , "/sys/class/backlight/intel_backlight"
                                            ] 10
 
                       -- Date and time
