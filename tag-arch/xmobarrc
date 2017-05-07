@@ -23,6 +23,7 @@ Config { font = "xft:Source Code Pro:style=Regular:size=9:antialias=true"
                       -- Weather
                       , Run Weather "wthr" [ "--template", "<skyCondition> | <fc=#98c379><tempF></fc>°F | <fc=#98c379><rh></fc>% | <fc=#98c379><pressure></fc>hPa"
                                            ] 36000
+
                       -- Network activity (dynamic interface resolution)
                       , Run DynNetwork     [ "--template" , "<fn=1>\xf093</fn> <tx> <fn=1>\xf019</fn> <rx> (<dev>)"
                                            , "--Low"      , "1000"       -- units: kB/s
@@ -97,8 +98,8 @@ Config { font = "xft:Source Code Pro:style=Regular:size=9:antialias=true"
 
                       -- Date and time
                       --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-
                       , Run Date           "<fn=1>\xf073</fn> <fc=#ABABAB>%F (%a) <fn=1>\xf017</fn> %T</fc>" "date" 10
+
                       , Run StdinReader
 
                     ]
