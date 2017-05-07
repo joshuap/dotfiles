@@ -1,4 +1,4 @@
-Config { font = "xft:Source Code Pro:style=Regular:size=8"
+Config { font = "xft:Source Code Pro:style=Regular:size=9"
        , additionalFonts  = [ "xft:FontAwesome:size=9" ]
        , alpha = 255
        , bgColor = "#2b303b"
