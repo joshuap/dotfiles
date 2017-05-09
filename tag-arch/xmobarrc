@@ -1,5 +1,5 @@
-Config { font = "xft:Volkorn:style=Regular:size=10:antialias=true"
-       , additionalFonts  = [ "xft:FontAwesome:size=10" ]
+Config { font = "xft:Volkorn:style=Regular:size=9:antialias=true"
+       , additionalFonts  = [ "xft:FontAwesome:size=9" ]
        , alpha = 255
        , bgColor = "#2b303b"
        , fgColor = "#abb2bf"
@@ -12,7 +12,7 @@ Config { font = "xft:Volkorn:style=Regular:size=10:antialias=true"
        , allDesktops = True
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% } %multicpu% | %memory% | %dynnetwork% { %mpd% | %volume% | %bright% | %wlp4s0wi% | %battery% | %date%"
+       , template = "%StdinReader% } %multicpu% | %coretemp% | %memory% | %dynnetwork% { %mpd% | %volume% | %bright% | %wlp4s0wi% | %battery% | %date%"
        , commands = [
                       -- MPD; currently a script because the xmobar plugin requires extra haskell-libmpd dep and build flag.
                       Run Com "zsh" ["/home/josh/.xmobar/mpd"] "mpd" 5
@@ -44,7 +44,7 @@ Config { font = "xft:Volkorn:style=Regular:size=10:antialias=true"
                                            ] 10
 
                       -- CPU core temperature
-                      , Run CoreTemp       [ "--template" , "temp: <core0>°C|<core1>°C"
+                      , Run CoreTemp       [ "--template" , "temp: <core0>/<core1>°C"
                                            , "--Low"      , "70"        -- units: °C
                                            , "--High"     , "80"        -- units: °C
                                            , "--low"      , "#98c379"
