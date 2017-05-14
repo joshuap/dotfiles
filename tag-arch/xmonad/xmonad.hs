@@ -32,6 +32,8 @@ import XMonad.Util.EZConfig (additionalKeys)
 --------------------------------------------------------------------------
 {-|
 
+  * xcape service doesn't always start -- can't find $DISPLAY
+  * Dropbox service has never worked right; probably same issue as escape (also the tray icon is finicky).
   * Less obtrusive active window indicator
   * New layouts (tabs, 3-column, flex, etc.)
   * Try XMonad.Layout.BinarySpacePartition (currently have reflect support already)
