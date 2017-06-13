@@ -128,3 +128,6 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # Add composer executables to path
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# direnv https://direnv.net/
+if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi

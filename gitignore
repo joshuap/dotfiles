@@ -7,5 +7,6 @@ tags
 .powenv
 .powrc
 .powder
+.envrc
 node_modules
 tmp
