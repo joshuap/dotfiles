@@ -1,97 +1,31 @@
-# Path to your oh-my-zsh configuration.
+# ZSH Directory
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Theme
 ZSH_THEME="onedark"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-##
-# Plugins
-
-# These plugins must be installed:
-#   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 
 # NVM initialization is slow -- this defers it until an nvm/node command is executed.
 export NVM_LAZY_LOAD=true
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# These plugins must be installed:
+#   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 plugins=(git gem osx joshuap zsh-nvm rbenv)
 
 source $ZSH/oh-my-zsh.sh
+
+# User Configuration
 
 export EDITOR='vim'
 
 if [ $(uname -s) = 'Darwin' ]; then
   plugins+=(brew)
 
-  export LANG="en_AU.UTF-8"
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin"
-  export MANPATH="/usr/local/share/man:/usr/X11/man:/usr/share/man"
-  export SSL_CERT_FILE=/usr/local/share/ca-bundle.crt
-
-  # Enable mactex
-  export PATH="/usr/texbin:$PATH"
-
-  # Use Java 1.8
-  export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
-
-  # Add Java bin to path.
-  # export PATH=$JAVA_HOME/bin:$PATH
-
-  # Golang
-  export PATH=/usr/local/go/bin:$PATH
-
-  # PHP
-  export PATH="/usr/local/sbin:$PATH"
-  export PATH="/usr/local/opt/php56/bin:$PATH"
-
   # Install applications to ~/Applications using homebrew cask.
   export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 else
-  # Go
-  export PATH=/usr/local/go/bin:$PATH
-
   # pbcopy/pbpaste utilities
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
-
-  # php-version
-  # See https://github.com/wilmoore/php-version
-  [ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh"
 fi
 
 # ~/.bin is for portable/managed executables.
@@ -99,6 +33,9 @@ export PATH=$HOME/.bin:$PATH
 
 # ~/bin is for local executables.
 export PATH=$HOME/bin:$PATH
+
+# Global binstubs
+export PATH="./bin:$PATH"
 
 # https://gist.github.com/sj26/2600122#bonus
 # Putting the following in your shell config (eg. ~/.bash_profile) will make
@@ -113,18 +50,20 @@ export RUBY_HEAP_FREE_MIN=500000
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# Go setup
+# Golang setup
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# Global binstubs
-export PATH="./bin:$PATH"
-
-# https://hub.github.com/
+# Hub
+# See https://hub.github.com/
 if hash hub 2>/dev/null; then alias git=hub; fi
 
-# added by travis gem
+# TravisCI
 [ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
+
+# php-version
+# See https://github.com/wilmoore/php-version
+[ -f "$HOME/.php-version/php-version.sh" ] && source "$HOME/.php-version/php-version.sh"
 
 # Add composer executables to path
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
