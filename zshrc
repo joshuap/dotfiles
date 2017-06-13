@@ -4,21 +4,15 @@ ZSH=$HOME/.oh-my-zsh
 # Theme
 ZSH_THEME="onedark"
 
-# NVM initialization is slow -- this defers it until an nvm/node command is executed.
-export NVM_LAZY_LOAD=true
+# Plugins
+plugins=(git gem osx joshuap nvm rbenv)
 
-# These plugins must be installed:
-#   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-plugins=(git gem osx joshuap zsh-nvm rbenv)
-
-source $ZSH/oh-my-zsh.sh
-
-# User Configuration
-
-export EDITOR='vim'
-
+# OS-specific Configuration
 if [ $(uname -s) = 'Darwin' ]; then
   plugins+=(brew)
+
+  # Use nvm from Homebrew.
+  export NVM_DIR=/usr/local/opt/nvm
 
   # Install applications to ~/Applications using homebrew cask.
   export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
@@ -27,6 +21,13 @@ else
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
 fi
+
+# Load oh-my-zsh (plugins finalized)
+source $ZSH/oh-my-zsh.sh
+
+# User Configuration
+
+export EDITOR='vim'
 
 # ~/.bin is for portable/managed executables.
 export PATH=$HOME/.bin:$PATH
