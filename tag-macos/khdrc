@@ -1,0 +1,24 @@
+# Enable kwm compatibility mode
+khd kwm on
+
+# set color of default mode
+khd mode default color 0xFFD5C4A1
+
+# Enable the prefix mode
+khd mode prefix prefix on
+khd mode prefix timeout 0.75
+khd mode prefix restore default
+khd mode prefix color 0xFF458588
+
+# Activate prefix mode
+ctrl - s                 :    khd -e "mode activate prefix"
+
+# Quit Kwm
+cmd + ctrl + shift - q     :    kwmc quit
+
+# Launch iTerm2
+cmd - return             :    open -na ~/Applications/iTerm.app
+
+# Cycle window focus
+cmd - j                  :    kwmc window -f prev
+cmd - k                  :    kwmc window -f next
