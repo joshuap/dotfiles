@@ -31,7 +31,7 @@ endif
 :nnoremap <Leader>fef mzgg=G`z
 
 " Clipboard (for tmux interaction).
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " List chars
 set listchars=""                  " Reset the listchars
@@ -127,13 +127,6 @@ set ttymouse=xterm2
 "" Theme settings
 ""
 
-" set term=screen-256color-bce
-" let g:solarized_termcolors=256
-" set t_Co=256
-" let g:solarized_termtrans=1
-" set background=dark
-" colorscheme solarized
-
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -150,7 +143,6 @@ set ttymouse=xterm2
   endif
 " endif
 
-let g:onedark_termcolors=256
 colorscheme onedark
 
 ""
@@ -167,20 +159,6 @@ let g:airline_theme='onedark'
 let g:airline#extensions#bufferline#overwrite_variables = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-
-" Airline symbols
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.space = "\ua0"
-
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
 
 let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 let g:airline_skip_empty_sections = 1

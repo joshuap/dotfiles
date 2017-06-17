@@ -1,2 +1,2 @@
-EXCLUDES="bootstrap LICENSE README.md"
-UNDOTTED="bin"
+EXCLUDES="init LICENSE README.md"
+UNDOTTED="bin Library"
