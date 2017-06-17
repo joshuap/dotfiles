@@ -1,2 +1,2 @@
 EXCLUDES="init LICENSE README.md"
-UNDOTTED="bin Library"
+UNDOTTED="bin Library Brewfile"
