@@ -25,7 +25,7 @@ chunkc hotload 1
 #
 
 chunkc load tiling.so
-chunkc load ffm.so
+# chunkc load ffm.so
 chunkc load border.so
 chunkc load transparency.so
 chunkc load template.so
