@@ -31,7 +31,7 @@ endif
 :nnoremap <Leader>fef mzgg=G`z
 
 " Clipboard (for tmux interaction).
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " List chars
 set listchars=""                  " Reset the listchars
