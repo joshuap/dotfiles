@@ -14,6 +14,9 @@ if [ $(uname -s) = 'Darwin' ]; then
   # Use nvm from Homebrew.
   export NVM_DIR=/usr/local/opt/nvm
 
+  # Homebrew requires this path.
+  export PATH="/usr/local/sbin:$PATH"
+
   # Install applications to ~/Applications using homebrew cask.
   export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 else
