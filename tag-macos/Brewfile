@@ -27,6 +27,8 @@ cask "totalspaces"
 cask "transmission"
 cask "transmit"
 cask "ubersicht"
+cask "viscosity"
+cask "dash"
 
 brew "rcm"
 brew "vim"
