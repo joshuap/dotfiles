@@ -220,7 +220,8 @@ myAdditionalKeys =
     ((shiftMask, xF86XK_MonBrightnessUp   ), safeSpawn "/home/josh/bin/acdlight" ["-A", "100"]),
     ((shiftMask, xF86XK_MonBrightnessDown ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"]),
     ((myModMask, xK_t                     ), safeSpawn "/home/josh/bin/tray" []),
-    ((myModMask, xK_p                     ), safeSpawn "rofi" ["-show", "run"]),
+    ((mod1Mask, xK_space                  ), safeSpawn "rofi" ["-show", "run"]),
+    ((mod1Mask, xK_Tab                    ), toggleWS),
     -- Toggle make focused window always visible
     ((myModMask, xK_s                     ), toggleCopyToAll),
     ((myModMask, xK_l                     ), nextWS),
