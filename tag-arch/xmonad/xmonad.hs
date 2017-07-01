@@ -33,7 +33,7 @@ import XMonad.Util.EZConfig (additionalKeys)
 {-|
 
   * xcape service doesn't always start -- can't find $DISPLAY
-  * Dropbox service has never worked right; probably same issue as escape (also the tray icon is finicky).
+  * Dropbox service has never worked right; probably same issue as xcape (also the tray icon is finicky).
   * Less obtrusive active window indicator
   * New layouts (tabs, 3-column, flex, etc.)
   * Try XMonad.Layout.BinarySpacePartition (currently have reflect support already)
@@ -53,6 +53,8 @@ import XMonad.Util.EZConfig (additionalKeys)
   * Fancier xmobar (someday)
   * Global media keys for ncmcpp
   * Spotify/Google music player
+  * I'd like to have super+tab toggle the last window rathre than next, similar
+    to how my alt+tab toggles the last workspace.
 
   DONE
 
@@ -224,12 +226,10 @@ myAdditionalKeys =
     ((mod1Mask, xK_Tab                    ), toggleWS),
     -- Toggle make focused window always visible
     ((myModMask, xK_s                     ), toggleCopyToAll),
-    ((myModMask, xK_l                     ), nextWS),
-    ((myModMask, xK_h                     ), prevWS),
+    ((mod1Mask, xK_l                      ), nextWS),
+    ((mod1Mask, xK_h                      ), prevWS),
     ((myModMask .|. shiftMask, xK_l       ), nextScreen),
     ((myModMask .|. shiftMask, xK_h       ), prevScreen),
-    ((myModMask, xK_o                     ), sendMessage Expand),
-    ((myModMask, xK_y                     ), sendMessage Shrink),
     ((myModMask, xK_f                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle FULL)),
     ((myModMask, xK_r                     ), tryMsgR (Rotate) (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
     ((myModMask .|. shiftMask, xK_r       ), sendMessage (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
