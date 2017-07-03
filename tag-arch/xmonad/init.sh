@@ -28,14 +28,14 @@ xscreensaver -no-splash &
 stalonetray &
 
 # Dropbox
-dropbox
+dropbox &
 
 # Network Manager Applet
 nm-applet &
 
 # Kill the tray after starting applications, since I have a keyboard shortcut
 # to activate it. The sleep is to give Dropbox time to initialize.
-sleep 1
+sleep 2
 killall -q stalonetray
 
 # ----------------------------------------------------------------------
