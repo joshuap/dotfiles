@@ -26,6 +26,9 @@ import XMonad.Util.Cursor
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run (safeSpawn)
 import XMonad.Util.EZConfig (additionalKeys)
+import qualified XMonad.StackSet as W
+
+import System.Taffybar.Hooks.PagerHints (pagerHints)
 
 --------------------------------------------------------------------------
 -- TODO                                                                 --
@@ -55,6 +58,11 @@ import XMonad.Util.EZConfig (additionalKeys)
   * Spotify/Google music player
   * I'd like to have super+tab toggle the last window rathre than next, similar
     to how my alt+tab toggles the last workspace.
+  * `toggleWS` seems to have some issues w/ multiple displays.
+
+  IN PROGRESS
+
+  * Standardize window/workspace/display management keys between xmonad and chunkwm.
 
   DONE
 
@@ -68,7 +76,11 @@ import XMonad.Util.EZConfig (additionalKeys)
 baseConfig = desktopConfig
 
 -- The main function.
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh $ myConfig)
+-- main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh $ myConfig)
+main = xmonad $
+  ewmh $
+  pagerHints $
+  myConfig
 
 -- Modkey.
 myModMask = mod4Mask
@@ -188,7 +200,7 @@ myLayoutHook = showWorkspaceName
   $ fullScreenToggle
   $ mirrorToggle
   $ reflectToggle
-  $ tall ||| grid
+  $ tall ||| grid ||| bsp
   where
     fullScreenToggle = mkToggle (single FULL)
     mirrorToggle = mkToggle (single MIRROR)
@@ -203,12 +215,19 @@ myLayoutHook = showWorkspaceName
       $ avoidStruts
       $ spacing 5
       $ GridRatio (4/3)
+    bsp = named "BSP"
+      $ avoidStruts
+      $ spacing 5
+      $ emptyBSP
 
 -- Mangehooks.
 myManageHook = manageDocks
 
 -- Event Hooks.
 myEventHook = docksEventHook <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
+
+altMask = mod1Mask
+ctrlMask = controlMask
 
 -- Keyboard.
 -- ((modMask, xK_f ), runOrRaiseMaster "firefox" (className =? "Firefox"))
@@ -221,13 +240,17 @@ myAdditionalKeys =
     ((0, xF86XK_MonBrightnessDown     ), safeSpawn "light" ["-U", "15"]),
     ((shiftMask, xF86XK_MonBrightnessUp   ), safeSpawn "/home/josh/bin/acdlight" ["-A", "100"]),
     ((shiftMask, xF86XK_MonBrightnessDown ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"]),
-    ((myModMask, xK_t                     ), safeSpawn "/home/josh/bin/tray" []),
     ((mod1Mask, xK_space                  ), safeSpawn "rofi" ["-show", "run"]),
-    ((mod1Mask, xK_Tab                    ), toggleWS),
+
+    -- Use alt+tab instead of the default super+tab to cycle windows (like on
+    -- macOS), super+tab to cycle workspaces.
+    ((mod1Mask, xK_Tab                    ), windows W.focusDown),
+    ((myModMask, xK_Tab                   ), toggleWS),
+
     -- Toggle make focused window always visible
     ((myModMask, xK_s                     ), toggleCopyToAll),
-    ((mod1Mask, xK_l                      ), nextWS),
-    ((mod1Mask, xK_h                      ), prevWS),
+    ((ctrlMask .|. myModMask, xK_l        ), nextWS),
+    ((ctrlMask .|. myModMask, xK_h        ), prevWS),
     ((myModMask .|. shiftMask, xK_l       ), nextScreen),
     ((myModMask .|. shiftMask, xK_h       ), prevScreen),
     ((myModMask, xK_f                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle FULL)),
@@ -235,6 +258,20 @@ myAdditionalKeys =
     ((myModMask .|. shiftMask, xK_r       ), sendMessage (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
     ((myModMask, xK_m                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle MIRROR)),
     ((myModMask, xK_b                     ), safeSpawn "browser" [])
+
+    , ((myModMask .|. altMask,               xK_l     ), sendMessage $ ExpandTowards R)
+    , ((myModMask .|. altMask,               xK_h     ), sendMessage $ ExpandTowards L)
+    , ((myModMask .|. altMask,               xK_j     ), sendMessage $ ExpandTowards D)
+    , ((myModMask .|. altMask,               xK_k     ), sendMessage $ ExpandTowards U)
+    , ((myModMask .|. altMask .|. ctrlMask , xK_l     ), sendMessage $ ShrinkFrom R)
+    , ((myModMask .|. altMask .|. ctrlMask , xK_h     ), sendMessage $ ShrinkFrom L)
+    , ((myModMask .|. altMask .|. ctrlMask , xK_j     ), sendMessage $ ShrinkFrom D)
+    , ((myModMask .|. altMask .|. ctrlMask , xK_k     ), sendMessage $ ShrinkFrom U)
+    -- , ((myModMask,                           xK_r     ), sendMessage Rotate)
+    -- , ((myModMask,                           xK_s     ), sendMessage Swap)
+    , ((myModMask,                           xK_n     ), sendMessage FocusParent)
+    , ((myModMask .|. ctrlMask,              xK_n     ), sendMessage SelectNode)
+    , ((myModMask .|. shiftMask,             xK_n     ), sendMessage MoveNode)
   ] where
       toggleCopyToAll = wsContainingCopies >>= \ws -> case ws of
         [] -> windows copyToAll
