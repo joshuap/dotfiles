@@ -32,9 +32,9 @@ main = do
                                   , graphLabel = Just "cpu"
                                   }
   let clock = textClockNew Nothing "<span fgcolor='#98c379'>%a %b %_d %H:%M</span>" 1
-      pager = taffyPagerNew defaultPagerConfig {
-                                                 activeWorkspace = colorize "#e06c75" "" . wrap "[" "]" . escape
+      pager = taffyPagerNew defaultPagerConfig { activeWorkspace = colorize "#e06c75" "" . escape
                                                  , urgentWorkspace = colorize "#be5046" "#e5c07b" . wrap "[" "]" . escape
+                                                 , emptyWorkspace = escape
                                                }
       note = notifyAreaNew defaultNotificationConfig
       wea = weatherNew (defaultWeatherConfig "KMSN") 10
