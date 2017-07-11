@@ -9,7 +9,8 @@ chunkc config global_desktop_mode           bsp
 
 # chunkc config 1_desktop_tree                ~/.chunkwm_layouts/dev_1
 
-chunkc config global_desktop_offset_top     35
+# chunkc config global_desktop_offset_top     35
+chunkc config global_desktop_offset_top     10
 chunkc config global_desktop_offset_bottom  10
 chunkc config global_desktop_offset_left    10
 chunkc config global_desktop_offset_right   10
@@ -42,4 +43,4 @@ chunkc config window_region_locked          1
 
 # signal dock to make windows topmost when floated
 # requires chwm-sa (https://github.com/koekeishiya/chwm-sa)
-chunkc config window_float_topmost          1
+chunkc config window_float_topmost          0
