@@ -135,3 +135,6 @@ shift + alt - t : chunkc set window_float_next 1
 ctrl + alt - a : chunkc tiling::desktop --layout bsp
 ctrl + alt - s : chunkc tiling::desktop --layout monocle
 ctrl + alt - d : chunkc tiling::desktop --layout float
+
+# Make the current window sticky across all desktops
+alt - s : chunkc tiling::window -t sticky; chunkc tiling::window -W pip-right

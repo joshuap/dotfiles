@@ -64,7 +64,7 @@ chunkc set window_region_locked          1
 
 # signal dock to make windows topmost when floated
 # requires chwm-sa (https://github.com/koekeishiya/chwm-sa)
-chunkc set window_float_topmost          0
+chunkc set window_float_topmost          1
 
 #
 # NOTE: specify plugins to load when chunkwm starts.
