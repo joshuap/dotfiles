@@ -59,6 +59,7 @@ import System.Taffybar.Hooks.PagerHints (pagerHints)
   * I'd like to have super+tab toggle the last window rathre than next, similar
     to how my alt+tab toggles the last workspace.
   * `toggleWS` seems to have some issues w/ multiple displays.
+  * In full-screen mode, taffyBar is fixed on top of the full-screen window.
 
   IN PROGRESS
 
@@ -192,15 +193,13 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#e06c75" ""
                      , ppSep = xmobarColor "#4f5b66" "" "  "
                      }
 
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask .|. shiftMask, xK_b)
-
 -- Layout.
 myLayoutHook = showWorkspaceName
   $ smartBorders
   $ fullScreenToggle
   $ mirrorToggle
   $ reflectToggle
-  $ tall ||| grid ||| bsp
+  $ tall ||| grid ||| bsp ||| full
   where
     fullScreenToggle = mkToggle (single FULL)
     mirrorToggle = mkToggle (single MIRROR)
@@ -219,6 +218,10 @@ myLayoutHook = showWorkspaceName
       $ avoidStruts
       $ spacing 5
       $ emptyBSP
+    full = named "Full"
+      $ avoidStruts
+      $ spacing 5
+      $ Full
 
 -- Mangehooks.
 myManageHook = manageDocks
@@ -257,6 +260,8 @@ myAdditionalKeys =
     ((myModMask, xK_r                     ), tryMsgR (Rotate) (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
     ((myModMask .|. shiftMask, xK_r       ), sendMessage (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
     ((myModMask, xK_m                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle MIRROR)),
+    -- ((myModMask .|. shiftMask, xK_b       ), sendMessage (ToggleStruts)),
+
     ((myModMask, xK_b                     ), safeSpawn "browser" [])
 
     , ((myModMask .|. altMask,               xK_l     ), sendMessage $ ExpandTowards R)

@@ -5,8 +5,10 @@ import System.Taffybar.TaffyPager
 import System.Taffybar.Pager (colorize, wrap, escape)
 import System.Taffybar.SimpleClock
 import System.Taffybar.FreedesktopNotifications
-import System.Taffybar.Weather
 import System.Taffybar.MPRIS
+import System.Taffybar.MPRIS2
+import System.Taffybar.NetMonitor
+import System.Taffybar.Battery
 
 import System.Taffybar.Widgets.PollingBar
 import System.Taffybar.Widgets.PollingGraph
@@ -37,11 +39,14 @@ main = do
                                                  , emptyWorkspace = escape
                                                }
       note = notifyAreaNew defaultNotificationConfig
-      wea = weatherNew (defaultWeatherConfig "KMSN") 10
-      mpris = mprisNew defaultMPRISConfig
+      mpris = mpris2New
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
+      -- TODO: Monitor multiple interfaces (available on master)
+      -- net = netMonitorMultiNew 1.5 [ "wlp4s0", "eth0" ]
+      net = netMonitorNew 1.5 "wlp4s0"
       tray = systrayNew
+      bat = batteryBarNew defaultBatteryConfig 30
   defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
-                                        , endWidgets = [ tray, wea, clock, mem, cpu, mpris ]
+                                        , endWidgets = [ tray, clock, bat, mem, cpu, net, mpris ]
                                         }
