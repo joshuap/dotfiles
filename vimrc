@@ -121,7 +121,9 @@ set mouse=a
 
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 ""
 "" Theme settings
