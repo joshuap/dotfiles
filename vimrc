@@ -277,3 +277,6 @@ nnoremap <leader>fef :normal! gg=G``<CR>
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+" Enable completion engine
+let g:deoplete#enable_at_startup = 1
