@@ -238,12 +238,18 @@ myAdditionalKeys =
   [
     ((0, xF86XK_AudioRaiseVolume      ), safeSpawn "pamixer" ["-i", "5"]),
     ((0, xF86XK_AudioLowerVolume      ), safeSpawn "pamixer" ["-d", "5"]),
-    ((0, xF86XK_AudioMute             ), safeSpawn "pamixer" ["-t"]),
+    ((0, xF86XK_AudioPlay             ), safeSpawn "playerctl" ["play-pause"]),
+    ((0, xF86XK_AudioStop             ), safeSpawn "playerctl" ["stop"]),
+    ((0, xF86XK_AudioNext             ), safeSpawn "playerctl" ["next"]),
+    ((0, xF86XK_AudioPrev             ), safeSpawn "playerctl" ["previous"]),
     ((0, xF86XK_MonBrightnessUp       ), safeSpawn "light" ["-A", "15"]),
     ((0, xF86XK_MonBrightnessDown     ), safeSpawn "light" ["-U", "15"]),
     ((shiftMask, xF86XK_MonBrightnessUp   ), safeSpawn "/home/josh/bin/acdlight" ["-A", "100"]),
     ((shiftMask, xF86XK_MonBrightnessDown ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"]),
     ((mod1Mask, xK_space                  ), safeSpawn "rofi" ["-show", "run"]),
+
+    -- Toggle make focused window always visible
+    ((myModMask, xK_s ), toggleCopyToAll),
 
     -- Use alt+tab instead of the default super+tab to cycle windows (like on
     -- macOS), super+tab to cycle workspaces.
