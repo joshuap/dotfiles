@@ -32,5 +32,6 @@ Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
+Plug 'elmcast/elm-vim'
 
 call plug#end()
