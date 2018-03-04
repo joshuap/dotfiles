@@ -7,7 +7,7 @@ xset r rate 200 50
 
 # Load xcape for tab/backslash to double as modifier on long-press. Kill
 # existing processes since this script may be called more than once.
-killall xcape
+pkill xcape
 xcape -e "Hyper_L=Tab;Hyper_R=backslash"
 
 notify-send -u low "Keyboard initialized"

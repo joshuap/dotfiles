@@ -69,7 +69,7 @@ URxvt*scrollBar_floating: true
 URxvt*scrollBar_right: true
 URxvt*scrollColor: #1e2127
 URxvt*urgentOnBell: true
-URxvt*termName: xterm-256color
+URxvt*termName: rxvt-unicode-256color
 
 ! ==========================================================================
 ! == rofi                                                                 ==
