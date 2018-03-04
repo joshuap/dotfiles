@@ -208,19 +208,19 @@ myLayoutHook = showWorkspaceName
     named n = renamed [(XMonad.Layout.Renamed.Replace n)]
     tall = named "Tall"
       $ avoidStruts
-      $ spacing 5
+      $ smartSpacingWithEdge 2
       $ Tall 1 (3/100) (1/2)
     grid = named "Grid"
       $ avoidStruts
-      $ spacing 5
+      $ smartSpacingWithEdge 2
       $ GridRatio (4/3)
     bsp = named "BSP"
       $ avoidStruts
-      $ spacing 5
+      $ smartSpacingWithEdge 2
       $ emptyBSP
     full = named "Full"
       $ avoidStruts
-      $ spacing 5
+      $ smartSpacingWithEdge 2
       $ Full
 
 -- Mangehooks.

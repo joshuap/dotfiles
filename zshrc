@@ -1,8 +1,13 @@
 # ZSH Directory
-ZSH=$HOME/.oh-my-zsh
+if ! [ -v ZSH ]; then
+  export ZSH=$HOME/.oh-my-zsh
+fi
+
+# Custom directory
+ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
 # Theme
-ZSH_THEME="onedark"
+ZSH_THEME="lambda"
 
 # Plugins
 plugins=(git gem osx joshuap nvm rbenv)
