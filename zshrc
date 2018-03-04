@@ -16,6 +16,7 @@ if [ $(uname -s) = 'Darwin' ]; then
 
   # Homebrew requires this path.
   export PATH="/usr/local/sbin:$PATH"
+  export PATH="/usr/local/bin:$PATH"
 
   # Install applications to ~/Applications using homebrew cask.
   export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
@@ -24,6 +25,8 @@ else
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
 fi
+
+alias vim=nvim
 
 # Load oh-my-zsh (plugins finalized)
 source $ZSH/oh-my-zsh.sh
@@ -74,3 +77,6 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # direnv https://direnv.net/
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
+
+# added by travis gem
+[ -f /Users/josh/.travis/travis.sh ] && source /Users/josh/.travis/travis.sh
