@@ -82,6 +82,3 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # direnv https://direnv.net/
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
-
-# added by travis gem
-[ -f /Users/josh/.travis/travis.sh ] && source /Users/josh/.travis/travis.sh
