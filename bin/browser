@@ -12,11 +12,13 @@
 #
 # i3 should use?
 
+BROWSER_BIN="vivaldi-stable"
+CONFIG_PREFIX="vivaldi"
+CONFIG_DIR=${XDG_CONFIG_HOME:-${HOME}/.config}
+
 WM="$(wmctrl -m | head -n1 | cut -d " " -f2)"
-BROWSER="chromium"
 CURRENTWS=$(wmctrl -d | grep '*' | rev | cut -d " " -f 1 | rev | tr '[:upper:]' '[:lower:]')
 INCOGNITO=""
-CONFIGDIR=${XDG_CONFIG_HOME:-${HOME}/.config}
 SUFFIX=""
 
 # In the case statement below, each statement entry does three possible things:
@@ -70,4 +72,4 @@ esac
 
 [ -z $CURRENTWS ] || SUFFIX="-$CURRENTWS"
 
-eval $BROWSER $INCOGNITO --password-store=gnome --user-data-dir=${CONFIGDIR}/${BROWSER}${SUFFIX} ${REMOTE:-} $*
+eval $BROWSER_BIN $INCOGNITO --password-store=gnome --user-data-dir=${CONFIG_DIR}/${CONFIG_PREFIX}${SUFFIX} ${REMOTE:-} $*
