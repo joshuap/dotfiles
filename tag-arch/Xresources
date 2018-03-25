@@ -75,7 +75,8 @@ URxvt*termName: rxvt-unicode-256color
 ! == rofi                                                                 ==
 ! ==========================================================================
 
-rofi.modi:                           ssh,window,drun,run
+rofi.modi:                           ssh,window,drun,run,combi
+rofi.combi-modi:                     ssh,window,drun,run
 rofi.sidebar-mode:                   true
 rofi.terminal:                       termite
 rofi.ssh-client:                     ssh
