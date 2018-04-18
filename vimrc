@@ -94,13 +94,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 map <leader>n :NERDTreeToggle<cr> 
 
-let NERDTreeHijackNetrw = 0
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let NERDTreeQuitOnOpen = 0
 let NERDTreeShowHidden = 0
 
-let g:loaded_netrw        = 1 " Disable netrw
-let g:loaded_netrwPlugin  = 1 " Disable netrw
+" let NERDTreeHijackNetrw = 0
+" let g:loaded_netrw        = 1 " Disable netrw
+" let g:loaded_netrwPlugin  = 1 " Disable netrw
 
 ""
 "" ZoomWin settings
