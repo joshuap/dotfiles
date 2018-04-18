@@ -33,6 +33,8 @@ fi
 
 alias vim=nvim
 
+alias http="python -m http.server"
+
 # Load oh-my-zsh (plugins finalized)
 source $ZSH/oh-my-zsh.sh
 
