@@ -22,9 +22,6 @@ Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/ZoomWin'
-Plug 'wincent/command-t', {
-      \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
-      \ }
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
