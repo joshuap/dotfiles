@@ -84,3 +84,7 @@ if hash hub 2>/dev/null; then alias git=hub; fi
 
 # direnv https://direnv.net/
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
+
+# base16
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
