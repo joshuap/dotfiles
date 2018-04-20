@@ -59,17 +59,18 @@ xterm*faceName: Hack:size=10:antialias=true
 ! == URxvt                                                                ==
 ! ==========================================================================
 
-URxvt*depth: 32
-URxvt*background: #282C34
+URxvt.depth: 32
+URxvt.background: #282C34
 URxvt.font: xft:Hack:size=10:antialias=true
-URxvt*saveLines: 12000
-URxvt*scrollstyle:plain
-URxvt*cursorBlink: true
-URxvt*scrollBar_floating: true
-URxvt*scrollBar_right: true
-URxvt*scrollColor: #1e2127
-URxvt*urgentOnBell: true
-URxvt*termName: rxvt-unicode-256color
+URxvt.boldFont: xft:Hack:size=10:antialias=true:bold
+URxvt.saveLines: 12000
+URxvt.scrollstyle: plain
+URxvt.cursorBlink: true
+URxvt.scrollBar_floating: true
+URxvt.scrollBar_right: true
+URxvt.scrollColor: #1e2127
+URxvt.urgentOnBell: true
+URxvt.termName: rxvt-unicode-256color
 
 ! ==========================================================================
 ! == rofi                                                                 ==
