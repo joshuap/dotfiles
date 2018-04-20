@@ -12,4 +12,4 @@ fi
 # Set a fast keyboard repeat rate.
 xset r rate 200 50
 
-xrdb -merge .Xresources
+xrdb -merge /home/josh/.Xresources
