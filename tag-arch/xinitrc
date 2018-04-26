@@ -1,3 +1,4 @@
 #!/bin/sh
+# This file is executed by xinit.
 [ -f $HOME/.xprofile ] && . $HOME/.xprofile
 exec xmonad
