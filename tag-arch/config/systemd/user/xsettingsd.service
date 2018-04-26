@@ -2,7 +2,7 @@
 Description=X Settings Daemon
 
 [Service]
-ExecStart=/usr/bin/env xsettingsd-setup
+ExecStart=/usr/bin/env xsettingsd_setup.sh
 ExecStop=/usr/bin/pkill xsettingsd
 
 [Install]
