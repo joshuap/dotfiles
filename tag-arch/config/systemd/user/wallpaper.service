@@ -1,0 +1,9 @@
+[Unit]
+Description=Wallpaper
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env wallpaper.sh
+
+[Install]
+WantedBy=wm.target

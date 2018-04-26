@@ -10,21 +10,9 @@ if [ -f /usr/bin/gnome-keyring-daemon ]; then
   export SSH_AUTH_SOCK
 fi
 
-# Menubar
-taffybar &
-
-# Wallpaper
-feh --bg-fill ~/Pictures/wallpaper.jpg &
-
 # Notification daemon
 # Commented out to let taffybar handle notifications.
 # dunst -config $HOME/.dunstrc &
-
-# Dropbox
-dropbox &
-
-# Network Manager Applet
-nm-applet &
 
 # Keyboard
 XKBDIR=$HOME/.config/xkb
