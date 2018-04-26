@@ -10,9 +10,6 @@ if [ -f /usr/bin/gnome-keyring-daemon ]; then
   export SSH_AUTH_SOCK
 fi
 
-# xsettings daemon
-xsettingsd &
-
 # Menubar
 taffybar &
 
@@ -35,6 +32,9 @@ dropbox &
 
 # Network Manager Applet
 nm-applet &
+
+# Signal systemctl that the window manager is ready to go.
+systemctl --user start wm.target
 
 # ----------------------------------------------------------------------
 # Keyboard
