@@ -105,7 +105,7 @@ myWorkspaces = [myws1, myws2, myws3, myws4, myws5, myws6, myws7]
 myStartupHook = do
 
   -- Sets up all major "desktop environment" like components.
-  spawnOnce "$HOME/.xmonad/init.sh"
+  spawnOnce "$HOME/.lib/init-wm.sh"
 
   setDefaultCursor xC_left_ptr
 

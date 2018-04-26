@@ -1,8 +1,7 @@
 #!/bin/sh
-
-# ----------------------------------------------------------------------
-# Autostart
-# ----------------------------------------------------------------------
+#
+# Initializes the window manager.
+# This should be called after starting xmonad.
 
 # Gnome Keyring is used by Chrome to store saved passwords.
 if [ -f /usr/bin/gnome-keyring-daemon ]; then
@@ -12,6 +11,7 @@ fi
 
 # Notification daemon
 # Commented out to let taffybar handle notifications.
+# NOTE: This will move to a service if reenabled.
 # dunst -config $HOME/.dunstrc &
 
 # Keyboard
