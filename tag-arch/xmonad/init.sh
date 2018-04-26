@@ -10,6 +10,9 @@ if [ -f /usr/bin/gnome-keyring-daemon ]; then
   export SSH_AUTH_SOCK
 fi
 
+# xsettings daemon
+xsettingsd &
+
 # Menubar
 taffybar &
 
