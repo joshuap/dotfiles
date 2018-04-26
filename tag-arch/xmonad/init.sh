@@ -20,9 +20,6 @@ feh --bg-fill ~/Pictures/wallpaper.jpg &
 # Commented out to let taffybar handle notifications.
 # dunst -config $HOME/.dunstrc &
 
-# Screensaver/window locker
-xscreensaver -no-splash &
-
 # Dropbox
 dropbox &
 

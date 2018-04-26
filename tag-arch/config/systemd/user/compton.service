@@ -1,5 +1,5 @@
 [Unit]
-Description=X Settings Daemon
+Description=Compton Window Compositor
 
 [Service]
 # See https://github.com/chjj/compton/issues/477
