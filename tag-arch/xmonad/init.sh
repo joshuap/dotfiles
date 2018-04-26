@@ -26,14 +26,12 @@ dropbox &
 # Network Manager Applet
 nm-applet &
 
+# Keyboard
+XKBDIR=$HOME/.config/xkb
+xkbcomp -synch -w3 -I$XKBDIR $XKBDIR/keymap/my-keymap $DISPLAY
+
 # Signal systemctl that the window manager is ready to go.
 systemctl --user start wm.target
 
-# ----------------------------------------------------------------------
-# Keyboard
-# ----------------------------------------------------------------------
-
-XKBDIR=$HOME/.config/xkb
-xkbcomp -synch -w3 -I$XKBDIR $XKBDIR/keymap/my-keymap $DISPLAY
-xcape -e "Hyper_L=Tab;Hyper_R=backslash"
-notify-send -u low "Keyboard initialized"
+# Restart xcape because... ?
+systemctl --user restart xcape.service
