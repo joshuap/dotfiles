@@ -17,10 +17,12 @@ taffybar &
 feh --bg-fill ~/Pictures/wallpaper.jpg &
 
 # Notification daemon
-dunst -config $HOME/.dunstrc &
+# Commented out to let taffybar handle notifications.
+# dunst -config $HOME/.dunstrc &
 
 # Window compositor
-compton &
+# See https://github.com/chjj/compton/issues/477
+allow_rgb10_configs=false compton &
 
 # Screensaver/window locker
 xscreensaver -no-splash &
