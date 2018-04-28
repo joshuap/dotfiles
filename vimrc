@@ -136,13 +136,13 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 " color overrides
-highlight LineNr ctermbg=none guibg=none
+highlight LineNr ctermbg=NONE guibg=NONE
 highlight Comment cterm=italic
 hi TabLine ctermbg=black
 hi TabLineFill ctermbg=black
 hi TabLineSel ctermbg=magenta
-hi CursorLine ctermbg=none
-hi CursorLineNr ctermbg=none
+hi CursorLine ctermbg=NONE
+hi CursorLineNr ctermbg=NONE
 
 ""
 "" Airline
