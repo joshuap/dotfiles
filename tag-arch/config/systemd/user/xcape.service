@@ -1,13 +1,12 @@
 [Unit]
 Description=Xcape Daemon
-After=graphical.target
 
 [Service]
 Type=forking
-; Environment=DISPLAY=:0
 ExecStart=/usr/bin/xcape -e "Hyper_L=Tab;Hyper_R=backslash"
+ExecStop=/usr/bin/pkill xcape
 Restart=always
 RestartSec=1
 
 [Install]
-WantedBy=default.target
+WantedBy=wm.target

@@ -38,7 +38,7 @@ main = do
                                                  , urgentWorkspace = colorize "#be5046" "#e5c07b" . wrap "[" "]" . escape
                                                  , emptyWorkspace = escape
                                                }
-      note = notifyAreaNew defaultNotificationConfig
+      note = notifyAreaNew defaultNotificationConfig { notificationMaxTimeout = 5 }
       mpris = mpris2New
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback

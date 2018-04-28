@@ -12,8 +12,8 @@
 #
 # i3 should use?
 
-BROWSER_BIN="vivaldi-stable"
-CONFIG_PREFIX="vivaldi"
+BROWSER_BIN="chromium"
+CONFIG_PREFIX="chromium"
 CONFIG_DIR=${XDG_CONFIG_HOME:-${HOME}/.config}
 
 WM="$(wmctrl -m | head -n1 | cut -d " " -f2)"
