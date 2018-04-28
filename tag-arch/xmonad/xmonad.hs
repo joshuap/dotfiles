@@ -268,7 +268,7 @@ myAdditionalKeys =
     ((myModMask, xK_m                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle MIRROR)),
     -- ((myModMask .|. shiftMask, xK_b       ), sendMessage (ToggleStruts)),
 
-    ((myModMask, xK_b                     ), safeSpawn "browser" [])
+    ((myModMask, xK_b                     ), safeSpawn "firefox-dynamic" [])
 
     , ((myModMask .|. altMask,               xK_l     ), sendMessage $ ExpandTowards R)
     , ((myModMask .|. altMask,               xK_h     ), sendMessage $ ExpandTowards L)

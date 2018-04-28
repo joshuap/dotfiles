@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# This is based on
+# https://github.com/altercation/dotfiles-tilingwm/blob/master/bin/wm/browser
+# and may be be the best thing ever.
+
+# Gnome should use the first column, numeric index 0-n
+# (the last named column on dynamic workspace creation
+# in gnome ends up blank or set to N/A polling w/wmctrl).
+#
+# xmonad should use the named last column.
+#
+# i3 should use?
+WM="$(wmctrl -m | head -n1 | cut -d " " -f2)"
+
+BROWSER="/usr/bin/firejail --profile=/etc/firejail/firefox.profile /usr/bin/firefox-developer-edition"
+PROFILE_PREFIX="dev-edition-"
+CURRENTWS=$(wmctrl -d | grep '*' | rev | cut -d " " -f 1 | rev | tr '[:upper:]' '[:lower:]')
+INCOGNITO=""
+CONFIGDIR=${XDG_CONFIG_HOME:-${HOME}/.config}
+SUFFIX=""
+
+case $CURRENTWS in
+	# List of workspaces that get their own browser profiles.
+	6|hb|hint|game|code) ;;
+
+	# Workspaces that launch a private/temporary browser.
+  7|tmp|void|anon) CURRENTWS="private --private-window"; ;;
+
+	# Every other non-listed workspace uses the default profile.
+  *) CURRENTWS="default"; ;;
+esac
+
+[ -z $CURRENTWS ] || PROFILE=" -P $PROFILE_PREFIX$CURRENTWS"
+
+eval $BROWSER$PROFILE $*
