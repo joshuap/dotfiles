@@ -86,7 +86,7 @@ main = xmonad $
 -- Modkey.
 myModMask = mod4Mask
 -- Terminal.
-myTerminal = "termite"
+myTerminal = "kitty"
 
 -- Workspaces.
 myws1 = "term"
