@@ -12,7 +12,7 @@ Plug 'fatih/vim-go'
 Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
 Plug 'groenewege/vim-less'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-rails'
 Plug 'depuracao/vim-rdoc'
 Plug 'skwp/vim-rspec'
@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'elmcast/elm-vim'
 Plug 'w0rp/ale'
+Plug '/usr/local/opt/fzf'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

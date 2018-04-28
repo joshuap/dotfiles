@@ -218,6 +218,9 @@ set splitright
 " Execute the current buffer
 :map <Leader>e :!%<cr>
 
+" Toggle relative line numbers
+nnoremap <silent> <C-n> :set relativenumber!<cr>
+
 " rails.vim mappings
 map ,m :Rmodel 
 map ,sm :RSmodel 
@@ -249,6 +252,7 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
 map <Leader>T :tag 
+map <Leader>t :FZF<CR>
 
 " Fugitive mappings
 map <Leader>gb :Gblame<CR>
