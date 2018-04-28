@@ -3,6 +3,7 @@ tags
 *.tags
 .ruby-version
 .rbenv-version
+.python-version
 .rbenv-vars
 .powenv
 .powrc
