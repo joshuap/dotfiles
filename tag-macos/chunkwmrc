@@ -11,7 +11,7 @@ export CHUNKC_SOCKET=3920
 #       loading a plugin. '~' expansion is supported.
 #
 
-chunkc core::plugin_dir ~/code/koekeishiya/chunkwm/plugins
+chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
 
 #
 # NOTE: if enabled, chunkwm will monitor the specified plugin_dir
@@ -31,11 +31,11 @@ chunkc set global_desktop_mode           bsp
 # chunkc set 1_desktop_tree                ~/.chunkwm_layouts/dev_1
 
 # chunkc set global_desktop_offset_top     35
-chunkc set global_desktop_offset_top     10
-chunkc set global_desktop_offset_bottom  10
-chunkc set global_desktop_offset_left    10
-chunkc set global_desktop_offset_right   10
-chunkc set global_desktop_offset_gap     10
+chunkc set global_desktop_offset_top     8
+chunkc set global_desktop_offset_bottom  5
+chunkc set global_desktop_offset_left    5
+chunkc set global_desktop_offset_right   5
+chunkc set global_desktop_offset_gap     5
 
 # chunkc set 1_desktop_offset_top          190
 # chunkc set 1_desktop_offset_bottom       190
@@ -85,12 +85,17 @@ chunkc set window_fade_duration 0.0
 chunkc core::load tiling.so
 chunkc core::load ffm.so
 chunkc core::load border.so
-chunkc core::load transparency.so
-# chunkc load template.so
+# chunkc core::load template.so
 
-chunkc tiling::rule --owner \"System Preferences\" --state tile
+chunkc tiling::rule --owner Spotify --role AXWindow --subrole AXDialog --state tile
 chunkc tiling::rule --owner Finder --name Copy --state float
-# chunkc tiling::rule --owner Spotify --desktop 7
+chunkc tiling::rule --owner \"App Store\" --state float
+chunkc tiling::rule --owner \"System Preferences\" --state float
+chunkc tiling::rule --owner \"Twitter\" --state float
+chunkc tiling::rule --owner \"Steam\" --state float
+chunkc tiling::rule --owner \"Tweetbot\" --state float
+chunkc tiling::rule --owner \"zoom.us\" --state float
+chunkc tiling::rule --owner \"Platypus\" --state float
 
 #
 # NOTE: if chunkc plugin_dir is not set, the absolutepath is necessary.

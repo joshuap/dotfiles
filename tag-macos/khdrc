@@ -1,10 +1,10 @@
 # reload config
 cmd + alt + ctrl - r : khd -e "reload"
 
-# alt + shift - return : open -na ~/Applications/Kitty.app
+alt + shift - return : open -na ~/Applications/Kitty.app
 # alt + shift - return : open -na ~/Applications/iTerm.app
 # alt + shift - return : open -na ~/Applications/Hyper.app
-alt + shift - return : osascript -e 'tell application "iTerm2"' -e 'create window with default profile' -e 'end tell'
+# alt + shift - return : osascript -e 'tell application "iTerm2"' -e 'create window with default profile' -e 'end tell'
 alt + shift - b : ~/bin/firefox
 
 # focus window
