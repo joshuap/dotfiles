@@ -77,8 +77,9 @@ import System.Taffybar.Hooks.PagerHints (pagerHints)
 baseConfig = desktopConfig
 
 -- The main function.
--- main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh $ myConfig)
+-- main = xmonad =<< statusBar myBar myPP toggleStrutsKey (docks $ ewmh $ myConfig)
 main = xmonad $
+  docks $
   ewmh $
   pagerHints $
   myConfig
@@ -193,6 +194,8 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#e06c75" ""
                      , ppSep = xmobarColor "#4f5b66" "" "  "
                      }
 
+-- toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask .|. shiftMask, xK_b)
+
 -- Layout.
 myLayoutHook = showWorkspaceName
   $ smartBorders
@@ -222,9 +225,6 @@ myLayoutHook = showWorkspaceName
       $ avoidStruts
       $ smartSpacingWithEdge 2
       $ Full
-
--- Mangehooks.
-myManageHook = manageDocks
 
 -- Event Hooks.
 myEventHook = docksEventHook <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
@@ -297,7 +297,6 @@ myConfig = baseConfig {
   terminal = myTerminal,
   workspaces = myWorkspaces,
   layoutHook = myLayoutHook,
-  manageHook = myManageHook,
   handleEventHook = myEventHook,
   normalBorderColor = myNormalBorderColor,
   focusedBorderColor = myFocusedBorderColor,
