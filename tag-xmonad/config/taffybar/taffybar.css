@@ -10,8 +10,8 @@
 }
 
 .WorkspaceLabel {
-	padding-right: 6px;
-	padding-left: 4px;
+	padding-right: 3px;
+	padding-left: 2px;
 	font-size: 10pt;
 }
 
@@ -23,4 +23,12 @@
 
 .Active .WorkspaceLabel {
 	color: @active-text-color;
+}
+
+.Contents {
+	padding: 3px;
+}
+
+.InnerPad {
+	padding: 4px;
 }
