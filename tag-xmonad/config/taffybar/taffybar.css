@@ -10,8 +10,7 @@
 }
 
 .WorkspaceLabel {
-	padding-right: 3px;
-	padding-left: 2px;
+	padding-right: 2px;
 	font-size: 10pt;
 }
 
@@ -19,7 +18,10 @@
 }
 
 .IconImage {
+	padding-left: 2px;
+	padding-right: 2px;
 }
+
 
 .Active .WorkspaceLabel {
 	color: @active-text-color;
@@ -30,5 +32,6 @@
 }
 
 .InnerPad {
-	padding: 4px;
+	padding-left: 4px;
+	padding-right: 4px;
 }

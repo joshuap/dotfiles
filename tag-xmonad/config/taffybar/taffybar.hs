@@ -37,9 +37,9 @@ main = do
       mpris = mpris2New
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
-      -- tray = sniTrayNew
+      tray = sniTrayNew
   simpleTaffybar defaultSimpleTaffyConfig
                    { startWidgets = [ workspaces, layout, windows, note ]
-                   -- , endWidgets = [ tray, clock, mem, cpu, mpris ]
-                   , endWidgets = [ clock, mem, cpu, mpris ]
+                   , endWidgets = [ tray, clock, mem, cpu, mpris ]
+                   -- , endWidgets = [ clock, mem, cpu, mpris ]
                    }
