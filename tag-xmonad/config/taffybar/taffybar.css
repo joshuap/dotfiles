@@ -1,0 +1,26 @@
+@define-color bg-color #282c34;
+@define-color fg-color #abb2bf;
+@define-color active-text-color #be5046;
+
+.Taffybar * {
+  background-color: @bg-color;
+	font-family: "Fira Sans", sans-serif;
+	font-size: 10pt;
+	color: @fg-color;
+}
+
+.WorkspaceLabel {
+	padding-right: 6px;
+	padding-left: 4px;
+	font-size: 10pt;
+}
+
+.IconContainer {
+}
+
+.IconImage {
+}
+
+.Active .WorkspaceLabel {
+	color: @active-text-color;
+}

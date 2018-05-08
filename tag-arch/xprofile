@@ -9,11 +9,19 @@ export TERMINAL=kitty
 # Default editor.
 export EDITOR=nvim
 
+# Stack puts executables here.
+export PATH="$HOME/.local/bin:$PATH"
+
 # Setup scripts for the window manager/desktop environment.
 export PATH="$HOME/.lib/bin:$PATH"
 
 # My command line utilities.
 export PATH="$HOME/bin:$PATH"
+
+# Prevents https://github.com/xmonad/xmonad/issues/86 from affecting startup.
+# Fixed in https://github.com/xmonad/xmonad/commit/bc320b69da0ff53296faf86acad2bf61448ce361
+# but unreleased.
+rm -f $HOME/.xmonad/xmonad.state
 
 # Tell systemctl that we've updated these variables.
 systemctl --user import-environment PATH HOME DISPLAY XAUTHORITY

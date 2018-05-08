@@ -1,0 +1,12 @@
+[submodule "tag-xmonad/config/taffybar/taffybar"]
+	path = tag-xmonad/config/taffybar/taffybar
+	url = https://github.com/taffybar/taffybar
+[submodule "tag-xmonad/xmonad/xmonad"]
+	path = tag-xmonad/xmonad/xmonad
+	url = https://github.com/xmonad/xmonad
+[submodule "tag-xmonad/xmonad/xmonad-contrib"]
+	path = tag-xmonad/xmonad/xmonad-contrib
+	url = https://github.com/xmonad/xmonad-contrib
+[submodule "tag-xmonad/config/taffybar/status-notifier-item"]
+	path = tag-xmonad/config/taffybar/status-notifier-item
+	url = git@github.com:IvanMalison/status-notifier-item.git
