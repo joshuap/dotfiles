@@ -3,6 +3,12 @@
 # This file is executed by GDM. It contains setup that is shared between
 # environments.
 
+# Default terminal.
+export TERMINAL=kitty
+
+# Default editor.
+export EDITOR=nvim
+
 # Setup scripts for the window manager/desktop environment.
 export PATH="$HOME/.lib/bin:$PATH"
 
