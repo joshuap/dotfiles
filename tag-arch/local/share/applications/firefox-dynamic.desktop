@@ -1,0 +1,23 @@
+[Desktop Entry]
+Version=1.0
+Name=Dynamic Firefox
+GenericName=Web Browser
+Comment=Browse the Web
+Exec=/usr/bin/env firefox-dynamic %u
+Icon=firefox-developer-edition
+Terminal=false
+Type=Application
+StartupNotify=true
+StartupWMClass=Firefox Developer Edition
+Categories=Network;WebBrowser;
+Keywords=web;browser;internet;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=/usr/bin/env firefox-dynamic --new-window %u
+
+[Desktop Action new-private-window]
+Name=New Private Window
+Exec=/usr/bin/env firefox-dynamic --private-window %u
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
