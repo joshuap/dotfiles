@@ -42,4 +42,5 @@ main = do
                    { startWidgets = [ workspaces, layout, windows, note ]
                    , endWidgets = [ tray, clock, mem, cpu, mpris ]
                    -- , endWidgets = [ clock, mem, cpu, mpris ]
+                   , barHeight = 40
                    }

@@ -22,6 +22,7 @@ echo Xft/DPI $(( $dpi * 1024 )) >> ~/.xsettingsd.local
 
 # Also use xrdb for very old stuff (you know, LibreOffice)
 echo Xft.dpi: "$dpi" | xrdb -merge
+echo rofi.dpi: "$dpi" | xrdb -merge
 
 # Signal xsettingsd
 pid=$(xprop -name xsettingsd _NET_WM_PID 2> /dev/null | awk '{print $NF}')
