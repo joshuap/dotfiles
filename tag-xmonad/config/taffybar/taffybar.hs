@@ -8,6 +8,9 @@ import           System.Taffybar.Widget
 import           System.Taffybar.Widget.Generic.PollingGraph
 import           System.Taffybar.Widget.Workspaces
 import           System.Taffybar.Widget.SNITray
+import           System.Taffybar.DBus
+import           Control.Monad.IO.Class
+import qualified Graphics.UI.Gtk as Gtk
 
 memCallback = do
   mi <- parseMeminfo
@@ -37,10 +40,11 @@ main = do
       mpris = mpris2New
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
-      tray = sniTrayNew
-  simpleTaffybar defaultSimpleTaffyConfig
+      -- tray = sniTrayNew
+      tray = sniTrayNew >>= (\widget -> (liftIO $ Gtk.widgetShowAll widget) >> return widget)
+      dyreTaffybar $ withLogServer $ toTaffyConfig defaultSimpleTaffyConfig
                    { startWidgets = [ workspaces, layout, windows, note ]
-                   , endWidgets = [ tray, clock, mem, cpu, mpris ]
+                   , endWidgets = map (>>= buildPadBox) [ tray, clock, mem, cpu, mpris ]
                    -- , endWidgets = [ clock, mem, cpu, mpris ]
-                   , barHeight = 40
+                   , barHeight = 30
                    }

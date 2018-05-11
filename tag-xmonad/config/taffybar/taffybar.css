@@ -17,11 +17,10 @@
 .IconContainer {
 }
 
-.IconImage {
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
+/* .IconContainer.Normal .IconImage { */
+/* 	padding-left: 2px; */
+/* 	padding-right: 2px; */
+/* } */
 
 .Active .WorkspaceLabel {
 	color: @active-text-color;
@@ -32,6 +31,5 @@
 }
 
 .InnerPad {
-	padding-left: 4px;
-	padding-right: 4px;
+	padding: 4px;
 }
