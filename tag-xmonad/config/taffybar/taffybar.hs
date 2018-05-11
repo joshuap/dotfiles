@@ -42,7 +42,7 @@ main = do
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
       -- tray = sniTrayNew
       tray = sniTrayNew >>= (\widget -> (liftIO $ Gtk.widgetShowAll widget) >> return widget)
-      dyreTaffybar $ withLogServer $ toTaffyConfig defaultSimpleTaffyConfig
+  dyreTaffybar $ withLogServer $ toTaffyConfig defaultSimpleTaffyConfig
                    { startWidgets = [ workspaces, layout, windows, note ]
                    , endWidgets = map (>>= buildPadBox) [ tray, clock, mem, cpu, mpris ]
                    -- , endWidgets = [ clock, mem, cpu, mpris ]
