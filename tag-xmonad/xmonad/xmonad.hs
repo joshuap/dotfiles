@@ -223,7 +223,6 @@ myLayoutHook = showWorkspaceName
       $ emptyBSP
     full = named "Full"
       $ avoidStruts
-      $ smartSpacingWithEdge 4
       $ Full
 
 -- Event Hooks.
