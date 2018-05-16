@@ -1,29 +1,22 @@
+/* Colors */
 @define-color bg-color #282c34;
 @define-color fg-color #abb2bf;
+
+@define-color active-window-color #1e2127;
+@define-color urgent-window-color #c678dd;
+
 @define-color active-text-color #be5046;
 
+
+/* Bar */
 .Taffybar * {
-  background-color: @bg-color;
 	font-family: "Fira Sans", sans-serif;
 	font-size: 10pt;
 	color: @fg-color;
 }
 
-.WorkspaceLabel {
-	padding-right: 2px;
-	font-size: 10pt;
-}
-
-.IconContainer {
-}
-
-/* .IconContainer.Normal .IconImage { */
-/* 	padding-left: 2px; */
-/* 	padding-right: 2px; */
-/* } */
-
-.Active .WorkspaceLabel {
-	color: @active-text-color;
+.TaffyBox {
+  background-color: @bg-color;
 }
 
 .Contents {
@@ -32,4 +25,47 @@
 
 .InnerPad {
 	padding: 4px;
+}
+
+
+/* Icons */
+.IconContainer {
+	transition: background-color .5s;
+	border-radius: 5px;
+}
+
+.IconContainer.Active {
+	transition: background-color .5s;
+	background-color: @active-window-color;
+}
+
+.IconContainer.Urgent {
+	transition: background-color .5s;
+	background-color: @urgent-window-color;
+}
+
+.IconImage {
+	transition: opacity .5s;
+	padding: 2px;
+	opacity: 1;
+}
+
+.IconContainer.Minimized .IconImage {
+	transition: opacity .5s;
+	opacity: .3;
+}
+
+.IconContainer.Inactive .IconImage {
+  padding: 0px;
+}
+
+
+/* Labels */
+.WorkspaceLabel {
+	padding-right: 2px;
+	font-size: 10pt;
+}
+
+.Active .WorkspaceLabel {
+	color: @active-text-color;
 }
