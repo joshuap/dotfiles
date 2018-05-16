@@ -22,6 +22,7 @@ import XMonad.Layout.ShowWName
 import XMonad.Layout.Simplest
 import XMonad.Layout.Spacing
 import XMonad.Layout.ToggleLayouts
+import XMonad.Layout.Minimize
 import XMonad.Util.Cursor
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run (safeSpawn)
@@ -198,6 +199,7 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#e06c75" ""
 
 -- Layout.
 myLayoutHook = showWorkspaceName
+  $ minimize
   $ smartBorders
   $ fullScreenToggle
   $ mirrorToggle
@@ -264,10 +266,13 @@ myAdditionalKeys =
     ((myModMask, xK_f                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle FULL)),
     ((myModMask, xK_r                     ), tryMsgR (Rotate) (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
     ((myModMask .|. shiftMask, xK_r       ), sendMessage (XMonad.Layout.MultiToggle.Toggle REFLECTX)),
-    ((myModMask, xK_m                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle MIRROR)),
+    -- ((myModMask, xK_m                     ), sendMessage (XMonad.Layout.MultiToggle.Toggle MIRROR)),
     -- ((myModMask .|. shiftMask, xK_b       ), sendMessage (ToggleStruts)),
 
     ((myModMask, xK_b                     ), safeSpawn "firefox-dynamic" [])
+
+    , ((myModMask,               xK_m     ), withFocused minimizeWindow)
+    , ((myModMask .|. shiftMask, xK_m     ), sendMessage RestoreNextMinimizedWin)
 
     , ((myModMask .|. altMask,               xK_l     ), sendMessage $ ExpandTowards R)
     , ((myModMask .|. altMask,               xK_h     ), sendMessage $ ExpandTowards L)
