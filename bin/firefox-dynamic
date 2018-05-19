@@ -13,7 +13,7 @@
 # i3 should use?
 WM="$(wmctrl -m | head -n1 | cut -d " " -f2)"
 
-BROWSER="/usr/bin/firejail --profile=/etc/firejail/firefox.profile /usr/bin/firefox-developer-edition"
+BROWSER="firefox-developer-edition"
 PROFILE_PREFIX="dev-edition-"
 CURRENTWS=$(wmctrl -d | grep '*' | rev | cut -d " " -f 1 | rev | tr '[:upper:]' '[:lower:]')
 INCOGNITO=""
