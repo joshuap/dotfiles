@@ -63,6 +63,7 @@ brew "nvm"
 brew "postgresql" # Don't start the service.
 brew "irssi"
 brew "mutt"
+brew "newsboat"
 brew "openssl"
 brew "awscli"
 brew "reattach-to-user-namespace"
