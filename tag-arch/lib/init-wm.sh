@@ -21,5 +21,8 @@ xkbcomp -synch -w3 -I$XKBDIR $XKBDIR/keymap/my-keymap $DISPLAY
 # Signal systemctl that the window manager is ready to go.
 systemctl --user start wm.target
 
+# Signal systemctl to start systemd/Timers.
+systemctl --user start timers.target
+
 # Restart xcape because... ?
 systemctl --user restart xcape.service
