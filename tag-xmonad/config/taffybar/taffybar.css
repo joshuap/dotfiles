@@ -1,71 +1,121 @@
-/* Colors */
+@define-color transparent rgba(0.0, 0.0, 0.0, 0.0);
+@define-color white #FFFFFF;
+@define-color black #000000;
+@define-color taffy-blue #0c7cd5;
+
 @define-color bg-color #282c34;
 @define-color fg-color #abb2bf;
-
-@define-color active-window-color #1e2127;
-@define-color urgent-window-color #c678dd;
-
 @define-color active-text-color #be5046;
 
+@define-color active-window-color #1e2127;
+@define-color urgent-window-color @taffy-blue;
+@define-color font-color @fg-color;
+@define-color menu-background-color @white;
+@define-color menu-font-color @black;
 
-/* Bar */
-.Taffybar * {
-	font-family: "Fira Sans", sans-serif;
+/* Top level styling */
+
+.taffy-window * {
+	/* font-family: "Fira Sans", sans-serif; */
+	font-family: "Noto Sans", sans-serif;
 	font-size: 10pt;
-	color: @fg-color;
+	color: @font-color;
 }
 
-.TaffyBox {
-  background-color: @bg-color;
+.taffy-box {
+	background-color: @bg-color;
 }
 
-.Contents {
-	padding: 3px;
+.inner-pad {
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
-.InnerPad {
-	padding: 4px;
-}
-
-
-/* Icons */
-.IconContainer {
+.contents {
+	padding-bottom: 4px;
+	padding-top: 4px;
+	padding-right: 2px;
+	padding-left: 2px;
 	transition: background-color .5s;
 	border-radius: 5px;
 }
 
-.IconContainer.Active {
-	transition: background-color .5s;
-	background-color: @active-window-color;
-}
+/* Workspaces styling */
 
-.IconContainer.Urgent {
-	transition: background-color .5s;
-	background-color: @urgent-window-color;
-}
-
-.IconImage {
-	transition: opacity .5s;
-	padding: 2px;
-	opacity: 1;
-}
-
-.IconContainer.Minimized .IconImage {
-	transition: opacity .5s;
-	opacity: .3;
-}
-
-.IconContainer.Inactive .IconImage {
-  padding: 0px;
-}
-
-
-/* Labels */
-.WorkspaceLabel {
-	padding-right: 2px;
+.workspace-label {
+	padding-right: 3px;
+	padding-left: 2px;
 	font-size: 10pt;
 }
 
-.Active .WorkspaceLabel {
-	color: @active-text-color;
+.active .workspace-label {
+  color: @active-text-color;
+}
+
+.window-icon-container {
+	transition: opacity .5s, box-shadow .5s;
+	opacity: 1;
+}
+
+/* This gives space for the box-shadow (they look like underlines) that follow.
+   This will actually affect all widgets, (not just the workspace icons), but
+   that is what we want since we want the icons to look the same. */
+.auto-size-image, .sni-tray {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.window-icon-container.active {
+	box-shadow: inset 0 -3px @fg-color;
+}
+
+.window-icon-container.urgent {
+	box-shadow: inset 0 -3px @urgent-window-color;
+}
+
+.window-icon-container.inactive .window-icon {
+  padding: 0px;
+}
+
+.window-icon-container.minimized .window-icon {
+	opacity: .3;
+}
+
+.window-icon {
+	opacity: 1;
+	transition: opacity .5s;
+}
+
+/* Button styling */
+
+button {
+	background-color: @transparent;
+	border-width: 0px;
+	border-radius: 0px;
+}
+
+button:checked, button:hover .Contents:hover {
+	box-shadow: inset 0 -3px @taffy-blue;
+}
+
+/* Menu styling */
+
+/* The ".taffy-window" prefixed selectors are needed because if they aren't present,
+   the top level .Taffybar selector takes precedence */
+.taffy-window menuitem *,  menuitem * {
+	color: @menu-font-color;
+}
+
+.taffy-window menuitem, menuitem {
+	background-color: @menu-background-color;
+}
+
+.taffy-window menuitem:hover, menuitem:hover {
+	background-color: @taffy-blue;
+}
+
+.taffy-window menuitem:hover > label, menuitem:hover > label {
+	color: @white;
 }
