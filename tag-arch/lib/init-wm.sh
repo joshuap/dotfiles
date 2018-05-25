@@ -14,9 +14,7 @@ fi
 # NOTE: This will move to a service if reenabled.
 # dunst -config $HOME/.dunstrc &
 
-# Keyboard
-XKBDIR=$HOME/.config/xkb
-xkbcomp -synch -w3 -I$XKBDIR $XKBDIR/keymap/my-keymap $DISPLAY
+# TODO: initialize keyboard?
 
 # Signal systemctl that the window manager is ready to go.
 systemctl --user start wm.target

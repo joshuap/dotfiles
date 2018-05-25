@@ -26,7 +26,7 @@ rm -f $HOME/.xmonad/xmonad.state
 # Tell systemctl that we've updated these variables.
 systemctl --user import-environment PATH HOME DISPLAY XAUTHORITY
 
-# Set a fast keyboard repeat rate.
-xset r rate 200 50
+# Initialize the keyboard
+. $HOME/.lib/bin/init-keyboard.sh
 
 xrdb -merge ~/.Xresources
