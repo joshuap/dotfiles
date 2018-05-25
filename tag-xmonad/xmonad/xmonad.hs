@@ -199,7 +199,6 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#e06c75" ""
 
 -- Layout.
 myLayoutHook = showWorkspaceName
-  $ minimize
   $ smartBorders
   $ fullScreenToggle
   $ mirrorToggle
@@ -213,18 +212,22 @@ myLayoutHook = showWorkspaceName
     named n = renamed [(XMonad.Layout.Renamed.Replace n)]
     tall = named "Tall"
       $ avoidStruts
+      $ minimize
       $ smartSpacingWithEdge 4
       $ Tall 1 (3/100) (1/2)
     grid = named "Grid"
       $ avoidStruts
+      $ minimize
       $ smartSpacingWithEdge 4
       $ GridRatio (4/3)
     bsp = named "BSP"
       $ avoidStruts
+      $ minimize
       $ smartSpacingWithEdge 4
       $ emptyBSP
     full = named "Full"
       $ avoidStruts
+      $ minimize
       $ Full
 
 -- Event Hooks.
