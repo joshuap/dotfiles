@@ -76,7 +76,7 @@ URxvt.termName: rxvt-unicode-256color
 ! == rofi                                                                 ==
 ! ==========================================================================
 
-rofi.modi:                           ssh,window,drun,run,combi
+rofi.modi:                           ssh,window,drun,run,calc,combi
 rofi.combi-modi:                     ssh,window,drun,run
 rofi.sidebar-mode:                   true
 rofi.terminal:                       termite
@@ -101,6 +101,13 @@ rofi.bgalt:                          #5671a0
 rofi.hlfg:                           #34405a
 rofi.hlbg:                           #34405a
 rofi.bc:                             #789ee1
+
+! vim style keybindings with alt as modifier
+rofi.kb-mode-next: Shift+Right,Alt+l
+rofi.kb-mode-previous: Shift+Left,Alt+h
+rofi.kb-row-up: Up,Alt+k
+rofi.kb-row-down: Down,Alt+j
+rofi.kb-cancel: Escape,Alt+space
 
 ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF
