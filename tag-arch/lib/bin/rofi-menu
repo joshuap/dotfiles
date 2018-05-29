@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+declare -A OPTIONS
+
+OPTIONS['contacts']="~/.lib/bin/rofi-contacts"
+OPTIONS['run']="rofi -modi run,drun -show run"
+
+if [ -z "$(pgrep rofi)" ]; then
+  MODE="bin"
+else
+  MODE="modi"
+fi
+
+function print_menu()
+{
+  for key in ${!OPTIONS[@]}; do
+    echo "$key"
+  done
+}
+
+option="${1}"
+
+if [ $MODE = "bin" ] && test -z ${option}; then
+  option="$(print_menu | rofi -dmenu -p "app")"
+
+  if test -z ${option}; then
+    exit
+  fi
+fi
+
+if [ $MODE = "modi" ] && test -z ${option}; then
+  print_menu
+  exit
+fi
+
+if test ${OPTIONS[$option]+isset}; then
+  eval "${OPTIONS[$option]}" > /dev/null 2>&1 &
+else
+  echo "Unknown option: ${option}"
+  exit 1
+fi

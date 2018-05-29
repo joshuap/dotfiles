@@ -76,10 +76,10 @@ URxvt.termName: rxvt-unicode-256color
 ! == rofi                                                                 ==
 ! ==========================================================================
 
-rofi.modi:                           ssh,window,drun,run,calc,combi
+rofi.modi:                           search:rofi-menu,window,run,drun,ssh,calc
 rofi.combi-modi:                     ssh,window,drun,run
 rofi.sidebar-mode:                   true
-rofi.terminal:                       termite
+rofi.terminal:                       kitty
 rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
 rofi.opacity:                        100
