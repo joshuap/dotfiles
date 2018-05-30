@@ -3,7 +3,7 @@
 declare -A OPTIONS
 
 OPTIONS['contacts']="~/.lib/bin/rofi-contacts"
-OPTIONS['run']="rofi -modi run,drun -show run"
+OPTIONS['browser']="firefox-dynamic"
 
 if [ -z "$(pgrep rofi)" ]; then
   MODE="bin"
@@ -36,6 +36,5 @@ fi
 if test ${OPTIONS[$option]+isset}; then
   eval "${OPTIONS[$option]}" > /dev/null 2>&1 &
 else
-  echo "Unknown option: ${option}"
-  exit 1
+  xdg-open https://duckduckgo.com/?q=$(echo "$option" | sed 's/[[:space:]]/+/') > /dev/null 2>&1 &
 fi
