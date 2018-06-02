@@ -10,6 +10,7 @@ if [ -z $dpi ]; then
                            sort | tr '\n' ':') in
         zoltan,DP-1:) dpi=100 ;;
         lenny,*:) dpi=128 ;;
+        giedi,*:) dpi=144 ;;
         *) dpi=100 ;;
     esac
 fi
