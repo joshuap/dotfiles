@@ -95,3 +95,4 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # todo.txt
 alias todo=todo.sh
+alias td=todo.sh
