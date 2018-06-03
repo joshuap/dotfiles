@@ -92,3 +92,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # fzf
 [ -f "/usr/share/fzf/key-bindings.zsh" ] && . /usr/share/fzf/key-bindings.zsh
 [ -f "/usr/share/fzf/completion.zsh" ] && . /usr/share/fzf/completion.zsh
+
+# todo.txt
+alias todo=todo.sh
