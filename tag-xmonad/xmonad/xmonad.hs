@@ -274,6 +274,8 @@ myAdditionalKeys =
 
     ((myModMask, xK_b                     ), safeSpawn "firefox-dynamic" [])
 
+    , ((myModMask .|. shiftMask, xK_l     ), safeSpawn "xscreensaver-command" ["-lock"])
+
     , ((myModMask,               xK_m     ), withFocused minimizeWindow)
     , ((myModMask .|. shiftMask, xK_m     ), sendMessage RestoreNextMinimizedWin)
 
