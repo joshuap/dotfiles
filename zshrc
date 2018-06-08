@@ -68,9 +68,11 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# Hub
-# See https://hub.github.com/
-if hash hub 2>/dev/null; then alias git=hub; fi
+# hub
+# https://hub.github.com/
+# Wrapping the function makes tab completion work for git+hub+git-extras.
+# See https://github.com/robbyrussell/oh-my-zsh/issues/766
+if hash hub 2>/dev/null; then function git(){hub $@}; fi
 
 # TravisCI
 [ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
