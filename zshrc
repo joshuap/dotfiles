@@ -10,7 +10,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 ZSH_THEME="lambda"
 
 # Plugins
-plugins=(git gem osx joshuap nvm rbenv)
+plugins=(git git-extras gem osx joshuap nvm rbenv)
 
 # OS-specific Configuration
 if [ $(uname -s) = 'Darwin' ]; then

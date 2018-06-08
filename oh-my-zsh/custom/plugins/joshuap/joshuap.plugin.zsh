@@ -30,11 +30,3 @@ function confirm {
     [[ ! -o interactive ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
   fi
 }
-
-function delete-branch() {
-  [[ -n $1 ]] && \
-    confirm "This will delete the branch ${1} both locally and remotely. Are you sure?" && \
-    git branch -d $1 && \
-    git push origin --delete $1
-}
-compdef _git delete-branch=git-branch
