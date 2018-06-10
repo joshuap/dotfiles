@@ -3,9 +3,9 @@
 @define-color black #000000;
 @define-color taffy-blue #0c7cd5;
 
-@define-color bg-color #282c34;
-@define-color fg-color #abb2bf;
-@define-color active-text-color #be5046;
+@define-color bg-color #282828;
+@define-color fg-color #ebdbb2;
+@define-color active-text-color #fb4934;
 
 @define-color active-window-color #1e2127;
 @define-color urgent-window-color @taffy-blue;

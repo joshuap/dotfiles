@@ -1,44 +1,48 @@
+
 ! ==========================================================================
 ! == Colors                                                               ==
 ! ==========================================================================
 
 ! special
-*.foreground:   #ABB2BF
-*.background:   #282C34
-*.fadeColor:   #282C34
-*.cursorColor:  #5c6370
+! hard contrast: *background: #1d2021
+! soft contrast: *background: #32302f
+*background: #282828
+*foreground: #ebdbb2
+
+*.fadeColor:   #282828
+*.cursorColor:  #928374
 
 ! black
-*.color0:       #1e2127
-*.color8:       #5c6370
+*color0:  #282828
+*color8:  #928374
 
 ! red
-*.color1:       #e06c75
-*.color9:       #e06c75
+*color1:  #cc241d
+*color9:  #fb4934
 
 ! green
-*.color2:       #98c379
-*.color10:      #98c379
+*color2:  #98971a
+*color10: #b8bb26
 
 ! yellow
-*.color3:       #d19a66
-*.color11:      #d19a66
+*color3:  #d79921
+*color11: #fabd2f
 
 ! blue
-*.color4:       #61afef
-*.color12:      #61afef
+*color4:  #458588
+*color12: #83a598
 
 ! magenta
-*.color5:       #c678dd
-*.color13:      #c678dd
+*color5:  #b16286
+*color13: #d3869b
 
 ! cyan
-*.color6:       #56b6c2
-*.color14:      #56b6c2
+*color6:  #689d6a
+*color14: #8ec07c
 
 ! white
-*.color7:       #abb2bf
-*.color15:      #ffffff
+*color7:  #a89984
+*color15: #ebdbb2
 
 ! Fonts {{{
 Xft.antialias: true
@@ -71,57 +75,3 @@ URxvt.scrollBar_right: true
 URxvt.scrollColor: #1e2127
 URxvt.urgentOnBell: true
 URxvt.termName: rxvt-unicode-256color
-
-! ==========================================================================
-! == rofi                                                                 ==
-! ==========================================================================
-
-rofi.modi:                           search:rofi-menu,window,run,drun,ssh,calc
-rofi.combi-modi:                     ssh,window,drun,run
-rofi.sidebar-mode:                   true
-rofi.terminal:                       kitty
-rofi.ssh-client:                     ssh
-rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
-rofi.opacity:                        100
-rofi.width:                          50
-rofi.lines:                          8
-rofi.columns:                        1
-rofi.font:                           Anonymous Pro 11
-rofi.fg:                             #5294E2
-rofi.bg:                             #5d729f
-rofi.fg-active:                      #34405a
-rofi.fg-urgent:                      #34405a
-rofi.hlfg-active:                    #5e73a0
-rofi.hlfg-urgent:                    #5e73a0
-rofi.bg-active:                      #34405a
-rofi.bg-urgent:                      #34405a
-rofi.hlbg-active:                    #5d729f
-rofi.hlbg-urgent:                    #5d729f
-rofi.bgalt:                          #5671a0
-rofi.hlfg:                           #34405a
-rofi.hlbg:                           #34405a
-rofi.bc:                             #789ee1
-
-! vim style keybindings with alt as modifier
-rofi.kb-mode-next: Shift+Right,Alt+l
-rofi.kb-mode-previous: Shift+Left,Alt+h
-rofi.kb-row-up: Up,Alt+k
-rofi.kb-row-down: Down,Alt+j
-rofi.kb-cancel: Escape,Alt+space
-
-! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
-rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF
-
-!                  'background', 'border', 'separator'
-rofi.color-window: #353944,      #404552,  #404552
-rofi.bw:                             3
-rofi.location:                       0
-rofi.padding:                        8
-rofi.levenshtein-sort:               true
-rofi.case-sensitive:                 false
-rofi.fuzzy:                          false
-rofi.line-margin:                    2
-rofi.separator-style:                solid
-rofi.hide-scrollbar:                 true
-rofi.markup-rows:                    false
-rofi.scrollbar-width:                8

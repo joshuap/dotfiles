@@ -2,7 +2,7 @@
 
 # Sets a random wallpaper.
 
-WALLPAPER_DIR="$HOME/Dropbox/Wallpaper/"
+WALLPAPER_DIR="$HOME/Dropbox/Wallpaper/gruvbox"
 
 random_wallpaper() {
 	find "$WALLPAPER_DIR" -type f -or -type l | shuf -n1

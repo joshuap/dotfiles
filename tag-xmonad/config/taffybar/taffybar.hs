@@ -42,7 +42,7 @@ main = do
                { graphDataColors = [yellow1, yellow2]
                , graphLabel = Just "net"
                }
-  let clock = textClockNew Nothing "<span fgcolor='orange'>%a %b %_d %H:%M</span>" 1
+  let clock = textClockNew Nothing "<span fgcolor='#b8bb26'>%a %b %_d %H:%M</span>" 1
       workspaces = workspacesNew defaultWorkspacesConfig
       windows = windowsNew defaultWindowsConfig
       layout = layoutNew defaultLayoutConfig
