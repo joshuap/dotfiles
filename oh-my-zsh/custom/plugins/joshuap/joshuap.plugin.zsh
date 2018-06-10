@@ -12,6 +12,8 @@ alias cl='clear'
 alias gs='git status'
 
 alias gap='git add -p'
+alias gpr='git pull-request'
+
 alias got='go test'
 
 bvim() { vim `bundle show $1`; }
