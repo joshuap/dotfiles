@@ -163,6 +163,24 @@ let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linen
 let g:airline_skip_empty_sections = 1
 
 ""
+"" deoplete
+""
+
+" Enable completion engine
+let g:deoplete#enable_at_startup = 1
+
+" Use tab to cycle completion candidates
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Use ctrl+j/k to cycle completion candidates
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Insert candidate and close popup
+inoremap <expr> <Return> pumvisible() ? deoplete#close_popup() : "\<Return>"
+
+""
 "" Everything else
 ""
 
@@ -278,6 +296,3 @@ nnoremap <leader>fef :normal! gg=G``<CR>
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-
-" Enable completion engine
-let g:deoplete#enable_at_startup = 1
