@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DIR=$HOME/.pkglist
+
+mkdir -p $DIR
+
+pacman -Qqe > $DIR/pacman-all
+
+comm -12 <(pacman -Slq | sort) <(sort $DIR/pacman-all) > $DIR/pacman
+
+comm -13 <(sort $DIR/pacman) <(sort $DIR/pacman-all) > $DIR/aur
