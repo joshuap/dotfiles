@@ -126,7 +126,7 @@ myLogHook = do
   ewmhDesktopsLogHook
 
   where
-    fadeAmount = 0.85
+    fadeAmount = 0.98
 
 --------------------------------------------------------------------------
 -- Style                                                                --

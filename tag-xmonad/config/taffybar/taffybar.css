@@ -16,6 +16,9 @@
 /* Top level styling */
 
 .taffy-window * {
+  /* This removes any existing styling from UI elements. */
+  all: unset;
+
 	/* font-family: "Fira Sans", sans-serif; */
 	font-family: "Noto Sans", sans-serif;
 	font-size: 10pt;
