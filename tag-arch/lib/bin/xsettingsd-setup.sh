@@ -8,7 +8,7 @@ if [ -z $dpi ]; then
     case $(hostname),$(xrandr --current | \
                            sed -n 's/\([^ ]*\) connected .*[0-9][0-9]*x[0-9][0-9]*+[0-9][0-9]*+[0-9][0-9]* .*/\1/p' | \
                            sort | tr '\n' ':') in
-        zoltan,DP-1:) dpi=100 ;;
+        zoltan,DP-1:) dpi=96 ;;
         lenny,*:) dpi=128 ;;
         giedi,*:) dpi=144 ;;
         *) dpi=100 ;;
