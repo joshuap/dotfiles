@@ -1,3 +1,4 @@
+alias b='bundler'
 alias be='bundle exec'
 alias bi='bundle install'
 alias bl='bundle list'
@@ -17,7 +18,11 @@ alias grm='git rebase -i master'
 
 alias got='go test'
 
-alias b='bundler'
+alias n='npm'
+alias ni='npm install'
+
+alias y='yarn'
+alias yi='yarn install'
 
 bvim() { vim `bundle show $1`; }
 
