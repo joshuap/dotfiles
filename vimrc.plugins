@@ -33,6 +33,9 @@ Plug 'elmcast/elm-vim'
 Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
 
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
