@@ -98,3 +98,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # todo.txt
 alias todo=todo.sh
 alias td=todo.sh
+
+# Docker development setup (Honeybadger repos)
+export DOCKER_DEVELOPER_UID=1000
+export DOCKER_DEVELOPER_GID=100
