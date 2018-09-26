@@ -1,0 +1,13 @@
+[Unit]
+Description=Synology Cloud Station Drive
+Wants=taffybar.service
+After=taffybar.service
+
+[Service]
+Type=forking
+Environment="LD_LIBRARY_PATH=/opt/Synology/CloudStation/lib"
+ExecStart=/opt/Synology/CloudStation/bin/launcher
+ExecStop=/usr/bin/synology-cloud-station-drive stop
+
+[Install]
+WantedBy=wm.target
