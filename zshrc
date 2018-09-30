@@ -1,49 +1,37 @@
-# ZSH Directory
-if ! [ -v ZSH ]; then
-  export ZSH=$HOME/.oh-my-zsh
-fi
+# Load Antigen from submodule
+DOTFILES=$HOME/.dotfiles
+source $DOTFILES/antigen/antigen.zsh
 
-# Custom directory
-ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
+# Load oh-my-zsh
+antigen use oh-my-zsh
 
-# Theme
-ZSH_THEME="lambda"
+# Bundles from the default repo (robbyrussell's oh-my-zsh)
+antigen bundle git
+antigen bundle git-extras
+antigen bundle gem
+antigen bundle osx
+antigen bundle rbenv
+antigen bundle bundler
+[ $(uname -s) = 'Darwin' ] && antigen bundle brew
 
-# For zsh-nvm
-NVM_LAZY_LOAD=true
+# Other bundles
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle chriskempson/base16-shell
 
-# Plugins
-plugins=(git git-extras gem osx joshuap zsh-nvm rbenv bundler)
+export NVM_LAZY_LOAD=true
+antigen bundle lukechilds/zsh-nvm
 
-# OS-specific Configuration
-if [ $(uname -s) = 'Darwin' ]; then
-  plugins+=(brew)
+# Local bundles (including theme)
+antigen bundle $DOTFILES/oh-my-zsh/custom themes/lambda.zsh-theme --no-local-clone
+antigen bundle $DOTFILES/oh-my-zsh/custom plugins/joshuap --no-local-clone
 
-  # Use nvm from Homebrew.
-  export NVM_DIR=/usr/local/opt/nvm
+# Tell Antigen that you're done
+antigen apply
 
-  # Homebrew requires this path.
-  export PATH="/usr/local/sbin:$PATH"
-  export PATH="/usr/local/bin:$PATH"
 
-  # Install applications to ~/Applications using homebrew cask.
-  export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-else
-  # pbcopy/pbpaste utilities
-  alias pbcopy='xsel --clipboard --input'
-  alias pbpaste='xsel --clipboard --output'
-fi
-
-alias vim=nvim
-
-alias http="python -m http.server"
-
-# Load oh-my-zsh (plugins finalized)
-source $ZSH/oh-my-zsh.sh
-
+##
 # User Configuration
-
-export EDITOR='vim'
 
 # ~/.bin is for portable/managed executables.
 export PATH=$HOME/.bin:$PATH
@@ -53,6 +41,29 @@ export PATH=$HOME/bin:$PATH
 
 # Global binstubs
 export PATH="./bin:$PATH"
+
+# OS-specific Configuration
+if [ $(uname -s) = 'Darwin' ]; then
+  # Homebrew requires this path.
+  export PATH="/usr/local/sbin:$PATH"
+  export PATH="/usr/local/bin:$PATH"
+
+  # Install applications to ~/Applications using homebrew cask.
+  export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
+  # Use nvm from Homebrew.
+  export NVM_DIR=/usr/local/opt/nvm
+else
+  # pbcopy/pbpaste utilities
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
+alias vim=nvim
+
+export EDITOR='vim'
+
+alias http="python -m http.server"
 
 # https://gist.github.com/sj26/2600122#bonus
 # Putting the following in your shell config (eg. ~/.bash_profile) will make
@@ -89,10 +100,6 @@ if hash hub 2>/dev/null; then function git(){hub $@}; fi
 
 # direnv https://direnv.net/
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
-
-# base16
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # fzf
 [ -f "/usr/share/fzf/key-bindings.zsh" ] && . /usr/share/fzf/key-bindings.zsh
