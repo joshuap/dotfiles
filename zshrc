@@ -9,8 +9,11 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 # Theme
 ZSH_THEME="lambda"
 
+# For zsh-nvm
+NVM_LAZY_LOAD=true
+
 # Plugins
-plugins=(git git-extras gem osx joshuap nvm rbenv bundler)
+plugins=(git git-extras gem osx joshuap zsh-nvm rbenv bundler)
 
 # OS-specific Configuration
 if [ $(uname -s) = 'Darwin' ]; then
