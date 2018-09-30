@@ -1,3 +1,5 @@
+autoload compinit && compinit
+
 alias b='bundler'
 alias be='bundle exec'
 alias bi='bundle install'
