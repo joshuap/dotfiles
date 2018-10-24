@@ -9,7 +9,7 @@
 	url = https://github.com/xmonad/xmonad-contrib
 [submodule "tag-xmonad/config/taffybar/status-notifier-item"]
 	path = tag-xmonad/config/taffybar/status-notifier-item
-	url = git@github.com:IvanMalison/status-notifier-item.git
+	url = https://github.com/IvanMalison/status-notifier-item.git
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
