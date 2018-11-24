@@ -1,41 +1,51 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'cakebaker/scss-syntax.vim'
-" Plug 'ervandew/supertab'
-Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-cucumber'
-Plug 'elixir-lang/vim-elixir'
-Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go'
-Plug 'tpope/vim-haml'
-Plug 'pangloss/vim-javascript'
-Plug 'groenewege/vim-less'
-" Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'tpope/vim-rails'
-Plug 'depuracao/vim-rdoc'
-Plug 'skwp/vim-rspec'
-Plug 'vim-ruby/vim-ruby'
-Plug 'sunaku/vim-ruby-minitest'
-Plug 'slim-template/vim-slim'
-Plug 'tpope/vim-surround'
+" H8 trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'vim-scripts/ZoomWin'
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'chriskempson/base16-vim'
-Plug 'elmcast/elm-vim'
-Plug 'w0rp/ale'
+
+" File browser
+Plug 'scrooloose/nerdtree'
+
+" Fuzzy finder
 Plug '/usr/local/opt/fzf'
 
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
+" Comment/uncomment
+Plug 'tpope/vim-commentary'
+
+" Quoting/unquoting
+Plug 'tpope/vim-surround'
+
+" Maximize the current buffer
+Plug 'vim-scripts/ZoomWin'
+
+" Toggle relative line numbers
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
+" Markdown support
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+" Formatting
+Plug 'sbdchd/neoformat'
+
+" Linting
+Plug 'w0rp/ale'
+
+" Elixir
+Plug 'slashmili/alchemist.vim'
+
+" Ruby/Rails
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
+Plug 'skwp/vim-rspec'
+
+" Tab completion
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -44,5 +54,10 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+
+" Theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
