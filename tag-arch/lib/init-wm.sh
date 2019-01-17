@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Initializes the window manager.
-# This should be called after starting xmonad.
+# This should be called after starting i3/xmonad.
 
 # Gnome Keyring is used by Chrome to store saved passwords.
 if [ -f /usr/bin/gnome-keyring-daemon ]; then
@@ -10,9 +10,11 @@ if [ -f /usr/bin/gnome-keyring-daemon ]; then
 fi
 
 # Notification daemon
-# Commented out to let taffybar handle notifications.
-# NOTE: This will move to a service if reenabled.
-# dunst -config $HOME/.dunstrc &
+dunst -config $HOME/.dunstrc &
+
+# Window compositor
+# See https://github.com/chjj/compton/issues/477
+/usr/bin/env allow_rgb10_configs=false compton
 
 # TODO: initialize keyboard?
 
@@ -20,4 +22,4 @@ fi
 systemctl --user start wm.target
 
 # Restart xcape because... ?
-systemctl --user restart xcape.service
+# systemctl --user restart xcape.service
