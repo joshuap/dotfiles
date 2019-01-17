@@ -1,5 +1,6 @@
 [Unit]
 Description=Xcape Daemon
+After=graphical.target
 
 [Service]
 Type=forking
@@ -9,4 +10,4 @@ Restart=always
 RestartSec=1
 
 [Install]
-WantedBy=wm.target
+WantedBy=default.target

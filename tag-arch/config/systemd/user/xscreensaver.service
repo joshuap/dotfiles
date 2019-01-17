@@ -1,9 +1,0 @@
-[Unit]
-Description=XScreenSaver
-
-[Service]
-ExecStart=/usr/bin/env xscreensaver -no-splash
-ExecStop=/usr/bin/pkill xscreensaver
-
-[Install]
-WantedBy=wm.target
