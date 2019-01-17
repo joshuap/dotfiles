@@ -8,8 +8,9 @@ rofi.modi:                           search:rofi-menu,window,run,drun,ssh,calc
 rofi.combi-modi:                     ssh,window,drun,run
 rofi.sidebar-mode:                   false
 rofi.lines:                          8
-rofi.case-sensitive                  false
-rofi.matching                        fuzzy
+rofi.case-sensitive:                 false
+rofi.matching:                       fuzzy
+rofi.dpi:                            150
 
 ! vim style keybindings with alt as modifier
 rofi.kb-mode-next: Shift+Right,Alt+l

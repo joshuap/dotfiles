@@ -41,7 +41,7 @@ bindsym $mod+Shift+Return exec i3-sensible-terminal
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -177,6 +177,9 @@ bar {
 
 # bar toggle, hide or show
 bindsym $mod+b bar mode toggle
+
+# launcher
+bindsym Mod1+space exec rofi -show drun
 
 exec --no-startup-id ~/.lib/init-wm.sh
 
