@@ -172,10 +172,13 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3status
+  position top
 }
 
 # bar toggle, hide or show
 bindsym $mod+b bar mode toggle
 
 exec --no-startup-id ~/.lib/init-wm.sh
-# exec --no-startup-id dropbox
+
+exec --no-startup-id nm-applet
+exec --no-startup-id dropbox

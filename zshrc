@@ -9,7 +9,7 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle git-extras
 antigen bundle gem
-antigen bundle osx
+# antigen bundle osx
 antigen bundle rbenv
 antigen bundle bundler
 [ $(uname -s) = 'Darwin' ] && antigen bundle brew

@@ -71,5 +71,5 @@ main = do
                    { startWidgets = [ workspaces, layout, windows, note ]
                    , endWidgets = map (>>= buildPadBox) [ batteryIconNew, clock, tray, mem, cpu, net, mpris ]
                    -- , endWidgets = [ clock, mem, cpu, mpris ]
-                   , barHeight = 55
+                   , barHeight = 45
                    }

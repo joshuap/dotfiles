@@ -22,7 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ZoomWin'
 
 " Toggle relative line numbers
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Markdown support
 Plug 'godlygeek/tabular'
@@ -35,7 +35,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'sbdchd/neoformat'
 
 " Linting
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+Plug 'neomake/neomake'
 
 " Elixir
 Plug 'slashmili/alchemist.vim'
@@ -54,6 +55,10 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+
+" Snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " Theme
 Plug 'vim-airline/vim-airline'

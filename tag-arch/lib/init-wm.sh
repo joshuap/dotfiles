@@ -14,12 +14,10 @@ dunst -config $HOME/.dunstrc &
 
 # Window compositor
 # See https://github.com/chjj/compton/issues/477
-/usr/bin/env allow_rgb10_configs=false compton
+env allow_rgb10_configs=false compton &
 
-# TODO: initialize keyboard?
-
-# Signal systemctl that the window manager is ready to go.
-systemctl --user start wm.target
+# Set the wallpaper
+$HOME/.lib/bin/wallpaper.sh
 
 # Restart xcape because... ?
-# systemctl --user restart xcape.service
+systemctl --user restart xcape.service

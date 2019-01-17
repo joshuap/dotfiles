@@ -23,6 +23,7 @@ import XMonad.Layout.Simplest
 import XMonad.Layout.Spacing
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.Minimize
+import XMonad.Layout.ThreeColumns
 import XMonad.Util.Cursor
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run (safeSpawn)
@@ -126,7 +127,7 @@ myLogHook = do
   ewmhDesktopsLogHook
 
   where
-    fadeAmount = 0.98
+    fadeAmount = 0.95
 
 --------------------------------------------------------------------------
 -- Style                                                                --
@@ -168,7 +169,7 @@ myLayoutHook = showWorkspaceName
   $ fullScreenToggle
   $ mirrorToggle
   $ reflectToggle
-  $ tall ||| grid ||| bsp ||| full
+  $ three ||| tall ||| grid ||| bsp ||| full
   where
     fullScreenToggle = mkToggle (single FULL)
     mirrorToggle = mkToggle (single MIRROR)
@@ -178,22 +179,27 @@ myLayoutHook = showWorkspaceName
     tall = named "Tall"
       $ avoidStruts
       $ minimize
-      $ smartSpacingWithEdge 4
+      $ smartSpacingWithEdge 8
       $ Tall 1 (3/100) (1/2)
     grid = named "Grid"
       $ avoidStruts
       $ minimize
-      $ smartSpacingWithEdge 4
+      $ smartSpacingWithEdge 8
       $ GridRatio (4/3)
     bsp = named "BSP"
       $ avoidStruts
       $ minimize
-      $ smartSpacingWithEdge 4
+      $ smartSpacingWithEdge 8
       $ emptyBSP
     full = named "Full"
       $ avoidStruts
       $ minimize
       $ Full
+    three = named "Three"
+      $ avoidStruts
+      $ minimize
+      $ smartSpacingWithEdge 8
+      $ ThreeColMid 1 (3/100) (40/100)
 
 -- Event Hooks.
 myEventHook = docksEventHook <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
@@ -215,7 +221,7 @@ myAdditionalKeys =
     ((0, xF86XK_MonBrightnessDown     ), safeSpawn "light" ["-U", "15"]),
     ((shiftMask, xF86XK_MonBrightnessUp   ), safeSpawn "/home/josh/bin/acdlight" ["-A", "100"]),
     ((shiftMask, xF86XK_MonBrightnessDown ), safeSpawn "/home/josh/bin/acdlight" ["-U", "100"]),
-    ((mod1Mask, xK_space                  ), safeSpawn "rofi" ["-show", "run"]),
+    ((mod1Mask, xK_space                  ), safeSpawn "rofi" ["-show", "drun"]),
 
     -- Toggle make focused window always visible
     ((myModMask, xK_s ), toggleCopyToAll),

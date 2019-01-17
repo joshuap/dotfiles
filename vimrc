@@ -196,6 +196,30 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <Return> pumvisible() ? deoplete#close_popup() : "\<Return>"
 
 ""
+"" neosnippet
+""
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-e>     <Plug>(neosnippet_expand_or_jump)
+smap <C-e>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-e>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+""
 "" Everything else
 ""
 
@@ -311,3 +335,8 @@ nnoremap <leader>fef :normal! gg=G``<CR>
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+" neomake
+" Full config: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 1s; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
