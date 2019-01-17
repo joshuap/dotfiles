@@ -13,8 +13,12 @@
 # i3 should use?
 WM="$(wmctrl -m | head -n1 | cut -d " " -f2)"
 
-BROWSER="firefox-developer-edition"
-PROFILE_PREFIX="dev-edition-"
+# BROWSER="firefox-developer-edition"
+# PROFILE_PREFIX="dev-edition-"
+
+BROWSER="firefox"
+PROFILE_PREFIX=""
+
 CURRENTWS=$(wmctrl -d | grep '*' | rev | cut -d " " -f 1 | rev | tr '[:upper:]' '[:lower:]')
 INCOGNITO=""
 CONFIGDIR=${XDG_CONFIG_HOME:-${HOME}/.config}
