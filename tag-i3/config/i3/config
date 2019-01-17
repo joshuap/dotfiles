@@ -35,7 +35,7 @@ for_window [class="zoom"] floating enable
 for_window [class="Spotify"] floating enable
 
 # start a terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -176,10 +176,13 @@ bar {
 }
 
 # bar toggle, hide or show
-bindsym $mod+b bar mode toggle
+bindsym $mod+Shift+b bar mode toggle
 
 # launcher
 bindsym Mod1+space exec rofi -show drun
+
+# browser
+bindsym $mod+b exec firefox-dynamic
 
 exec --no-startup-id ~/.lib/init-wm.sh
 
