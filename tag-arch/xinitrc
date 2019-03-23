@@ -12,5 +12,4 @@
 
 [ -f $HOME/.xprofile ] && . $HOME/.xprofile
 
-# exec xmonad
 exec i3

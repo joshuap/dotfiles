@@ -1,3 +1,2 @@
 EXCLUDES="init antigen LICENSE README.md"
 UNDOTTED="bin Library Brewfile"
-SYMLINK_DIRS="xmonad/xmonad xmonad/xmonad-contrib xmonad/taffybar config/taffybar"

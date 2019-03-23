@@ -3,7 +3,7 @@
 declare -A OPTIONS
 
 OPTIONS['contacts']="~/.lib/bin/rofi-contacts"
-OPTIONS['browser']="firefox-dynamic"
+OPTIONS['browser']="google-chrome-stable"
 
 if [ -z "$(pgrep rofi)" ]; then
   MODE="bin"

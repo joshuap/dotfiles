@@ -1,7 +1,0 @@
-#!/bin/sh
-IMPORT_BIN=$(which screencapture)
-if [ -z "$IMPORT_BIN" ]; then
-  # Not on OS X, use imagemagick `import` command for X11-based GUIs.
-  IMPORT_BIN="import -window root"
-fi
-$IMPORT_BIN $HOME/Pictures/Screenshots/$(date +%F_%H%M%S_%N).png
