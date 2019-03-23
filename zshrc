@@ -111,4 +111,4 @@ alias td=todo.sh
 
 # Docker development setup (Honeybadger repos)
 export DOCKER_DEVELOPER_UID=1000
-export DOCKER_DEVELOPER_GID=100
+export DOCKER_DEVELOPER_GID=985

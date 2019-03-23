@@ -26,6 +26,8 @@ alias ni='npm install'
 alias y='yarn'
 alias yi='yarn install'
 
+alias v=nvim
+
 bvim() { vim `bundle show $1`; }
 
 c() { cd ~/code/$1;  }

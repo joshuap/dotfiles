@@ -336,6 +336,9 @@ nnoremap <leader>fef :normal! gg=G``<CR>
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
+" vim-markdown
+set concealcursor=""
+
 " neomake
 " Full config: when writing or reading a buffer, and on changes in insert and
 " normal mode (after 1s; no delay when writing).

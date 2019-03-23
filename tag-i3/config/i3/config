@@ -131,8 +131,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # screen brightness controls
-bindsym XF86MonBrightnessUp exec sudo light -A 5   # increase screen brightness
-bindsym XF86MonBrightnessDown exec sudo light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5   # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # reload the configuration file
 bindsym $mod+q reload
@@ -254,8 +254,9 @@ client.urgent           $red      $red      $white    $red       $red
 # status bar config
 bar {
   i3bar_command i3bar
-  status_command i3status
+  status_command i3status --config ~/.config/i3status/i3status.conf
   position top
+  tray_output primary
 
   strip_workspace_numbers yes
 

@@ -26,7 +26,12 @@ SUFFIX=""
 
 case $CURRENTWS in
 	# List of workspaces that get their own browser profiles.
-	6|hb|hint|game|code) ;;
+	code|hb|hint|game) ;;
+
+  3) CURRENTWS="code"; ;;
+  4) CURRENTWS="hb"; ;;
+  5) CURRENTWS="hint"; ;;
+  6) CURRENTWS="game"; ;;
 
 	# Workspaces that launch a private/temporary browser.
   7|tmp|void|anon) CURRENTWS="private --private-window"; ;;
