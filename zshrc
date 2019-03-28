@@ -9,10 +9,10 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle git-extras
 antigen bundle gem
-# antigen bundle osx
+antigen bundle osx
 antigen bundle rbenv
 antigen bundle bundler
-[ $(uname -s) = 'Darwin' ] && antigen bundle brew
+antigen bundle brew
 
 # Other bundles
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -42,22 +42,15 @@ export PATH=$HOME/bin:$PATH
 # Global binstubs
 export PATH="./bin:$PATH"
 
-# OS-specific Configuration
-if [ $(uname -s) = 'Darwin' ]; then
-  # Homebrew requires this path.
-  export PATH="/usr/local/sbin:$PATH"
-  export PATH="/usr/local/bin:$PATH"
+# Homebrew requires this path.
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
-  # Install applications to ~/Applications using homebrew cask.
-  export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+# Install applications to ~/Applications using homebrew cask.
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
-  # Use nvm from Homebrew.
-  export NVM_DIR=/usr/local/opt/nvm
-else
-  # pbcopy/pbpaste utilities
-  alias pbcopy='xsel --clipboard --input'
-  alias pbpaste='xsel --clipboard --output'
-fi
+# Use nvm from Homebrew.
+export NVM_DIR=/usr/local/opt/nvm
 
 alias vim=nvim
 
