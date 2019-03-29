@@ -33,21 +33,15 @@ antigen apply
 ##
 # User Configuration
 
-# ~/.bin is for portable/managed executables.
+# ~/.bin is for my scripts and executables.
 export PATH=$HOME/.bin:$PATH
 
-# ~/bin is for local executables.
-export PATH=$HOME/bin:$PATH
-
-# Global binstubs
+# Global binstubs (i.e. for Bundler)
 export PATH="./bin:$PATH"
 
 # Homebrew requires this path.
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-
-# Install applications to ~/Applications using homebrew cask.
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 # Use nvm from Homebrew.
 export NVM_DIR=/usr/local/opt/nvm

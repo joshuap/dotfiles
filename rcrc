@@ -1,2 +1,2 @@
 EXCLUDES="init antigen LICENSE README.md"
-UNDOTTED="bin Library Brewfile"
+UNDOTTED="Library Brewfile"
