@@ -1,0 +1,140 @@
+{
+  "title": "My Modifications",
+  "rules": [
+    {
+      "description": "Send super when tab is held.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "optional": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Send super when backslash is held.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "backslash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Super+space -> command+space",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Send right control when / is held.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "slash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Send left control when z is held.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "right_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

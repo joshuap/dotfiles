@@ -10,17 +10,14 @@ antigen bundle git
 antigen bundle git-extras
 antigen bundle gem
 antigen bundle osx
-antigen bundle rbenv
 antigen bundle bundler
 antigen bundle brew
+antigen bundle asdf
 
 # Other bundles
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle chriskempson/base16-shell
-
-export NVM_LAZY_LOAD=true
-antigen bundle lukechilds/zsh-nvm
 
 # Local bundles (including theme)
 antigen bundle $DOTFILES/oh-my-zsh/custom themes/lambda.zsh-theme --no-local-clone
@@ -43,8 +40,8 @@ export PATH="./bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
-# Use nvm from Homebrew.
-export NVM_DIR=/usr/local/opt/nvm
+# Install applications to ~/Applications using homebrew cask.
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 alias vim=nvim
 
@@ -89,8 +86,7 @@ if hash hub 2>/dev/null; then function git(){hub $@}; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
 
 # fzf
-[ -f "/usr/share/fzf/key-bindings.zsh" ] && . /usr/share/fzf/key-bindings.zsh
-[ -f "/usr/share/fzf/completion.zsh" ] && . /usr/share/fzf/completion.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # todo.txt
 alias todo=todo.sh
