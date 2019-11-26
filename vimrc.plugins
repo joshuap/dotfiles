@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree'
 
 " Fuzzy finder
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
@@ -35,8 +36,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'sbdchd/neoformat'
 
 " Linting
-" Plug 'w0rp/ale'
-Plug 'neomake/neomake'
+" Plug 'dense-analysis/ale'
+" Plug 'neomake/neomake'
+
+" Test runner
+Plug 'janko-m/vim-test'
 
 " Elixir
 Plug 'slashmili/alchemist.vim'

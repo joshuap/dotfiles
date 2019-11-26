@@ -4,6 +4,7 @@ tags
 .ruby-version
 .rbenv-version
 .python-version
+.tool-versions
 .rbenv-vars
 .powenv
 .powrc
