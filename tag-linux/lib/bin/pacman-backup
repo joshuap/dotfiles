@@ -1,0 +1,7 @@
+#!/bin/sh
+
+DIR=$HOME
+
+mkdir -p $DIR
+
+tar -cjf $DIR/pacman_database.tar.bz2 /var/lib/pacman/local

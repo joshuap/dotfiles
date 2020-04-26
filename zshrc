@@ -95,3 +95,8 @@ alias td=todo.sh
 # Docker development setup (Honeybadger repos)
 export DOCKER_DEVELOPER_UID=1000
 export DOCKER_DEVELOPER_GID=985
+
+# https://github.com/drduh/YubiKey-Guide#replace-agents
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent

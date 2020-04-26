@@ -1,0 +1,20 @@
+! ==========================================================================
+! == rofi                                                                 ==
+! ==========================================================================
+
+rofi.theme:                          ~/.config/rofi/gruvbox.rasi
+
+rofi.modi:                           search:rofi-menu,window,run,drun,ssh
+rofi.combi-modi:                     ssh,window,drun,run
+rofi.sidebar-mode:                   false
+rofi.lines:                          8
+rofi.case-sensitive:                 false
+rofi.matching:                       fuzzy
+rofi.dpi:                            92
+
+! vim style keybindings with alt as modifier
+rofi.kb-mode-next: Shift+Right,Alt+l
+rofi.kb-mode-previous: Shift+Left,Alt+h
+rofi.kb-row-up: Up,Alt+k
+rofi.kb-row-down: Down,Alt+j
+rofi.kb-cancel: Escape,Alt+space
