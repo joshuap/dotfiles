@@ -327,6 +327,7 @@ au Filetype go nnoremap <leader>r :GoRun %<CR>
 au Filetype go nnoremap <leader>T :GoTest %<CR>
 au Filetype go nnoremap <leader>l :GoLint<CR>
 
+
 " Use goimports instead of gofmt
 let g:go_fmt_command = "goimports"
 
@@ -339,12 +340,13 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 " vim-markdown
 set concealcursor=""
 
+" vim-test
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
-" nmap <silent> t<C-n> :TestNearest<CR>
-" nmap <silent> t<C-f> :TestFile<CR>
-" nmap <silent> t<C-s> :TestSuite<CR>
-" nmap <silent> t<C-l> :TestLast<CR>
-" nmap <silent> t<C-g> :TestVisit<CR>
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 " neomake
 " Full config: when writing or reading a buffer, and on changes in insert and

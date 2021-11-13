@@ -1,3 +1,6 @@
+# Load homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Load Antigen from submodule
 DOTFILES=$HOME/.dotfiles
 source $DOTFILES/antigen/antigen.zsh
@@ -13,6 +16,7 @@ antigen bundle osx
 antigen bundle bundler
 antigen bundle brew
 antigen bundle asdf
+antigen bundle gpg-agent
 
 # Other bundles
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -43,11 +47,15 @@ export PATH="/usr/local/bin:$PATH"
 # Install applications to ~/Applications using homebrew cask.
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
+# Check for Homebrew updates once per hour.
+export HOMEBREW_AUTO_UPDATE_SECS=3600
+
 alias vim=nvim
 
-export EDITOR='vim'
+# export EDITOR='vim'
+export EDITOR='code'
 
-alias http="python -m http.server"
+alias http="python3 -m http.server"
 
 # https://gist.github.com/sj26/2600122#bonus
 # Putting the following in your shell config (eg. ~/.bash_profile) will make
@@ -88,6 +96,9 @@ if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# asdf
+[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
+
 # todo.txt
 alias todo=todo.sh
 alias td=todo.sh
@@ -95,3 +106,29 @@ alias td=todo.sh
 # Docker development setup (Honeybadger repos)
 export DOCKER_DEVELOPER_UID=1000
 export DOCKER_DEVELOPER_GID=985
+
+# https://github.com/drduh/YubiKey-Guide#replace-agents
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# iTerm2
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# https://alexmanrique.com/blog/development/2021/01/05/first-steps-using-java-in-macbook-air-m1.html
+# https://docs.azul.com/core/zulu-openjdk/install/macos
+# https://www.azul.com/downloads/?version=java-8-lts&os=macos&architecture=arm-64-bit&package=jdk
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/home
+
+# Need this to solve cmake issues (i.e. w/ `gem install snappy`)
+# https://apple.stackexchange.com/a/414625
+export CPATH=/opt/homebrew/include
+export LIBRARY_PATH=/opt/homebrew/lib
+
+# https://gist.github.com/nazgob/1570678
+alias ctags="`brew --prefix`/bin/ctags"
