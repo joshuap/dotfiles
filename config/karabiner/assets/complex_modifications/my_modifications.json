@@ -155,12 +155,18 @@
           },
           "to": [
             {
-              "key_code": "left_control"
+              "key_code": "left_control",
+              "lazy": true
             }
           ],
           "to_if_alone": [
             {
               "key_code": "escape"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
             }
           ]
         }
@@ -182,12 +188,18 @@
           },
           "to": [
             {
-              "key_code": "left_control"
+              "key_code": "left_control",
+              "lazy": true
             }
           ],
           "to_if_alone": [
             {
               "key_code": "escape"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
             }
           ]
         }
