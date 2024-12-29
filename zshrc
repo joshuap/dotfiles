@@ -12,11 +12,13 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle git-extras
 antigen bundle gem
-antigen bundle osx
+antigen bundle macos
 antigen bundle bundler
 antigen bundle brew
 antigen bundle asdf
 antigen bundle gpg-agent
+antigen bundle blimmer/zsh-aws-vault@main
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Other bundles
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -52,8 +54,8 @@ export HOMEBREW_AUTO_UPDATE_SECS=3600
 
 alias vim=nvim
 
-# export EDITOR='vim'
-export EDITOR='code'
+export EDITOR='nvim'
+# export EDITOR='code'
 
 alias http="python3 -m http.server"
 
@@ -132,3 +134,17 @@ export LIBRARY_PATH=/opt/homebrew/lib
 
 # https://gist.github.com/nazgob/1570678
 alias ctags="`brew --prefix`/bin/ctags"
+
+# From shalvah
+# There was another npm supply chain attack last month. A patch version of a package was released that stole credentials from the user's computer.
+# https://github.com/faisalman/ua-parser-js/issues/536
+# Recommend committing package-lock.json and using npm ci --production=false rather than npm install to mitigate this on your projects, since npm install silently auto-updates your dependencies.
+alias 'npm install'='npm ci --production=false'
+
+# Required for `ssh-add -l` to work
+# https://developer.1password.com/docs/ssh/get-started#step-4-configure-your-ssh-or-git-client
+export SSH_AUTH_SOCK=`pwd`/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+# For Dart
+# (`brew install dart-sdk`)
+export PATH="$PATH":"$HOME/.pub-cache/bin"

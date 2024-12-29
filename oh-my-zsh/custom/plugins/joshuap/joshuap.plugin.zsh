@@ -18,6 +18,8 @@ alias gap='git add -p'
 alias gpr='git pull-request'
 alias grm='git rebase -i master'
 
+alias lg='lazygit'
+
 alias got='go test'
 
 alias n='npm'

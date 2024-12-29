@@ -1,6 +1,4 @@
 .DS_Store
-tags
-*.tags
 .ruby-version
 .rbenv-version
 .python-version
@@ -10,5 +8,7 @@ tags
 .powrc
 .powder
 .envrc
+.vscode
+.standard.yml
 node_modules
 tmp

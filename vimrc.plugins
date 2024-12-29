@@ -1,5 +1,35 @@
 call plug#begin('~/.vim/plugged')
 
+" Language Server Protocol (LSP)
+Plug 'neovim/nvim-lspconfig'
+
+" GitHub Copilot
+" https://github.com/github/copilot.vim#getting-started
+Plug 'github/copilot.vim'
+
+" autocomplete
+" https://github.com/hrsh7th/nvim-cmp#setup
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" autopairs
+Plug 'windwp/nvim-autopairs'
+
+" Snippets
+" https://github.com/L3MON4D3/LuaSnip
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'}
+Plug 'saadparwaiz1/cmp_luasnip'
+" https://github.com/rafamadriz/friendly-snippets
+Plug 'rafamadriz/friendly-snippets'
+
+" Emmet
+" https://github.com/mattn/emmet-vim
+Plug 'mattn/emmet-vim'
+
 " H8 trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -9,6 +39,10 @@ Plug 'scrooloose/nerdtree'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Fuzzy finder
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
@@ -36,7 +70,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'sbdchd/neoformat'
 
 " Linting
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 " Plug 'neomake/neomake'
 
 " Test runner
@@ -46,23 +80,10 @@ Plug 'vim-test/vim-test'
 Plug 'slashmili/alchemist.vim'
 
 " Ruby/Rails
+Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
 Plug 'skwp/vim-rspec'
-
-" Tab completion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
-" Snippets
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 
 " Theme
 Plug 'vim-airline/vim-airline'
