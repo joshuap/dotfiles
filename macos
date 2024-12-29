@@ -95,14 +95,6 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 # Disable the crash reporter
 defaults write com.apple.CrashReporter DialogType -string "none"
 
-# Disable Captive Portal (use your browser instead)
-# https://blog.bejarano.io/hardening-macos/
-defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
-
-# Secure FileVault when on sleep
-# https://blog.bejarano.io/hardening-macos/
-sudo sh -c 'pmset -a destroyfvkeyonstandby 1; pmset -a hibernatemode 25; pmset -a powernap 0; pmset -a standby 0; pmset -a standbydelay 0; pmset -a autopoweroff 0'
-
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
 
