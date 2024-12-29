@@ -2,6 +2,10 @@
 
 # ~/.macos — based on https://mths.be/macos
 
+# Note: This script requires full disk access to be granted to Terminal.app (or
+# whatever terminal emulator you're using). Enable in System Preferences →
+# Privacy & Security → Full Disk Access.
+
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we're about to change
 osascript -e 'tell application "System Preferences" to quit'
