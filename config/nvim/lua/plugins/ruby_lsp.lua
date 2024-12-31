@@ -12,6 +12,10 @@ return {
         -- ruby_lsp will be automatically installed with mason and loaded with lspconfig
         ruby_lsp = {
           cmd = { "/Users/josh/.asdf/shims/ruby-lsp" },
+          init_options = {
+            formatter = "standard",
+            linters = { "standard" },
+          },
         },
       },
     },
