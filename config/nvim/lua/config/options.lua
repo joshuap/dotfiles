@@ -6,3 +6,7 @@ local opt = vim.opt
 
 opt.wrap = true
 opt.textwidth = 80
+
+-- Make copilot tab completion work with nvim-cmp
+-- https://github.com/LazyVim/LazyVim/discussions/4830#discussioncomment-11294507
+vim.g.ai_cmp = false
