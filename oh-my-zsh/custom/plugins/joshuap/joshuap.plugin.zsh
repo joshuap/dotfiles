@@ -29,6 +29,8 @@ alias y='yarn'
 alias yi='yarn install'
 
 alias v=nvim
+alias t=tmux
+alias z=zellij
 
 bvim() { vim `bundle show $1`; }
 
