@@ -148,3 +148,6 @@ export SSH_AUTH_SOCK=`pwd`/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/
 # For Dart
 # (`brew install dart-sdk`)
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+# Added by Windsurf
+export PATH="/Users/josh/.codeium/windsurf/bin:$PATH"
