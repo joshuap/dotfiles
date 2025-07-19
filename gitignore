@@ -8,7 +8,11 @@
 .powrc
 .powder
 .envrc
+.env
+.env.docker
 .vscode
+.zed
 .standard.yml
 node_modules
 tmp
+.claude
