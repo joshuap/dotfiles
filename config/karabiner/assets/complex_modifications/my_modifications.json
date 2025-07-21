@@ -380,7 +380,7 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "command"
+                "left_command"
               ]
             }
           },
